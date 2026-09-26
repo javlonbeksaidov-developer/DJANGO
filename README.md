@@ -32,7 +32,7 @@ Har bir loyiha alohida papkada saqlanadi va o‘zining funksional imkoniyatlari,
 
 ---
 
-# 🤖 Telegram Bots Table
+# 🌐 Python Django Framework
 
 | № | Project name | Description | Database | Date |
 |:-:|:--------:|:-----------:|:--------:|:----:|
