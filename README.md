@@ -39,5 +39,5 @@ Har bir loyiha alohida papkada saqlanadi va o‘zining funksional imkoniyatlari,
 | 1 | test | Django framework'da project ochishni o'rganish uchun ochilgan loyiha | db.sqlite3 | 26.09.2026 |
 | 2 | instagram | Django framework'da project ochishni o'rganish uchun ochilgan loyiha | db.sqlite3 | 26.09.2026 |
 | 3 | todo | Django framework'da templates (HTML kodlarini) o'rganish uchun ochilgan loyiha | db.sqlite3 | 06.10.2026 |
-| 4 |-|-|-|-|
+| 4 | To-do-django | https://github.com/javlonbeksaidov-developer/To-do-django | db.sqlite3 | 09.10.2026 |
 | 5 |-|-|-|-|
