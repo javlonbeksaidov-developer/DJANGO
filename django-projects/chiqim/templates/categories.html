@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kategoriyalar — Chiqim</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="scrim" data-scrim></div>
+
+<div class="app">
+
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div>
+        <div class="brand-name">Chiqim</div>
+      </div>
+    </div>
+
+    <nav class="nav-group">
+      <div class="nav-label">Asosiy</div>
+      <a class="nav-link" href="dashboard.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 13h6V4H4v9Zm10 7h6V4h-6v16ZM4 20h6v-4H4v4Z"/></svg>
+        Bosh sahifa
+      </a>
+      <a class="nav-link" href="expenses.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        Xarajatlar
+      </a>
+      <a class="nav-link active" href="categories.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
+        Kategoriyalar
+      </a>
+    </nav>
+
+    <nav class="nav-group">
+      <div class="nav-label">Hisob</div>
+      <a class="nav-link" href="profile.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.2-3.8 4-5.6 7-5.6s5.8 1.8 7 5.6"/></svg>
+        Profil
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <a class="nav-link" href="login.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 17l5-5-5-5M20 12H9M12 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6"/></svg>
+        Chiqish
+      </a>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-btn" data-sidebar-open aria-label="Menyu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <h1 class="topbar-title">Kategoriyalar</h1>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" data-theme-toggle aria-label="Mavzuni almashtirish">
+          <span data-theme-icon>☾</span>
+        </button>
+        <div class="profile-menu">
+          <button class="profile-trigger" data-profile-trigger>
+            <span class="avatar">AK</span>
+            <span class="profile-trigger-name">Aziz Karimov</span>
+          </button>
+          <div class="dropdown" data-profile-menu>
+            <a class="dropdown-link" href="profile.html">Profil</a>
+            <a class="dropdown-link" href="categories.html">Kategoriyalar</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-link" href="login.html">Chiqish</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <!-- Yangi kategoriya qo'shish -->
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Yangi kategoriya</h2>
+            <p class="panel-desc">Xarajatlaringizni guruhlash uchun kategoriya yarating</p>
+          </div>
+        </div>
+        <form method="post" action="#" style="display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap;">
+          <div class="field" style="margin:0; flex:1; min-width:180px;">
+            <label for="cat_name">Nomi</label>
+            <input class="input" type="text" id="cat_name" name="name" placeholder="Masalan: Sport">
+          </div>
+          <div class="field" style="margin:0; min-width:140px;">
+            <label for="cat_color">Rang</label>
+            <input class="input" type="color" id="cat_color" name="color" value="#2f5d50" style="height:40px; padding:4px;">
+          </div>
+          <button type="submit" class="btn btn-primary">Qo'shish</button>
+        </form>
+      </div>
+
+      <div class="cat-grid">
+
+        <div class="cat-card">
+          <div class="cat-card-head">
+            <span class="cat-swatch" style="background:#b65c39;"></span>
+            <div>
+              <div class="cat-name">Oziq-ovqat</div>
+              <div class="cat-count">34 ta yozuv</div>
+            </div>
+          </div>
+          <div class="cat-total">742 000 so'm</div>
+          <div class="cat-card-actions">
+            <a class="btn btn-ghost btn-sm" href="#">Tahrirlash</a>
+            <button class="btn btn-danger btn-sm">O'chirish</button>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-card-head">
+            <span class="cat-swatch" style="background:#2f5d50;"></span>
+            <div>
+              <div class="cat-name">Transport</div>
+              <div class="cat-count">21 ta yozuv</div>
+            </div>
+          </div>
+          <div class="cat-total">318 000 so'm</div>
+          <div class="cat-card-actions">
+            <a class="btn btn-ghost btn-sm" href="#">Tahrirlash</a>
+            <button class="btn btn-danger btn-sm">O'chirish</button>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-card-head">
+            <span class="cat-swatch" style="background:#c9962c;"></span>
+            <div>
+              <div class="cat-name">Kommunal</div>
+              <div class="cat-count">8 ta yozuv</div>
+            </div>
+          </div>
+          <div class="cat-total">416 500 so'm</div>
+          <div class="cat-card-actions">
+            <a class="btn btn-ghost btn-sm" href="#">Tahrirlash</a>
+            <button class="btn btn-danger btn-sm">O'chirish</button>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-card-head">
+            <span class="cat-swatch" style="background:#7c6fb0;"></span>
+            <div>
+              <div class="cat-name">O'yin-kulgi</div>
+              <div class="cat-count">12 ta yozuv</div>
+            </div>
+          </div>
+          <div class="cat-total">265 000 so'm</div>
+          <div class="cat-card-actions">
+            <a class="btn btn-ghost btn-sm" href="#">Tahrirlash</a>
+            <button class="btn btn-danger btn-sm">O'chirish</button>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-card-head">
+            <span class="cat-swatch" style="background:#4a7fa8;"></span>
+            <div>
+              <div class="cat-name">Ta'lim</div>
+              <div class="cat-count">5 ta yozuv</div>
+            </div>
+          </div>
+          <div class="cat-total">738 000 so'm</div>
+          <div class="cat-card-actions">
+            <a class="btn btn-ghost btn-sm" href="#">Tahrirlash</a>
+            <button class="btn btn-danger btn-sm">O'chirish</button>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

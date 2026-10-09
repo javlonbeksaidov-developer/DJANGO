@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ro'yxatdan o'tish — Chiqim</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<button class="icon-btn" data-theme-toggle style="position:fixed; top:18px; right:18px; z-index:50;" aria-label="Mavzuni almashtirish">
+  <span data-theme-icon>☾</span>
+</button>
+
+<div class="auth-shell">
+  <aside class="auth-side">
+    <div class="auth-side-mark">
+      <span class="brand-mark"></span>
+      <span class="brand-name" style="color:inherit;">Chiqim</span>
+    </div>
+    <p class="auth-side-quote">Bir daqiqada ro'yxatdan o'ting va birinchi xarajatingizni qo'shing.</p>
+    <p class="auth-side-foot">Ma'lumotlaringiz faqat sizga tegishli — boshqa hech kim ko'rmaydi.</p>
+  </aside>
+
+  <div class="auth-form-wrap">
+    <div class="auth-form">
+      <h1>Hisob yarating</h1>
+      <p class="lead">Xarajatlaringizni kuzatishni hoziroq boshlang.</p>
+
+      <form method="post" action="#" novalidate>
+
+        <div class="input-row">
+          <div class="field">
+            <label for="first_name">Ism</label>
+            <input class="input" type="text" id="first_name" name="first_name" placeholder="Aziz" required>
+          </div>
+          <div class="field">
+            <label for="last_name">Familiya</label>
+            <input class="input" type="text" id="last_name" name="last_name" placeholder="Karimov" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input class="input" type="email" id="email" name="email" placeholder="aziz@email.com" required>
+        </div>
+
+        <div class="field">
+          <label for="new_password">Parol</label>
+          <input class="input" type="password" id="new_password" name="new_password" placeholder="Kamida 8 belgi" required>
+        </div>
+
+        <div class="field">
+          <label for="confirm_password">Parolni tasdiqlang</label>
+          <input class="input" type="password" id="confirm_password" name="confirm_password" placeholder="Parolni qayta kiriting" required>
+        </div>
+
+        <div class="field" style="margin-bottom:22px;">
+          <label style="display:flex; align-items:flex-start; gap:8px; margin:0; font-weight:400; color:var(--ink-soft); font-size:13px;">
+            <input type="checkbox" name="agree" style="width:16px; height:16px; margin-top:2px;" required>
+            <span>Men <a href="#" style="color:var(--brand);">foydalanish shartlari</a> bilan tanishdim va roziman</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Ro'yxatdan o'tish</button>
+      </form>
+
+      <p class="auth-switch">Hisobingiz bormi? <a href="login.html">Kiring</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

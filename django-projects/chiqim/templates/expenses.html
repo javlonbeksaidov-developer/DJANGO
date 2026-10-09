@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xarajatlar — Chiqim</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="scrim" data-scrim></div>
+
+<div class="app">
+
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div>
+        <div class="brand-name">Chiqim</div>
+      </div>
+    </div>
+
+    <nav class="nav-group">
+      <div class="nav-label">Asosiy</div>
+      <a class="nav-link" href="dashboard.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 13h6V4H4v9Zm10 7h6V4h-6v16ZM4 20h6v-4H4v4Z"/></svg>
+        Bosh sahifa
+      </a>
+      <a class="nav-link active" href="expenses.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        Xarajatlar
+      </a>
+      <a class="nav-link" href="categories.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
+        Kategoriyalar
+      </a>
+    </nav>
+
+    <nav class="nav-group">
+      <div class="nav-label">Hisob</div>
+      <a class="nav-link" href="profile.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.2-3.8 4-5.6 7-5.6s5.8 1.8 7 5.6"/></svg>
+        Profil
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <a class="nav-link" href="login.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 17l5-5-5-5M20 12H9M12 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6"/></svg>
+        Chiqish
+      </a>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-btn" data-sidebar-open aria-label="Menyu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <h1 class="topbar-title">Xarajatlar</h1>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" data-theme-toggle aria-label="Mavzuni almashtirish">
+          <span data-theme-icon>☾</span>
+        </button>
+        <div class="profile-menu">
+          <button class="profile-trigger" data-profile-trigger>
+            <span class="avatar">AK</span>
+            <span class="profile-trigger-name">Aziz Karimov</span>
+          </button>
+          <div class="dropdown" data-profile-menu>
+            <a class="dropdown-link" href="profile.html">Profil</a>
+            <a class="dropdown-link" href="categories.html">Kategoriyalar</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-link" href="login.html">Chiqish</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <div class="panel-head" style="margin-bottom:18px;">
+        <div>
+          <h2 style="font-size:17px;">Barcha yozuvlar</h2>
+          <p class="panel-desc">Jami 128 ta xarajat topildi</p>
+        </div>
+        <a class="btn btn-primary" href="expense_form.html">+ Yangi xarajat</a>
+      </div>
+
+      <!-- Filtr — GET so'rov orqali, JS ishtirokisiz -->
+      <form class="filter-bar" method="get" action="expenses.html">
+        <div class="filter-field">
+          <label for="q">Qidiruv</label>
+          <input class="input" type="text" id="q" name="q" placeholder="Tavsif bo'yicha...">
+        </div>
+        <div class="filter-field">
+          <label for="category">Kategoriya</label>
+          <select class="input" id="category" name="category">
+            <option value="">Barchasi</option>
+            <option value="food">Oziq-ovqat</option>
+            <option value="transport">Transport</option>
+            <option value="utilities">Kommunal</option>
+            <option value="fun">O'yin-kulgi</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="date_from">Sanadan</label>
+          <input class="input" type="date" id="date_from" name="date_from">
+        </div>
+        <div class="filter-field">
+          <label for="date_to">Sanagacha</label>
+          <input class="input" type="date" id="date_to" name="date_to">
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrlash</button>
+        <a class="btn btn-ghost" href="expenses.html">Tozalash</a>
+      </form>
+
+      <div class="panel">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Sana</th>
+                <th>Tavsif</th>
+                <th>Kategoriya</th>
+                <th class="num">Summa</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>24-sen</td>
+                <td>Korzinka — haftalik oziq-ovqat</td>
+                <td><span class="chip"><span class="chip-dot"></span>Oziq-ovqat</span></td>
+                <td class="num amount-out">−184 000</td>
+                <td class="row-actions">
+                  <a class="btn btn-icon btn-sm" href="expense_form.html" aria-label="Tahrirlash">✎</a>
+                  <button class="btn btn-icon btn-sm" aria-label="O'chirish" style="color:var(--danger);">✕</button>
+                </td>
+              </tr>
+              <tr>
+                <td>23-sen</td>
+                <td>Yandex Taxi — universitetga</td>
+                <td><span class="chip"><span class="chip-dot"></span>Transport</span></td>
+                <td class="num amount-out">−22 000</td>
+                <td class="row-actions">
+                  <a class="btn btn-icon btn-sm" href="expense_form.html" aria-label="Tahrirlash">✎</a>
+                  <button class="btn btn-icon btn-sm" aria-label="O'chirish" style="color:var(--danger);">✕</button>
+                </td>
+              </tr>
+              <tr>
+                <td>22-sen</td>
+                <td>Elektr energiyasi to'lovi</td>
+                <td><span class="chip"><span class="chip-dot"></span>Kommunal</span></td>
+                <td class="num amount-out">−96 500</td>
+                <td class="row-actions">
+                  <a class="btn btn-icon btn-sm" href="expense_form.html" aria-label="Tahrirlash">✎</a>
+                  <button class="btn btn-icon btn-sm" aria-label="O'chirish" style="color:var(--danger);">✕</button>
+                </td>
+              </tr>
+              <tr>
+                <td>21-sen</td>
+                <td>Kinoteatr — do'stlar bilan</td>
+                <td><span class="chip"><span class="chip-dot"></span>O'yin-kulgi</span></td>
+                <td class="num amount-out">−65 000</td>
+                <td class="row-actions">
+                  <a class="btn btn-icon btn-sm" href="expense_form.html" aria-label="Tahrirlash">✎</a>
+                  <button class="btn btn-icon btn-sm" aria-label="O'chirish" style="color:var(--danger);">✕</button>
+                </td>
+              </tr>
+              <tr>
+                <td>19-sen</td>
+                <td>Internet — oylik to'lov</td>
+                <td><span class="chip"><span class="chip-dot"></span>Kommunal</span></td>
+                <td class="num amount-out">−120 000</td>
+                <td class="row-actions">
+                  <a class="btn btn-icon btn-sm" href="expense_form.html" aria-label="Tahrirlash">✎</a>
+                  <button class="btn btn-icon btn-sm" aria-label="O'chirish" style="color:var(--danger);">✕</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination — oddiy havolalar, JS shart emas -->
+        <nav class="pagination" aria-label="Sahifalar">
+          <a class="page-link disabled" href="#">‹</a>
+          <a class="page-link active" href="?page=1">1</a>
+          <a class="page-link" href="?page=2">2</a>
+          <a class="page-link" href="?page=3">3</a>
+          <a class="page-link" href="?page=2">›</a>
+        </nav>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

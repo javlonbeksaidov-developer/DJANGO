@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kirish — Chiqim</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<button class="icon-btn" data-theme-toggle style="position:fixed; top:18px; right:18px; z-index:50;" aria-label="Mavzuni almashtirish">
+  <span data-theme-icon>☾</span>
+</button>
+
+<div class="auth-shell">
+  <aside class="auth-side">
+    <div class="auth-side-mark">
+      <span class="brand-mark"></span>
+      <span class="brand-name" style="color:inherit;">Chiqim</span>
+    </div>
+    <p class="auth-side-quote">Har bir so'm qayerga ketayotganini bilish — nazoratning birinchi qadami.</p>
+    <p class="auth-side-foot">Shaxsiy xarajatlaringizni kuzatib boring, byudjet belgilang, oy oxirida aniq tasvirga ega bo'ling.</p>
+  </aside>
+
+  <div class="auth-form-wrap">
+    <div class="auth-form">
+      <h1>Xush kelibsiz</h1>
+      <p class="lead">Hisobingizga kirish uchun ma'lumotlarni kiriting.</p>
+
+      <div class="alert alert-error" role="alert">
+        <span>Login yoki parol noto'g'ri kiritildi.</span>
+        <button class="alert-dismiss" data-alert-dismiss aria-label="Yopish">×</button>
+      </div>
+
+      <form method="post" action="#" novalidate>
+
+        <div class="field">
+          <label for="username">Login yoki e-mail</label>
+          <input class="input" type="text" id="username" name="username" placeholder="masalan@email.com" required autofocus>
+        </div>
+
+        <div class="field">
+          <label for="password">Parol</label>
+          <input class="input" type="password" id="password" name="password" placeholder="••••••••" required>
+          <p class="field-error">Parol kamida 8 belgidan iborat bo'lishi kerak.</p>
+        </div>
+
+        <div class="field" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:22px;">
+          <label style="display:flex; align-items:center; gap:8px; margin:0; font-weight:400; color:var(--ink-soft);">
+            <input type="checkbox" name="remember" style="width:16px; height:16px;">
+            Meni eslab qol
+          </label>
+          <a href="#" style="font-size:13px; color:var(--brand); text-decoration:none;">Parolni unutdingizmi?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Kirish</button>
+      </form>
+
+      <p class="auth-switch">Hisobingiz yo'qmi? <a href="register.html">Ro'yxatdan o'ting</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profil — Chiqim</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="scrim" data-scrim></div>
+
+<div class="app">
+
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div>
+        <div class="brand-name">Chiqim</div>
+      </div>
+    </div>
+
+    <nav class="nav-group">
+      <div class="nav-label">Asosiy</div>
+      <a class="nav-link" href="dashboard.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 13h6V4H4v9Zm10 7h6V4h-6v16ZM4 20h6v-4H4v4Z"/></svg>
+        Bosh sahifa
+      </a>
+      <a class="nav-link" href="expenses.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        Xarajatlar
+      </a>
+      <a class="nav-link" href="categories.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
+        Kategoriyalar
+      </a>
+    </nav>
+
+    <nav class="nav-group">
+      <div class="nav-label">Hisob</div>
+      <a class="nav-link active" href="profile.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.2-3.8 4-5.6 7-5.6s5.8 1.8 7 5.6"/></svg>
+        Profil
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <a class="nav-link" href="login.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 17l5-5-5-5M20 12H9M12 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6"/></svg>
+        Chiqish
+      </a>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-btn" data-sidebar-open aria-label="Menyu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <h1 class="topbar-title">Profil</h1>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" data-theme-toggle aria-label="Mavzuni almashtirish">
+          <span data-theme-icon>☾</span>
+        </button>
+        <div class="profile-menu">
+          <button class="profile-trigger" data-profile-trigger>
+            <span class="avatar">AK</span>
+            <span class="profile-trigger-name">Aziz Karimov</span>
+          </button>
+          <div class="dropdown" data-profile-menu>
+            <a class="dropdown-link" href="profile.html">Profil</a>
+            <a class="dropdown-link" href="categories.html">Kategoriyalar</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-link" href="login.html">Chiqish</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content content-narrow">
+
+      <div class="alert alert-success" role="status">
+        <span>Profil ma'lumotlari muvaffaqiyatli yangilandi.</span>
+        <button class="alert-dismiss" data-alert-dismiss aria-label="Yopish">×</button>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span class="avatar lg">AK</span>
+            <div>
+              <h2 style="font-size:18px;">Aziz Karimov</h2>
+              <p class="panel-desc" style="margin-top:4px;">aziz@email.com · Sentabr 2025 dan beri a'zo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Shaxsiy ma'lumotlar</h2>
+            <p class="panel-desc">Profilingizga tegishli asosiy ma'lumotlar</p>
+          </div>
+        </div>
+
+        <form method="post" action="#">
+          <div class="input-row">
+            <div class="field">
+              <label for="p_first_name">Ism</label>
+              <input class="input" type="text" id="p_first_name" name="first_name" value="Aziz">
+            </div>
+            <div class="field">
+              <label for="p_last_name">Familiya</label>
+              <input class="input" type="text" id="p_last_name" name="last_name" value="Karimov">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="p_email">E-mail</label>
+            <input class="input" type="email" id="p_email" name="email" value="aziz@email.com">
+          </div>
+
+          <div class="field">
+            <label for="p_currency">Asosiy valyuta</label>
+            <select class="input" id="p_currency" name="currency">
+              <option value="uzs" selected>So'm (UZS)</option>
+              <option value="usd">Dollar (USD)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="p_budget">Oylik byudjet limiti</label>
+            <div class="input-amount-wrap">
+              <input class="input" type="number" id="p_budget" name="monthly_budget" value="3000000" min="0" step="10000">
+              <span class="suffix">so'm</span>
+            </div>
+            <p class="hint">Xarajatlar shundan oshsa, boshqaruv panelida ogohlantirish ko'rinadi</p>
+          </div>
+
+          <button type="submit" class="btn btn-primary">O'zgarishlarni saqlash</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Parolni almashtirish</h2>
+            <p class="panel-desc">Hisobingiz xavfsizligi uchun kuchli parol tanlang</p>
+          </div>
+        </div>
+
+        <form method="post" action="#">
+          <div class="field">
+            <label for="p_current">Joriy parol</label>
+            <input class="input" type="password" id="p_current" name="current_password" placeholder="••••••••">
+          </div>
+          <div class="input-row">
+            <div class="field">
+              <label for="p_new">Yangi parol</label>
+              <input class="input" type="password" id="p_new" name="new_password" placeholder="••••••••">
+            </div>
+            <div class="field">
+              <label for="p_new2">Yangi parol (tasdiq)</label>
+              <input class="input" type="password" id="p_new2" name="new_password_confirm" placeholder="••••••••">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-ghost">Parolni yangilash</button>
+        </form>
+      </div>
+
+      <div class="panel" style="border-color:var(--danger);">
+        <div class="panel-head">
+          <div>
+            <h2 style="color:var(--danger);">Hisobni o'chirish</h2>
+            <p class="panel-desc">Bu amalni ortga qaytarib bo'lmaydi — barcha xarajatlar va kategoriyalar o'chiriladi</p>
+          </div>
+          <button class="btn btn-danger">Hisobni o'chirish</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
