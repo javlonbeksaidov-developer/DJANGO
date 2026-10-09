@@ -41,7 +41,7 @@ Har bir loyiha alohida papkada saqlanadi va o‘zining funksional imkoniyatlari,
 | 3 | todo | Django framework'da templates (HTML kodlarini) o'rganish uchun ochilgan loyiha | db.sqlite3 | 06.10.2026 |
 | 4 | todo-2 | Django framework'da templates va static filelar bilan ishlashni o'rganish uchun ochilgan loyiha | db.sqlite3 | 09.10.2026 |
 | 5 | chiqim | Django framework'da templates va static filelar bilan ishlashni o'rganish uchun ochilgan loyiha | db.sqlite3 | 09.10.2026 |
-| 6 |-|-|-|-|
+| 6 | callie | Django framework'da templates va static filelar bilan ishlashni o'rganish uchun ochilgan loyiha | db.sqlite3 | 09.10.2026 |
 | 7 |-|-|-|-|
 | 8 |-|-|-|-|
 | 9 |-|-|-|-|
