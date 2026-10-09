@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To-do</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  <main class="page">
+    <h1>To-do</h1>
+    <p class="summary">2 left &middot; 1 done</p>
+
+    <!-- ADD -->
+    <form class="add-form" method="post" action="">
+      <input type="text" name="title" placeholder="What needs doing?" maxlength="200" required autofocus>
+      <button type="submit" class="btn btn-primary">Add task</button>
+    </form>
+
+    <div class="toolbar">
+      <!-- FILTER -->
+      <form class="filters" method="get" action="">
+        <button type="submit" name="filter" value="all" aria-current="true">All</button>
+        <button type="submit" name="filter" value="active">Active</button>
+        <button type="submit" name="filter" value="done">Done</button>
+      </form>
+    </div>
+
+    <!-- LIST -->
+    <ul class="list">
+
+      <!-- Task (not done) -->
+      <li class="item">
+        <form class="toggle-form" method="post" action="">
+          <button type="submit" class="check" aria-label="Mark as done">&#10003;</button>
+        </form>
+
+        <span class="title">Buy groceries</span>
+
+        <form class="edit-form" method="post" action="">
+          <input type="text" name="title" value="Buy groceries" maxlength="200" required>
+          <button type="submit" class="btn btn-small btn-primary">Save</button>
+          <button type="button" class="btn btn-small" data-cancel-edit>Cancel</button>
+        </form>
+
+        <div class="actions">
+          <button type="button" class="btn btn-small" data-start-edit>Edit</button>
+          <form method="post" action="" data-confirm="Delete this task?">
+            <button type="submit" class="btn btn-small btn-danger">Delete</button>
+          </form>
+        </div>
+      </li>
+
+      <!-- Task (not done) -->
+      <li class="item">
+        <form class="toggle-form" method="post" action="">
+          <button type="submit" class="check" aria-label="Mark as done">&#10003;</button>
+        </form>
+
+        <span class="title">Call the client</span>
+
+        <form class="edit-form" method="post" action="">
+          <input type="text" name="title" value="Call the client" maxlength="200" required>
+          <button type="submit" class="btn btn-small btn-primary">Save</button>
+          <button type="button" class="btn btn-small" data-cancel-edit>Cancel</button>
+        </form>
+
+        <div class="actions">
+          <button type="button" class="btn btn-small" data-start-edit>Edit</button>
+          <form method="post" action="" data-confirm="Delete this task?">
+            <button type="submit" class="btn btn-small btn-danger">Delete</button>
+          </form>
+        </div>
+      </li>
+
+      <!-- Task (done) -->
+      <li class="item done">
+        <form class="toggle-form" method="post" action="">
+          <button type="submit" class="check" aria-label="Mark as not done">&#10003;</button>
+        </form>
+
+        <span class="title">Send the invoice</span>
+
+        <form class="edit-form" method="post" action="">
+          <input type="text" name="title" value="Send the invoice" maxlength="200" required>
+          <button type="submit" class="btn btn-small btn-primary">Save</button>
+          <button type="button" class="btn btn-small" data-cancel-edit>Cancel</button>
+        </form>
+
+        <div class="actions">
+          <button type="button" class="btn btn-small" data-start-edit>Edit</button>
+          <form method="post" action="" data-confirm="Delete this task?">
+            <button type="submit" class="btn btn-small btn-danger">Delete</button>
+          </form>
+        </div>
+      </li>
+
+    </ul>
+
+    <!-- EMPTY STATE (use instead of the list when there are no tasks) -->
+    <!--
+  <div class="empty">No tasks yet. Add your first one above.</div>
+  -->
+
+    <!-- CLEAR COMPLETED -->
+    <div class="footer">
+      <form method="post" action="" data-confirm="Remove all completed tasks?">
+        <button type="submit" class="btn btn-small">Clear completed</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
