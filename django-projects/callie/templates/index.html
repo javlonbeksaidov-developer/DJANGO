@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 
 
 <!-- Mirrored from preview.themewagon.com/callie/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Oct 2026 06:06:03 GMT -->
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,20 +17,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
 
 	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif] -->
 
 </head>
 
@@ -51,7 +53,7 @@
 
 					<!-- logo -->
 					<div class="nav-logo">
-						<a href="index-2.html" class="logo"><img src="img/logo.png" alt=""></a>
+						<a href="{% url 'main:index' %}" class="logo"><img src="{% static 'img/logo.png' %}" alt=""></a>
 					</div>
 					<!-- /logo -->
 
@@ -83,7 +85,7 @@
 							<div class="dropdown">
 								<div class="dropdown-body">
 									<ul class="dropdown-list">
-										<li><a href="category.html">Category page</a></li>
+										<li><a href="{% url 'main:category' %}">Category page</a></li>
 										<li><a href="blog-post.html">Post page</a></li>
 										<li><a href="author.html">Author page</a></li>
 										<li><a href="about.html">About Us</a></li>
@@ -113,12 +115,15 @@
 													<!-- post -->
 													<div class="col-md-4">
 														<div class="post post-sm">
-															<a class="post-img" href="blog-post.html"><img src="img/post-10.jpg" alt=""></a>
+															<a class="post-img" href="blog-post.html"><img
+																	src="{% static 'img/post-10.jpg' %}" alt=""></a>
 															<div class="post-body">
 																<div class="post-category">
 																	<a href="category.html">Travel</a>
 																</div>
-																<h3 class="post-title title-sm"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+																<h3 class="post-title title-sm"><a
+																		href="blog-post.html">Sed ut perspiciatis, unde
+																		omnis iste natus error sit</a></h3>
 																<ul class="post-meta">
 																	<li><a href="author.html">John Doe</a></li>
 																	<li>20 April 2018</li>
@@ -131,13 +136,17 @@
 													<!-- post -->
 													<div class="col-md-4">
 														<div class="post post-sm">
-															<a class="post-img" href="blog-post.html"><img src="img/post-13.jpg" alt=""></a>
+															<a class="post-img" href="blog-post.html"><img
+																	src="{% static 'img/post-13.jpg' %}" alt=""></a>
 															<div class="post-body">
 																<div class="post-category">
 																	<a href="category.html">Travel</a>
 																	<a href="category.html">Lifestyle</a>
 																</div>
-																<h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+																<h3 class="post-title title-sm"><a
+																		href="blog-post.html">Mel ut impetus suscipit
+																		tincidunt. Cum id ullum laboramus
+																		persequeris.</a></h3>
 																<ul class="post-meta">
 																	<li><a href="author.html">John Doe</a></li>
 																	<li>20 April 2018</li>
@@ -150,12 +159,16 @@
 													<!-- post -->
 													<div class="col-md-4">
 														<div class="post post-sm">
-															<a class="post-img" href="blog-post.html"><img src="img/post-12.jpg" alt=""></a>
+															<a class="post-img" href="blog-post.html"><img
+																	src="{% static 'img/post-12.jpg' %}" alt=""></a>
 															<div class="post-body">
 																<div class="post-category">
 																	<a href="category.html">Lifestyle</a>
 																</div>
-																<h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+																<h3 class="post-title title-sm"><a
+																		href="blog-post.html">Mel ut impetus suscipit
+																		tincidunt. Cum id ullum laboramus
+																		persequeris.</a></h3>
 																<ul class="post-meta">
 																	<li><a href="author.html">John Doe</a></li>
 																	<li>20 April 2018</li>
@@ -174,12 +187,15 @@
 													<!-- post -->
 													<div class="col-md-4">
 														<div class="post post-sm">
-															<a class="post-img" href="blog-post.html"><img src="img/post-5.jpg" alt=""></a>
+															<a class="post-img" href="blog-post.html"><img
+																	src="{% static 'img/post-5.jpg' %}" alt=""></a>
 															<div class="post-body">
 																<div class="post-category">
 																	<a href="category.html">Lifestyle</a>
 																</div>
-																<h3 class="post-title title-sm"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+																<h3 class="post-title title-sm"><a
+																		href="blog-post.html">Postea senserit id eos,
+																		vivendo periculis ei qui</a></h3>
 																<ul class="post-meta">
 																	<li><a href="author.html">John Doe</a></li>
 																	<li>20 April 2018</li>
@@ -192,13 +208,16 @@
 													<!-- post -->
 													<div class="col-md-4">
 														<div class="post post-sm">
-															<a class="post-img" href="blog-post.html"><img src="img/post-8.jpg" alt=""></a>
+															<a class="post-img" href="blog-post.html"><img
+																	src="img/post-8.jpg" alt=""></a>
 															<div class="post-body">
 																<div class="post-category">
 																	<a href="category.html">Fashion</a>
 																	<a href="category.html">Lifestyle</a>
 																</div>
-																<h3 class="post-title title-sm"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+																<h3 class="post-title title-sm"><a
+																		href="blog-post.html">Sed ut perspiciatis, unde
+																		omnis iste natus error sit</a></h3>
 																<ul class="post-meta">
 																	<li><a href="author.html">John Doe</a></li>
 																	<li>20 April 2018</li>
@@ -211,12 +230,16 @@
 													<!-- post -->
 													<div class="col-md-4">
 														<div class="post post-sm">
-															<a class="post-img" href="blog-post.html"><img src="img/post-9.jpg" alt=""></a>
+															<a class="post-img" href="blog-post.html"><img
+																	src="img/post-9.jpg" alt=""></a>
 															<div class="post-body">
 																<div class="post-category">
 																	<a href="category.html">Lifestyle</a>
 																</div>
-																<h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+																<h3 class="post-title title-sm"><a
+																		href="blog-post.html">Mel ut impetus suscipit
+																		tincidunt. Cum id ullum laboramus
+																		persequeris.</a></h3>
 																<ul class="post-meta">
 																	<li><a href="author.html">John Doe</a></li>
 																	<li>20 April 2018</li>
@@ -337,7 +360,8 @@
 							<div class="post-category">
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title title-lg"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+							<h3 class="post-title title-lg"><a href="blog-post.html">Postea senserit id eos, vivendo
+									periculis ei qui</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
@@ -354,7 +378,8 @@
 							<div class="post-category">
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus
+									error sit</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
@@ -371,7 +396,8 @@
 								<a href="category.html">Fashion</a>
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id
+									ullum laboramus persequeris.</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
@@ -409,7 +435,8 @@
 									<div class="post-category">
 										<a href="category.html">Travel</a>
 									</div>
-									<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+									<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste
+											natus error sit</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -428,7 +455,8 @@
 										<a href="category.html">Technology</a>
 										<a href="category.html">Lifestyle</a>
 									</div>
-									<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+									<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur
+											persequeris definitionem quo cu?</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -448,7 +476,8 @@
 									<div class="post-category">
 										<a href="category.html">Health</a>
 									</div>
-									<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+									<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo
+											periculis ei qui</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -467,7 +496,8 @@
 										<a href="category.html">Health</a>
 										<a href="category.html">Lifestyle</a>
 									</div>
-									<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+									<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste
+											natus error sit</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -494,7 +524,8 @@
 									<div class="post-category">
 										<a href="category.html">Lifestyle</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+									<h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit
+											tincidunt. Cum id ullum laboramus persequeris.</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -513,7 +544,8 @@
 										<a href="category.html">Fashion</a>
 										<a href="category.html">Lifestyle</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+									<h3 class="post-title title-sm"><a href="blog-post.html">Postea senserit id eos,
+											vivendo periculis ei qui</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -531,7 +563,8 @@
 									<div class="post-category">
 										<a href="category.html">Technology</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+									<h3 class="post-title title-sm"><a href="blog-post.html">Sed ut perspiciatis, unde
+											omnis iste natus error sit</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -558,7 +591,8 @@
 									<div class="post-category">
 										<a href="category.html">Travel</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+									<h3 class="post-title title-sm"><a href="blog-post.html">Ne bonorum praesent cum,
+											labitur persequeris definitionem quo cu?</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -576,7 +610,8 @@
 									<div class="post-category">
 										<a href="category.html">Lifestyle</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+									<h3 class="post-title title-sm"><a href="blog-post.html">Sed ut perspiciatis, unde
+											omnis iste natus error sit</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -595,7 +630,8 @@
 										<a href="category.html">Travel</a>
 										<a href="category.html">Lifestyle</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+									<h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit
+											tincidunt. Cum id ullum laboramus persequeris.</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -622,7 +658,8 @@
 									<div class="post-category">
 										<a href="category.html">Health</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+									<h3 class="post-title title-sm"><a href="blog-post.html">Postea senserit id eos,
+											vivendo periculis ei qui</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -640,7 +677,8 @@
 									<div class="post-category">
 										<a href="category.html">Travel</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+									<h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit
+											tincidunt. Cum id ullum laboramus persequeris.</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -658,7 +696,8 @@
 									<div class="post-category">
 										<a href="category.html">Lifestyle</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+									<h3 class="post-title title-sm"><a href="blog-post.html">Ne bonorum praesent cum,
+											labitur persequeris definitionem quo cu?</a></h3>
 									<ul class="post-meta">
 										<li><a href="author.html">John Doe</a></li>
 										<li>20 April 2018</li>
@@ -753,7 +792,8 @@
 								<div class="post-category">
 									<a href="category.html">Lifestyle</a>
 								</div>
-								<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+								<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur
+										persequeris definitionem quo cu?</a></h3>
 							</div>
 						</div>
 						<!-- /post -->
@@ -766,7 +806,8 @@
 									<a href="category.html">Technology</a>
 									<a href="category.html">Lifestyle</a>
 								</div>
-								<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+								<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum
+										id ullum laboramus persequeris.</a></h3>
 							</div>
 						</div>
 						<!-- /post -->
@@ -778,7 +819,8 @@
 								<div class="post-category">
 									<a href="category.html">Health</a>
 								</div>
-								<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+								<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo
+										periculis ei qui</a></h3>
 							</div>
 						</div>
 						<!-- /post -->
@@ -791,7 +833,8 @@
 									<a href="category.html">Health</a>
 									<a href="category.html">Lifestyle</a>
 								</div>
-								<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+								<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste
+										natus error sit</a></h3>
 							</div>
 						</div>
 						<!-- /post -->
@@ -843,7 +886,8 @@
 								<a href="category.html">Fashion</a>
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei
+									qui</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
@@ -863,7 +907,8 @@
 							<div class="post-category">
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus
+									error sit</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
@@ -883,7 +928,8 @@
 							<div class="post-category">
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id
+									ullum laboramus persequeris.</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
@@ -905,7 +951,8 @@
 							<div class="post-category">
 								<a href="category.html">Travel</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei
+									qui</a></h3>
 						</div>
 					</div>
 					<!-- /post -->
@@ -918,7 +965,8 @@
 								<a href="category.html">Technology</a>
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id
+									ullum laboramus persequeris.</a></h3>
 						</div>
 					</div>
 					<!-- /post -->
@@ -930,7 +978,8 @@
 							<div class="post-category">
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus
+									error sit</a></h3>
 						</div>
 					</div>
 					<!-- /post -->
@@ -943,7 +992,8 @@
 							<div class="post-category">
 								<a href="category.html">Health</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris
+									definitionem quo cu?</a></h3>
 						</div>
 					</div>
 					<!-- /post -->
@@ -956,7 +1006,8 @@
 								<a href="category.html">Health</a>
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus
+									error sit</a></h3>
 						</div>
 					</div>
 					<!-- /post -->
@@ -969,7 +1020,8 @@
 								<a href="category.html">Fashion</a>
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei
+									qui</a></h3>
 						</div>
 					</div>
 					<!-- /post -->
@@ -982,7 +1034,8 @@
 							<div class="post-category">
 								<a href="category.html">Travel</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id
+									ullum laboramus persequeris.</a></h3>
 						</div>
 					</div>
 					<!-- /post -->
@@ -994,7 +1047,8 @@
 							<div class="post-category">
 								<a href="category.html">Technology</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei
+									qui</a></h3>
 						</div>
 					</div>
 					<!-- /post -->
@@ -1006,7 +1060,8 @@
 							<div class="post-category">
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus
+									error sit</a></h3>
 						</div>
 					</div>
 					<!-- /post -->
@@ -1033,12 +1088,14 @@
 								<a href="category.html">Travel</a>
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id
+									ullum laboramus persequeris.</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
 							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
 						</div>
 					</div>
 					<!-- /post -->
@@ -1050,12 +1107,14 @@
 							<div class="post-category">
 								<a href="category.html">Travel</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus
+									error sit</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
 							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
 						</div>
 					</div>
 					<!-- /post -->
@@ -1067,12 +1126,14 @@
 							<div class="post-category">
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei
+									qui</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
 							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
 						</div>
 					</div>
 					<!-- /post -->
@@ -1085,12 +1146,14 @@
 								<a href="category.html">Fashion</a>
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus
+									error sit</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
 							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
 						</div>
 					</div>
 					<!-- /post -->
@@ -1103,12 +1166,14 @@
 								<a href="category.html">Health</a>
 								<a href="category.html">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+							<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris
+									definitionem quo cu?</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">John Doe</a></li>
 								<li>20 April 2018</li>
 							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
 						</div>
 					</div>
 					<!-- /post -->
@@ -1162,7 +1227,8 @@
 						<div class="footer-logo">
 							<a href="index-2.html" class="logo"><img src="img/logo-alt.png" alt=""></a>
 						</div>
-						<p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
+						<p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed.
+							Nunc non blandit massa enim nec.</p>
 						<ul class="contact-social">
 							<li><a href="#" class="social-facebook"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#" class="social-twitter"><i class="fa fa-twitter"></i></a></li>
@@ -1234,8 +1300,12 @@
 				<div class="col-md-6 col-md-pull-6">
 					<div class="footer-copyright">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i
+							class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/"
+							target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com/"
+							target="_blank">ThemeWagon</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</div>
 				</div>
 			</div>
@@ -1246,14 +1316,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!-- /FOOTER -->
 
 	<!-- jQuery Plugins -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
 
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"317c7824a07c40cb9ae929f34b17c111","r":1,"spa":2}' crossorigin="anonymous"></script>
+	<script type="module"
+		src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920"
+		integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA=="
+		data-cf-beacon='{"version":"2024.11.0","token":"317c7824a07c40cb9ae929f34b17c111","r":1,"spa":2}'
+		crossorigin="anonymous"></script>
 </body>
 
 
 <!-- Mirrored from preview.themewagon.com/callie/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Oct 2026 06:06:14 GMT -->
+
 </html>
