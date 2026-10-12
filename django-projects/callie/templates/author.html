@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+{% load static %}
 <!-- SECTION -->
 <div class="section">
 	<!-- container -->
@@ -10,16 +10,16 @@
 			<div class="col-md-8">
 				<!-- post -->
 				<div class="post post-row">
-					<a class="post-img" href="blog-post.html"><img src="img/post-13.jpg" alt=""></a>
+					<a class="post-img" href="{% url 'main:blog_post' %}"><img src="{% static 'img/post-13.jpg' %}" alt=""></a>
 					<div class="post-body">
 						<div class="post-category">
-							<a href="category.html">Travel</a>
-							<a href="category.html">Lifestyle</a>
+							<a href="{% url 'main:category' %}">Travel</a>
+							<a href="{% url 'main:category' %}">Lifestyle</a>
 						</div>
-						<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id
+						<h3 class="post-title"><a href="{% url 'main:blog_post' %}">Mel ut impetus suscipit tincidunt. Cum id
 								ullum laboramus persequeris.</a></h3>
 						<ul class="post-meta">
-							<li><a href="author.html">John Doe</a></li>
+							<li><a href="{% url 'main:author' %}">John Doe</a></li>
 							<li>20 April 2018</li>
 						</ul>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
@@ -30,15 +30,15 @@
 
 				<!-- post -->
 				<div class="post post-row">
-					<a class="post-img" href="blog-post.html"><img src="img/post-1.jpg" alt=""></a>
+					<a class="post-img" href="{% url 'main:blog_post' %}"><img src="{% static 'img/post-1.jpg' %}" alt=""></a>
 					<div class="post-body">
 						<div class="post-category">
-							<a href="category.html">Travel</a>
+							<a href="{% url 'main:category' %}">Travel</a>
 						</div>
-						<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus
+						<h3 class="post-title"><a href="{% url 'main:blog_post' %}">Sed ut perspiciatis, unde omnis iste natus
 								error sit</a></h3>
 						<ul class="post-meta">
-							<li><a href="author.html">John Doe</a></li>
+							<li><a href="{% url 'main:author' %}">John Doe</a></li>
 							<li>20 April 2018</li>
 						</ul>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor

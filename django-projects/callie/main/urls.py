@@ -13,4 +13,6 @@ urlpatterns = [
     path("category/", category, name="category"),
     path("contact/", contact, name="contact"),
     path("blog/", blog_post, name="blog_post"),
+    path("form/", form, name="form"),
+    path("post/", post, name="post"),
 ]

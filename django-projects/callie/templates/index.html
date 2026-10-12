@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+{% load static %}
 <!-- SECTION -->
 <div class="section">
 	<!-- container -->
@@ -10,7 +10,7 @@
 			<div class="col-md-8 hot-post-left">
 				<!-- post -->
 				<div class="post post-thumb">
-					<a class="post-img" href="blog-post.html"><img src="img/hot-post-1.jpg" alt=""></a>
+					<a class="post-img" href="{% url 'main:blog_post' %}"><img src="{% static 'img/hot-post-1.jpg' %}" alt=""></a>
 					<div class="post-body">
 						<div class="post-category">
 							<a href="category.html">Lifestyle</a>
@@ -28,7 +28,7 @@
 			<div class="col-md-4 hot-post-right">
 				<!-- post -->
 				<div class="post post-thumb">
-					<a class="post-img" href="blog-post.html"><img src="img/hot-post-2.jpg" alt=""></a>
+					<a class="post-img" href="blog-post.html"><img src="{% static 'img/hot-post-2.jpg' %}" alt=""></a>
 					<div class="post-body">
 						<div class="post-category">
 							<a href="category.html">Lifestyle</a>
@@ -45,7 +45,7 @@
 
 				<!-- post -->
 				<div class="post post-thumb">
-					<a class="post-img" href="blog-post.html"><img src="img/hot-post-3.jpg" alt=""></a>
+					<a class="post-img" href="blog-post.html"><img src="{% static 'img/hot-post-3.jpg' %}" alt=""></a>
 					<div class="post-body">
 						<div class="post-category">
 							<a href="category.html">Fashion</a>
@@ -104,7 +104,7 @@
 					<!-- post -->
 					<div class="col-md-6">
 						<div class="post">
-							<a class="post-img" href="blog-post.html"><img src="img/post-2.jpg" alt=""></a>
+							<a class="post-img" href="blog-post.html"><img src="{% static 'img/post-2.jpg' %}" alt=""></a>
 							<div class="post-body">
 								<div class="post-category">
 									<a href="category.html">Technology</a>

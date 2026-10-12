@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post</title>
+</head>
+<body>
+    
+    <form action="{% url 'main:post' %}" method="post">
+        {% csrf_token %}
+
+        <input type="text" placeholder="title" name="title"><br><br>
+        <textarea name="desc" placeholder="description"></textarea><br><br>
+        <input type="text" placeholder="category" name="category"><br><br>
+
+        <button type="submit">send</button>
+    </form>
+
+</body>
+</html>
+

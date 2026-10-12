@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Post
+
 # Create your views here.
 
 
@@ -33,3 +35,26 @@ def contact(request):
 
 def blog_post(request):
     return render(request, "blog-post.html")
+
+
+def form(request):
+    if request.method == "POST":
+        data = {
+            "username": request.POST.get("username"),
+            "password": request.POST.get("password"),
+        }
+        print(data)
+
+    return render(request, "form.html")
+
+
+def post(request):
+    if request.method == "POST":
+        title = request.POST.get("title")
+        desc = request.POST.get("desc")
+        category = request.POST.get("category")
+
+        new_post = Post.objects.create(title=title, description=desc, category=category)
+        new_post.save()
+
+    return render(request, "post.html")
