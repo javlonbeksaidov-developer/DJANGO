@@ -10,21 +10,32 @@
 <body>
     <a href="{% url 'main:home' %}">Asosiy sahifaga</a><br><br>
 
-    <form action="{ url 'main:article_create' }" method="POST">
-        <input type="text" name="title" placeholder="Title"><br><br>
-        <textarea name="text" placeholder="Text"></textarea><br><br>
-        <input type="image" name="image"><br><br>
 
-        <select name="category">
+    <form action="{% url 'main:article_create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <input type="text" name="title" placeholder="Title" required>
+        <br><br>
+
+        <textarea name="text" placeholder="Text"></textarea>
+        <br><br>
+
+        <input type="file" name="image">
+        <br><br>
+
+        <select name="category" required>
             {% for category in categories %}
-            <option value="{{ category.name }}">{{ category.name }}</option>
+            <option value="{{ category.id }}">
+                {{ category.name }}
+            </option>
             {% endfor %}
         </select>
 
         <br><br>
 
-        <button type="submit">send</button>
+        <button type="submit">Send</button>
     </form>
+
 
 </body>
 

@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .models import Article, Category
 
@@ -27,15 +27,15 @@ def article_create_page(request):
     if request.method == "POST":
         title = request.POST.get("title")
         text = request.POST.get("text")
-        image = request.POST.get("image")
-        category = request.POST.get("category")
+        image = request.FILES.get("image")
+        category_id = request.POST.get("category")
 
-        new_article = Article.objects.create(
-            title=title, text=text, image=image, category=category
-        )
-        new_article.save()
+        category = Category.objects.get(id=category_id)
 
-    data = {}
-    data["categies"] = Category.objects.all()
+        Article.objects.create(title=title, text=text, image=image, category=category)
+
+        return redirect("main:article_create")
+
+    data = {"categories": Category.objects.all()}
 
     return render(request, "article_create.html", context=data)
