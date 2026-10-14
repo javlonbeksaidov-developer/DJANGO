@@ -43,6 +43,6 @@ Har bir loyiha alohida papkada saqlanadi va o‘zining funksional imkoniyatlari,
 | 5 | chiqim | Django framework'da templates va static filelar bilan ishlashni o'rganish uchun ochilgan loyiha | db.sqlite3 | 09.10.2026 |
 | 6 | callie | Django framework'da templates va static filelar bilan ishlashni o'rganish uchun ochilgan loyiha | db.sqlite3 | 09.10.2026 |
 | 7 | kangaroo-home | Uy va kvartirani sotish va ijaraga berish bilan shug'ullanuvchi kompaniya ishini avtomatlashtiruvchi web ilovasi | PostgreSQL | 10.10.2026 |
-| 8 |-|-|-|-|
+| 8 | elen | Django framework'da models bilan ishlashni o'rganish uchun ochilgan loyiha | db.sqlite3 | 14.10.2026 |
 | 9 |-|-|-|-|
 | 10 |-|-|-|-|
