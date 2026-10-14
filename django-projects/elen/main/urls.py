@@ -11,5 +11,5 @@ urlpatterns = [
     path("contact/", contact, name="contact"),
     path("fashion/", fashion, name="fashion"),
     path("travel/", travel, name="travel"),
-    path("photofgraphy/", photofgraphy, name="photofgraphy"),
+    path("photography/", photography, name="photography"),
 ]

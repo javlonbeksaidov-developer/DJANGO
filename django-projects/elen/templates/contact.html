@@ -28,18 +28,20 @@
 			</div>
 			<div class="row block-9">
 				<div class="col-md-6 order-md-last pr-md-5">
-					<form action="#">
+					<form action="{% url 'main:contact' %}" method="POST">
+						{% csrf_token %}
+
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Your Name">
+							<input type="text" class="form-control" placeholder="Your Name" name="name">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Your Email">
+							<input type="text" class="form-control" placeholder="Your Email" name="email">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Subject">
+							<input type="text" class="form-control" placeholder="Subject" name="subject">
 						</div>
 						<div class="form-group">
-							<textarea name="" id="" cols="30" rows="7" class="form-control"
+							<textarea name="message" id="" cols="30" rows="7" class="form-control"
 								placeholder="Message"></textarea>
 						</div>
 						<div class="form-group">

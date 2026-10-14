@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Contact
+
 # Create your views here.
 
 
@@ -16,6 +18,17 @@ def about(request):
 
 
 def contact(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        new_contact = Contact.objects.create(
+            name=name, email=email, subject=subject, message=message
+        )
+        new_contact.save()
+
     return render(request, "contact.html")
 
 
@@ -27,5 +40,5 @@ def travel(request):
     return render(request, "travel.html")
 
 
-def photofgraphy(request):
-    return render(request, "photofgraphy.html")
+def photography(request):
+    return render(request, "photography.html")
