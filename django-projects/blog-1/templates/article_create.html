@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="{% url 'main:home' %}">Asosiy sahifaga</a><br><br>
+
+    <form action="{ url 'main:article_create' }" method="POST">
+        <input type="text" name="title" placeholder="Title"><br><br>
+        <textarea name="text" placeholder="Text"></textarea><br><br>
+        <input type="image" name="image"><br><br>
+
+        <select name="category">
+            {% for category in categories %}
+            <option value="{{ category.name }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <button type="submit">send</button>
+    </form>
+
+</body>
+
+</html>

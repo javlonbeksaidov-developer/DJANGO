@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article.title }}</title>
+</head>
+<body>
+    <h1>Today date time: {{ date }} </h1>
+
+    <a href="{% url 'main:home' %}">Asosiy sahifaga</a>
+
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.text }}</p>
+    <div>
+        <img src="{{ article.image.url }}" alt="">
+    </div>
+</body>
+</html>
