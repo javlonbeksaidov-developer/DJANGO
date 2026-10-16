@@ -10,11 +10,10 @@
 <body>
     <a href="{% url 'main:home' %}">Asosiy sahifaga</a><br><br>
 
-
     <form action="{% url 'main:article_create' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="title" placeholder="Title">
         <br><br>
 
         <textarea name="text" placeholder="Text"></textarea>
@@ -23,7 +22,7 @@
         <input type="file" name="image">
         <br><br>
 
-        <select name="category" required>
+        <select name="category">
             {% for category in categories %}
             <option value="{{ category.id }}">
                 {{ category.name }}
@@ -35,7 +34,6 @@
 
         <button type="submit">Send</button>
     </form>
-
 
 </body>
 
