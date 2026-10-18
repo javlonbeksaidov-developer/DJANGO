@@ -20,6 +20,9 @@ class Profile(models.Model):
 
     owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
 
+    def __str__(self):
+        return self.owner.username
+
 
 class ContactInfo(models.Model):
     address = models.TextField()
@@ -44,9 +47,33 @@ class Post(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to="post_images/")
 
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="post")
-    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name="post")
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, related_name="post"
+    )
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post")
 
+    like = models.IntegerField(default=0)
+    view = models.IntegerField(default=0)
+    comment = models.IntegerField(default=0)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Subsribe(models.Model):
+    email = models.EmailField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+
+
+class TravelIntro(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.ImageField(upload_to="travel_intro_images/")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
