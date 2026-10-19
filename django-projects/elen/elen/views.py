@@ -7,28 +7,28 @@ from .models import *
 
 def index_1(request):
     contact_info = ContactInfo.objects.first()
-    categories = Category.objects.all()
+    # categories = Category.objects.all()
     posts = Post.objects.all()
     owner = User.objects.get(id=1)
     data = {
         "posts": posts,
         "owner": owner,
         "contact_info": contact_info,
-        "categories": categories,
+        # "categories": categories,
     }
     return render(request, "index.html", context=data)
 
 
 def index_2(request):
     contact_info = ContactInfo.objects.first()
-    categories = Category.objects.all()
+    # categories = Category.objects.all()
     posts = Post.objects.all()
     owner = User.objects.get(id=1)
     data = {
         "posts": posts,
         "owner": owner,
         "contact_info": contact_info,
-        "categories": categories,
+        # "categories": categories,
     }
     return render(request, "index-2.html", context=data)
 
@@ -41,10 +41,8 @@ def about(request):
 
 def contact(request):
     contact_info = ContactInfo.objects.first()
-    categories = Category.objects.all()
     data = {
         "contact_info": contact_info,
-        "categories": categories,
     }
 
     if request.method == "POST":
@@ -64,13 +62,13 @@ def contact(request):
 def fashion(request):
     contact_info = ContactInfo.objects.first()
     owner = User.objects.get(id=1)
-    categories = Category.objects.all()
+    # categories = Category.objects.all()
     posts = Post.objects.all()[:6]
     popular_articles = Post.objects.all()[:3]
 
     data = {
         "owner": owner,
-        "categories": categories,
+        # "categories": categories,
         "posts": posts,
         "popular_articles": popular_articles,
         "contact_info": contact_info,
@@ -86,7 +84,7 @@ def fashion(request):
 
 def travel(request):
     contact_info = ContactInfo.objects.first()
-    categories = Category.objects.all()
+    # categories = Category.objects.all()
     posts = Post.objects.all()
     popular_posts = Post.objects.all()[:3]
     travel_into = TravelIntro.objects.all()
@@ -94,7 +92,7 @@ def travel(request):
         "travel_intos": travel_into,
         "posts": posts,
         "popular_posts": popular_posts,
-        "categories": categories,
+        # "categories": categories,
         "contact_info": contact_info,
     }
     return render(request, "travel.html", context=data)
@@ -102,11 +100,11 @@ def travel(request):
 
 def photography(request):
     contact_info = ContactInfo.objects.first()
-    categories = Category.objects.all()
+    # categories = Category.objects.all()
     posts = Post.objects.all()
     data = {
         "posts": posts,
         "contact_info": contact_info,
-        "categories": categories,
+        # "categories": categories,
     }
     return render(request, "photography.html", context=data)
