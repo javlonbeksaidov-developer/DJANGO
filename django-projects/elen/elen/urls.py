@@ -12,4 +12,6 @@ urlpatterns = [
     path("fashion/", fashion, name="fashion"),
     path("travel/", travel, name="travel"),
     path("photography/", photography, name="photography"),
+    path("register/", register, name="register"),
+    path("login/", login_, name="login")
 ]

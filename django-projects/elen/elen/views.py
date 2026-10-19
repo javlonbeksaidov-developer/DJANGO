@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import redirect, render
 
 from .models import *
 
@@ -108,3 +109,36 @@ def photography(request):
         # "categories": categories,
     }
     return render(request, "photography.html", context=data)
+
+
+def register(request):
+    if request.method == "POST":
+        new_user = User.objects.create_user(
+            username=request.POST.get("username"),
+            first_name=request.POST.get("first_name"),
+            last_name=request.POST.get("last_name"),
+            password=request.POST.get("password"),
+            is_staff=True,
+            is_superuser=True,
+        )
+        new_user.save()
+
+        return redirect("elen:login")
+
+    return render(request, "register.html")
+
+
+def login_(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is None:
+            return redirect("elen:login")
+
+        login(request, user)
+        return redirect("/admin/")
+
+    return render(request, "login.html")
