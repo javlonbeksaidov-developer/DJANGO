@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{% url 'main:index' %}">Tasklane</a>
+    <div class="site-header__menu" id="main-nav">
+      <nav class="main-nav" aria-label="Main">
+        <a href="{% url 'main:index' %}" aria-current="page">Tasks</a>
+        <a href="{% url 'main:manage' %}">Manage</a>
+        <a href="{% url 'main:profile' %}">Profile</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+          <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+        </button>
+        <form action="logout" method="post">
+          <button class="btn btn--ghost btn--sm" type="submit">Log out</button>
+        </form>
+      </div>
+    </div>
+    <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav"
+      aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="page-head">
+    <div>
+      <h1>Manage tasks</h1>
+      <p>Create, edit, and delete tasks.</p>
+    </div>
+  </div>
+
+  <section class="card" aria-labelledby="create-title">
+    <h2 id="create-title">New task</h2>
+    <form class="form" action="tasks/create" method="post">
+      <div class="field">
+        <label for="new-title">Title</label>
+        <input class="input" id="new-title" name="title" type="text" required maxlength="120">
+      </div>
+      <div class="field">
+        <label for="new-description">Description</label>
+        <textarea class="textarea" id="new-description" name="description"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="new-priority">Priority</label>
+          <select class="select" id="new-priority" name="priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="new-due">Due date</label>
+          <input class="input" id="new-due" name="due_date" type="date">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="submit">Create task</button>
+      </div>
+    </form>
+  </section>
+
+  <section aria-labelledby="all-title">
+    <h2 id="all-title">All tasks</h2>
+    <ul class="task-list" style="margin-top: var(--space-3)">
+
+      <li class="manage-item">
+        <details>
+          <summary class="manage-item__row">
+            <span class="manage-item__title">Prepare lesson 12 slides</span>
+            <span class="badge badge--high">High</span>
+            <span class="btn btn--ghost btn--sm">Edit</span>
+          </summary>
+          <div class="manage-item__edit">
+            <form class="form" action="tasks/1/update" method="post">
+              <div class="field">
+                <label for="t1-title">Title</label>
+                <input class="input" id="t1-title" name="title" type="text" value="Prepare lesson 12 slides" required>
+              </div>
+              <div class="field">
+                <label for="t1-description">Description</label>
+                <textarea class="textarea" id="t1-description"
+                  name="description">Django forms and validation, with two exercises.</textarea>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="t1-priority">Priority</label>
+                  <select class="select" id="t1-priority" name="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high" selected>High</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="t1-due">Due date</label>
+                  <input class="input" id="t1-due" name="due_date" type="date" value="2026-10-22">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn" type="submit">Save changes</button>
+              </div>
+            </form>
+            <form action="tasks/1/delete" method="post" style="margin-top: var(--space-3)">
+              <button class="btn btn--danger btn--sm" type="submit">Delete task</button>
+            </form>
+          </div>
+        </details>
+      </li>
+
+      <li class="manage-item">
+        <details>
+          <summary class="manage-item__row">
+            <span class="manage-item__title">Send invoice to client</span>
+            <span class="badge badge--medium">Medium</span>
+            <span class="btn btn--ghost btn--sm">Edit</span>
+          </summary>
+          <div class="manage-item__edit">
+            <form class="form" action="tasks/2/update" method="post">
+              <div class="field">
+                <label for="t2-title">Title</label>
+                <input class="input" id="t2-title" name="title" type="text" value="Send invoice to client" required>
+              </div>
+              <div class="field">
+                <label for="t2-description">Description</label>
+                <textarea class="textarea" id="t2-description" name="description"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="t2-priority">Priority</label>
+                  <select class="select" id="t2-priority" name="priority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="t2-due">Due date</label>
+                  <input class="input" id="t2-due" name="due_date" type="date" value="2026-10-25">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn" type="submit">Save changes</button>
+              </div>
+            </form>
+            <form action="tasks/2/delete" method="post" style="margin-top: var(--space-3)">
+              <button class="btn btn--danger btn--sm" type="submit">Delete task</button>
+            </form>
+          </div>
+        </details>
+      </li>
+
+    </ul>
+    <!-- Copy a <li class="manage-item"> block for every extra task. -->
+  </section>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{% url 'main:index' %}">Tasklane</a>
+    <div class="site-header__menu" id="main-nav">
+      <nav class="main-nav" aria-label="Main">
+        <a href="{% url 'main:index' %}" aria-current="page">Tasks</a>
+        <a href="{% url 'main:manage' %}">Manage</a>
+        <a href="{% url 'main:profile' %}">Profile</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+          <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+        </button>
+        <form action="logout" method="post">
+          <button class="btn btn--ghost btn--sm" type="submit">Log out</button>
+        </form>
+      </div>
+    </div>
+    <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav"
+      aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="profile-head">
+    <div class="avatar" aria-hidden="true">AK</div>
+    <div>
+      <h1>Profile</h1>
+      <p>Update your details and password.</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <section class="card" aria-labelledby="details-title">
+      <h2 id="details-title">Your details</h2>
+      <form class="form" action="profile/update" method="post">
+        <div class="field">
+          <label for="full-name">Full name</label>
+          <input class="input" id="full-name" name="full_name" type="text" value="Alisher Karimov" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" value="alisher@example.com" required>
+        </div>
+        <div class="field">
+          <label for="bio">About you</label>
+          <textarea class="textarea" id="bio" name="bio"></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Save changes</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="password-title">
+      <h2 id="password-title">Change password</h2>
+      <form class="form" action="profile/password" method="post">
+        <div class="field">
+          <label for="current-password">Current password</label>
+          <input class="input" id="current-password" name="current_password" type="password"
+            autocomplete="current-password" required>
+        </div>
+        <div class="field">
+          <label for="new-password">New password</label>
+          <input class="input" id="new-password" name="new_password" type="password" autocomplete="new-password"
+            minlength="8" required>
+          <p class="field__hint">Use at least 8 characters.</p>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Update password</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <section class="card card--danger" aria-labelledby="delete-title">
+    <h2 id="delete-title">Delete account</h2>
+    <p>This permanently removes your account and all your tasks.</p>
+    <form action="profile/delete" method="post">
+      <button class="btn btn--danger" type="submit">Delete my account</button>
+    </form>
+  </section>
+</main>
+
+{% endblock content %}

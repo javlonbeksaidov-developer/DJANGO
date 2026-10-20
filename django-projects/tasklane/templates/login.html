@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<main class="auth-shell">
+  <button class="icon-btn auth-shell__theme" type="button" data-theme-toggle aria-label="Switch theme">
+    <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+  </button>
+
+  <section class="card auth-card">
+    <div class="auth-card__brand">
+      <h1>Welcome back</h1>
+      <p class="field__hint">Log in to see your tasks.</p>
+    </div>
+
+    <form class="form" action="{% url 'main:login' %}" method="post">
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input class="input" id="password" name="password" type="password" autocomplete="current-password" required>
+          <button class="password-wrap__toggle" type="button" data-password-toggle="password">Show</button>
+        </div>
+      </div>
+      <button class="btn btn--block" type="submit">Log in</button>
+    </form>
+
+    <p class="auth-card__alt">New here? <a href="{% url 'main:register' %}">Create an account</a></p>
+  </section>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{% url 'main:index' %}">Tasklane</a>
+    <div class="site-header__menu" id="main-nav">
+      <nav class="main-nav" aria-label="Main">
+        <a href="{% url 'main:index' %}" aria-current="page">Tasks</a>
+        <a href="{% url 'main:manage' %}">Manage</a>
+        <a href="{% url 'main:profile' %}">Profile</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+          <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+        </button>
+        <form action="logout" method="post">
+          <button class="btn btn--ghost btn--sm" type="submit">Log out</button>
+        </form>
+      </div>
+    </div>
+    <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav"
+      aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<main class="container page">
+  <div class="page-head">
+    <div>
+      <h1>My tasks</h1>
+      <p>3 open, 1 done</p>
+    </div>
+    <a class="btn" href="{% url 'main:manage' %}">Add task</a>
+  </div>
+
+  <!-- Filters: a plain GET form. The server reads ?q=&status=&priority= -->
+  <form class="card filter-form" action="{% url 'main:index' %}" method="get">
+    <div class="field field--search">
+      <label for="q">Search</label>
+      <input class="input" id="q" name="q" type="search" placeholder="Search by title">
+    </div>
+    <div class="field">
+      <label for="status">Status</label>
+      <select class="select" id="status" name="status">
+        <option value="">All</option>
+        <option value="open">Open</option>
+        <option value="done">Done</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="priority">Priority</label>
+      <select class="select" id="priority" name="priority">
+        <option value="">Any</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+    </div>
+    <div class="form-actions">
+      <button class="btn" type="submit">Apply</button>
+      <a class="btn btn--ghost" href="{% url 'main:index' %}">Reset</a>
+    </div>
+  </form>
+
+  <ul class="task-list">
+    <li class="task">
+      <form action="tasks/1/toggle" method="post">
+        <button class="check" type="submit" aria-label="Mark “Prepare lesson 12 slides” as done"></button>
+      </form>
+      <div class="task__body">
+        <h2 class="task__title">Prepare lesson 12 slides</h2>
+        <p class="task__desc">Django forms and validation, with two exercises.</p>
+        <div class="task__meta">
+          <span class="badge badge--high">High</span>
+          <span>Due Oct 22</span>
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <form action="tasks/2/toggle" method="post">
+        <button class="check" type="submit" aria-label="Mark “Send invoice to client” as done"></button>
+      </form>
+      <div class="task__body">
+        <h2 class="task__title">Send invoice to client</h2>
+        <div class="task__meta">
+          <span class="badge badge--medium">Medium</span>
+          <span>Due Oct 25</span>
+        </div>
+      </div>
+    </li>
+
+    <li class="task">
+      <form action="tasks/3/toggle" method="post">
+        <button class="check" type="submit" aria-label="Mark “Renew SSL certificate” as done"></button>
+      </form>
+      <div class="task__body">
+        <h2 class="task__title">Renew SSL certificate</h2>
+        <div class="task__meta">
+          <span class="badge badge--low">Low</span>
+          <span>Due Nov 3</span>
+        </div>
+      </div>
+    </li>
+
+    <li class="task task--done">
+      <form action="tasks/4/toggle" method="post">
+        <button class="check check--on" type="submit" aria-label="Mark “Back up database” as open"></button>
+      </form>
+      <div class="task__body">
+        <h2 class="task__title">Back up database</h2>
+        <div class="task__meta">
+          <span class="badge badge--medium">Medium</span>
+          <span>Done Oct 18</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+</main>
+
+{% endblock content %}

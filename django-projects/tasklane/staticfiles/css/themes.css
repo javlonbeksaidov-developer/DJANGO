@@ -1,0 +1,31 @@
+/* themes.css — dark theme overrides. Applied via <html data-theme="dark"> */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0e1311;
+  --surface: #161d1a;
+  --surface-2: #1e2723;
+  --text: #e9efec;
+  --text-muted: #96a39d;
+  --border: #2a3530;
+
+  --accent: #3dd6c3;
+  --accent-hover: #6fe6d7;
+  --accent-contrast: #06201c;
+  --accent-soft: #143530;
+
+  --danger: #ff8a7d;
+  --danger-soft: #3a1b18;
+  --warning: #f0c25c;
+  --warning-soft: #3a2f12;
+  --success: #5fd592;
+  --success-soft: #142e21;
+
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.3);
+}
+
+/* Theme toggle icon: show the icon for the theme you will switch TO */
+.icon-sun { display: none; }
+[data-theme="dark"] .icon-sun { display: inline; }
+[data-theme="dark"] .icon-moon { display: none; }

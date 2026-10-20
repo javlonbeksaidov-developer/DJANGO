@@ -1,0 +1,153 @@
+/* components.css — reusable UI pieces: buttons, forms, cards, badges */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.6rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.btn:hover { background: var(--accent-hover); color: var(--accent-contrast); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn--ghost:hover { background: var(--surface-2); color: var(--text); }
+
+.btn--danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border-color: transparent;
+}
+
+.btn--danger:hover { background: var(--danger); color: var(--surface); }
+
+.btn--sm { padding: 0.35rem 0.7rem; font-size: 0.875rem; }
+.btn--block { width: 100%; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.icon-btn:hover { background: var(--surface-2); }
+
+/* ---------- Cards ---------- */
+.card {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.card > * + * { margin-top: var(--space-4); }
+.card__title + p { margin-top: var(--space-1); color: var(--text-muted); }
+.card--danger { border-color: var(--danger); }
+
+/* ---------- Forms ---------- */
+.form { display: grid; gap: var(--space-4); }
+
+.field { display: grid; gap: var(--space-1); }
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field__hint { font-size: 0.8125rem; color: var(--text-muted); }
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.textarea { min-height: 6rem; resize: vertical; }
+
+.form-row {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+
+.form-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+.password-wrap { position: relative; }
+.password-wrap .input { padding-right: 4.5rem; }
+
+.password-wrap__toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  padding: 0.2rem 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge--high { background: var(--danger-soft); color: var(--danger); }
+.badge--medium { background: var(--warning-soft); color: var(--warning); }
+.badge--low { background: var(--success-soft); color: var(--success); }
+
+/* ---------- Avatar ---------- */
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 1.4rem;
+  font-weight: 800;
+}

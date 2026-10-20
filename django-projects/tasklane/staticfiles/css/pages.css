@@ -1,0 +1,120 @@
+/* pages.css — styles specific to individual pages */
+
+/* ---------- Auth (login / register) ---------- */
+.auth-card { width: min(100%, 26rem); }
+.auth-card__brand { text-align: center; }
+.auth-card__alt { text-align: center; font-size: 0.9375rem; color: var(--text-muted); }
+
+/* ---------- Task list (index) ---------- */
+.filter-form {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  align-items: end;
+}
+
+.filter-form .field--search { grid-column: span 2; }
+
+@media (max-width: 40rem) {
+  .filter-form .field--search { grid-column: auto; }
+}
+
+.task-list { display: grid; gap: var(--space-3); }
+
+.task {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.task__body { flex: 1; min-width: 0; }
+.task__title { font-weight: 700; }
+.task__desc { color: var(--text-muted); font-size: 0.9375rem; }
+
+.task__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.task--done .task__title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* Round check button (a submit button inside a form) */
+.check {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.1rem;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.check:hover { border-color: var(--accent); }
+
+.check--on {
+  border-color: var(--accent);
+  background: var(--accent)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")
+    center / 70% no-repeat;
+}
+
+.empty {
+  padding: var(--space-6);
+  text-align: center;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+}
+
+/* ---------- Management ---------- */
+.manage-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.manage-item__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+
+.manage-item__title { flex: 1; min-width: 10rem; font-weight: 600; }
+.manage-item__actions { display: flex; gap: var(--space-2); align-items: center; }
+
+.manage-item details summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.manage-item details summary::-webkit-details-marker { display: none; }
+
+.manage-item__edit {
+  padding: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Profile ---------- */
+.profile-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.profile-head p { color: var(--text-muted); }

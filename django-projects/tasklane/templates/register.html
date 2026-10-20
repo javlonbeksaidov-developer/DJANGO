@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<main class="auth-shell">
+  <button class="icon-btn auth-shell__theme" type="button" data-theme-toggle aria-label="Switch theme">
+    <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+  </button>
+
+  <section class="card auth-card">
+    <div class="auth-card__brand">
+      <h1>Create your account</h1>
+      <p class="field__hint">It takes less than a minute.</p>
+    </div>
+
+    <form class="form" action="{% url 'main:register' %}" method="post">
+      <div class="field">
+        <label for="full-name">Full name</label>
+        <input class="input" id="full-name" name="full_name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input class="input" id="password" name="password" type="password" autocomplete="new-password" minlength="8"
+            required>
+          <button class="password-wrap__toggle" type="button" data-password-toggle="password">Show</button>
+        </div>
+        <p class="field__hint">Use at least 8 characters.</p>
+      </div>
+      <button class="btn btn--block" type="submit">Create account</button>
+    </form>
+
+    <p class="auth-card__alt">Already have an account? <a href="{% url 'main:login' %}">Log in</a></p>
+  </section>
+</main>
+
+{% endblock content %}
