@@ -15,7 +15,8 @@
         <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
           <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
         </button>
-        <form action="logout" method="post">
+        <form action="{% url 'main:logout' %}" method="post">
+          {% csrf_token %}
           <button class="btn btn--ghost btn--sm" type="submit">Log out</button>
         </form>
       </div>
@@ -37,28 +38,33 @@
   <div class="grid-2">
     <section class="card" aria-labelledby="details-title">
       <h2 id="details-title">Your details</h2>
-      <form class="form" action="profile/update" method="post">
+
+      <form class="form" action="{% url 'main:profile_update' %}" method="post">
+        {% csrf_token %}
         <div class="field">
           <label for="full-name">Full name</label>
-          <input class="input" id="full-name" name="full_name" type="text" value="Alisher Karimov" required>
+          <input class="input" id="full-name" name="first_name" type="text" value="{{ user.first_name }}" required>
         </div>
         <div class="field">
-          <label for="email">Email</label>
-          <input class="input" id="email" name="email" type="email" value="alisher@example.com" required>
+          <label for="username">Username</label>
+          <input class="input" id="username" name="username" type="text" value="{{ user.username }}" required>
         </div>
         <div class="field">
           <label for="bio">About you</label>
-          <textarea class="textarea" id="bio" name="bio"></textarea>
+          <textarea class="textarea" id="bio" name="about">{{ user.profile.about }}</textarea>
         </div>
         <div class="form-actions">
           <button class="btn" type="submit">Save changes</button>
         </div>
       </form>
+
     </section>
 
     <section class="card" aria-labelledby="password-title">
       <h2 id="password-title">Change password</h2>
-      <form class="form" action="profile/password" method="post">
+
+      <form class="form" action="{% url 'main:profile_password' %}" method="post">
+        {% csrf_token %}
         <div class="field">
           <label for="current-password">Current password</label>
           <input class="input" id="current-password" name="current_password" type="password"
@@ -74,13 +80,15 @@
           <button class="btn" type="submit">Update password</button>
         </div>
       </form>
+
     </section>
   </div>
 
   <section class="card card--danger" aria-labelledby="delete-title">
     <h2 id="delete-title">Delete account</h2>
     <p>This permanently removes your account and all your tasks.</p>
-    <form action="profile/delete" method="post">
+    <form action="{% url 'main:profile_delete' %}" method="post">
+      {% csrf_token %}
       <button class="btn btn--danger" type="submit">Delete my account</button>
     </form>
   </section>

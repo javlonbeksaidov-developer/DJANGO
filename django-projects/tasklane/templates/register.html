@@ -14,13 +14,14 @@
     </div>
 
     <form class="form" action="{% url 'main:register' %}" method="post">
+      {% csrf_token %}
       <div class="field">
         <label for="full-name">Full name</label>
         <input class="input" id="full-name" name="full_name" type="text" autocomplete="name" required>
       </div>
       <div class="field">
-        <label for="email">Email</label>
-        <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+        <label for="username">Username</label>
+        <input class="input" id="username" name="username" type="text" autocomplete="username" required>
       </div>
       <div class="field">
         <label for="password">Password</label>

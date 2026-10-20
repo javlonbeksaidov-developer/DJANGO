@@ -15,7 +15,8 @@
         <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
           <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
         </button>
-        <form action="logout" method="post">
+        <form action="{% url 'main:logout' %}" method="post">
+          {% csrf_token %}
           <button class="btn btn--ghost btn--sm" type="submit">Log out</button>
         </form>
       </div>
@@ -64,58 +65,43 @@
   </form>
 
   <ul class="task-list">
-    <li class="task">
-      <form action="tasks/1/toggle" method="post">
-        <button class="check" type="submit" aria-label="Mark “Prepare lesson 12 slides” as done"></button>
-      </form>
-      <div class="task__body">
-        <h2 class="task__title">Prepare lesson 12 slides</h2>
-        <p class="task__desc">Django forms and validation, with two exercises.</p>
-        <div class="task__meta">
-          <span class="badge badge--high">High</span>
-          <span>Due Oct 22</span>
-        </div>
-      </div>
-    </li>
+    {% for task in tasks %}
 
-    <li class="task">
-      <form action="tasks/2/toggle" method="post">
-        <button class="check" type="submit" aria-label="Mark “Send invoice to client” as done"></button>
-      </form>
-      <div class="task__body">
-        <h2 class="task__title">Send invoice to client</h2>
-        <div class="task__meta">
-          <span class="badge badge--medium">Medium</span>
-          <span>Due Oct 25</span>
-        </div>
-      </div>
-    </li>
-
-    <li class="task">
-      <form action="tasks/3/toggle" method="post">
-        <button class="check" type="submit" aria-label="Mark “Renew SSL certificate” as done"></button>
-      </form>
-      <div class="task__body">
-        <h2 class="task__title">Renew SSL certificate</h2>
-        <div class="task__meta">
-          <span class="badge badge--low">Low</span>
-          <span>Due Nov 3</span>
-        </div>
-      </div>
-    </li>
+    {% if task.status %}
 
     <li class="task task--done">
-      <form action="tasks/4/toggle" method="post">
+      <form action="{% url 'main:tasks_toggle' task.id %}" method="post">
+        {% csrf_token %}
         <button class="check check--on" type="submit" aria-label="Mark “Back up database” as open"></button>
       </form>
       <div class="task__body">
-        <h2 class="task__title">Back up database</h2>
+        <h2 class="task__title">{{ task.title }}</h2>
         <div class="task__meta">
-          <span class="badge badge--medium">Medium</span>
-          <span>Done Oct 18</span>
+          <span class="badge badge--medium">{{ task.priority }}</span>
+          <span>{{ task.due_date|date:'Y-m-d' }}</span>
         </div>
       </div>
     </li>
+
+    {% else %}
+
+    <li class="task">
+      <form action="{% url 'main:tasks_toggle' task.id %}" method="post">
+        {% csrf_token %}
+        <button class="check" type="submit" aria-label="Mark “Renew SSL certificate” as done"></button>
+      </form>
+      <div class="task__body">
+        <h2 class="task__title">{{ task.title }}</h2>
+        <div class="task__meta">
+          <span class="badge badge--low">{{ task.priority }}</span>
+          <span>{{ task.due_date|date:'Y-m-d' }}</span>
+        </div>
+      </div>
+    </li>
+
+    {% endif %}
+    {% endfor %}
+
   </ul>
 
 </main>

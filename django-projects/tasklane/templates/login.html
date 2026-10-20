@@ -14,9 +14,10 @@
     </div>
 
     <form class="form" action="{% url 'main:login' %}" method="post">
+      {% csrf_token %}
       <div class="field">
-        <label for="email">Email</label>
-        <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+        <label for="username">Username</label>
+        <input class="input" id="username" name="username" type="text" autocomplete="username" required>
       </div>
       <div class="field">
         <label for="password">Password</label>
