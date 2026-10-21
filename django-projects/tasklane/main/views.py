@@ -1,4 +1,6 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 
@@ -7,6 +9,7 @@ from .models import *
 # Create your views here.
 
 
+@login_required()
 def index_page(request):
     data = {}
     tasks = Tasks.objects.all()
@@ -33,6 +36,7 @@ def login_page(request):
 
         user = authenticate(request=request, username=username, password=password)
         if user is None:
+            messages.error(request, message="Username or password is wrong !")
             return redirect("main:login")
 
         login(request, user)
