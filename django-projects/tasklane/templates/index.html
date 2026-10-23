@@ -20,7 +20,7 @@
     <div class="field">
       <label for="status">Status</label>
       <select class="select" id="status" name="status">
-        <option value="">All</option>
+        <option value="any">Any</option>
         <option value="open">Open</option>
         <option value="done">Done</option>
       </select>
@@ -28,14 +28,14 @@
     <div class="field">
       <label for="priority">Priority</label>
       <select class="select" id="priority" name="priority">
-        <option value="">Any</option>
+        <option value="any">Any</option>
         <option value="high">High</option>
         <option value="medium">Medium</option>
         <option value="low">Low</option>
       </select>
     </div>
     <div class="form-actions">
-      <button class="btn" type="submit">Apply</button>
+      <button class="btn" type="submit" name="filter">Apply</button>
       <a class="btn btn--ghost" href="{% url 'main:index' %}">Reset</a>
     </div>
   </form>

@@ -12,11 +12,30 @@ from .models import *
 @login_required()
 def index_page(request):
     data = {}
-    tasks = Tasks.objects.all()
-    data["tasks"] = tasks
+    tasks = Tasks.objects
+
+    if request.method == "GET" and "filter" in request.GET:
+        q = request.GET.get("q")
+        status = request.GET.get("status")
+        priority = request.GET.get("priority")
+
+        if q:
+            tasks = tasks.filter(title__icontains=q)
+
+        if status == "open":
+            tasks = tasks.filter(status=False)
+
+        if status == "done":
+            tasks = tasks.filter(status=True)
+
+        if priority != "any":
+            tasks = tasks.filter(priority=priority.strip())
+
+    data["tasks"] = tasks.all()
     return render(request, "index.html", context=data)
 
 
+@login_required()
 def tasks_toggle_page(request, pk):
     task = Tasks.objects.filter(id=pk).first()
 
@@ -66,10 +85,12 @@ def logout_page(request):
     return redirect("main:login")
 
 
+@login_required()
 def profile_page(request):
     return render(request, "profile.html")
 
 
+@login_required()
 def profile_update_page(request):
     current_user = request.user
     if request.method == "POST":
@@ -89,6 +110,7 @@ def profile_update_page(request):
     return render(request, "profile.html")
 
 
+@login_required()
 def profile_delete_page(request):
     current_user = request.user
     if request.method == "POST":
@@ -98,6 +120,7 @@ def profile_delete_page(request):
     return render(request, "profile.html")
 
 
+@login_required()
 def profile_password_page(request):
     current_user = request.user
     if request.method == "POST":
@@ -113,6 +136,7 @@ def profile_password_page(request):
     return render(request, "profile.html")
 
 
+@login_required()
 def manage_page(request):
     data = {}
 
@@ -136,6 +160,7 @@ def manage_page(request):
     return render(request, "manage.html", context=data)
 
 
+@login_required()
 def task_update_page(request, pk):
     task = Tasks.objects.filter(id=pk).first()
     if request.method == "POST":
@@ -150,6 +175,7 @@ def task_update_page(request, pk):
     return render(request, "index.html")
 
 
+@login_required()
 def task_delete_page(request, pk):
     task = Tasks.objects.filter(id=pk).first()
     if request.method == "POST":
