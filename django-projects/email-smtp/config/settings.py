@@ -128,10 +128,12 @@ STATIC_URL = 'static/'
 #     },
 # }
 
+from decouple import config
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "javlonbeksaidov09@gmil.com"
-EMAIL_HOST_PASSWORD = "rqnu uhpr kjuv kzkl"                # https://myaccount.google.com/apppasswords search = app password / пароль приложения 
-DEFAULT_FROM_EMAIL = "javlonbeksaidov09@gmil.com"
+EMAIL_HOST_USER = "javlonbeksaidov09@gmail.com"
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")              # https://myaccount.google.com/apppasswords
+DEFAULT_FROM_EMAIL = "javlonbeksaidov09@gmail.com"
