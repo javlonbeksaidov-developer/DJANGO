@@ -1,0 +1,184 @@
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .post-create {
+        width: 90%;
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 35px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        color: #1e293b;
+    }
+
+    .post-create h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: #172554;
+    }
+
+    .post-create .subtitle {
+        color: #64748b;
+        margin-bottom: 28px;
+        line-height: 1.6;
+    }
+
+    .form-group {
+        margin-bottom: 22px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 9px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #334155;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 13px 15px;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        background: #f8fafc;
+        color: #1e293b;
+        font: inherit;
+        font-size: 14px;
+        outline: none;
+        transition: 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: #3b82f6;
+        background: #ffffff;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+    }
+
+    .form-group textarea {
+        min-height: 160px;
+        resize: vertical;
+        line-height: 1.6;
+    }
+
+    .form-group input[type="file"] {
+        padding: 12px;
+        cursor: pointer;
+        background: #f1f5f9;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+    }
+
+    .form-btn {
+        display: inline-block;
+        padding: 13px 22px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #2563eb, #6366f1);
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .form-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+    }
+
+    .cancel-btn {
+        background: #e2e8f0;
+        color: #334155;
+    }
+
+    .cancel-btn:hover {
+        background: #cbd5e1;
+        box-shadow: none;
+    }
+
+    .error-message {
+        margin-bottom: 18px;
+        padding: 12px;
+        border-radius: 8px;
+        background: #fef2f2;
+        color: #b91c1c;
+        font-size: 14px;
+    }
+
+    @media (max-width: 550px) {
+        .post-create {
+            padding: 23px;
+            margin: 25px auto;
+        }
+
+        .post-create h1 {
+            font-size: 24px;
+        }
+    }
+</style>
+
+<div class="post-create">
+
+    <h1>Create a Post</h1>
+
+    <p class="subtitle">
+        Share your ideas, stories and photos with the community.
+    </p>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="error-message">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <form method="post" action="{% url 'posts:post_create' %}" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="title">Post Title</label>
+            <input type="text" id="title" name="title" placeholder="Enter post title..." maxlength="255" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Write something about your post..."
+                required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Post Image</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="form-btn">
+                Publish Post
+            </button>
+
+            <a href="{% url 'main:home' %}" class="form-btn cancel-btn">
+                Cancel
+            </a>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock content %}
+```
