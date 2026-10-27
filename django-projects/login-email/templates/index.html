@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar nav a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .navbar nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Main */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+
+        .welcome {
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.04);
+            margin-bottom: 30px;
+        }
+
+        .welcome h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .welcome p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            padding: 25px;
+            background: white;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .card h2 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 17px;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-red {
+            background: #dc2626;
+        }
+
+        .btn-red:hover {
+            background: #b91c1c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .navbar nav {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .container {
+                margin: 25px auto;
+            }
+
+            .welcome {
+                padding: 25px;
+            }
+
+            .welcome h1 {
+                font-size: 26px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="{% url 'posts:index' %}" class="logo">
+            MyWebsite
+        </a>
+
+        <nav>
+            <a href="{% url 'posts:index' %}">Home</a>
+            <a href="{% url 'auth_app:profile' %}">Profile</a>
+            <a href="{% url 'posts:post_create' %}">Add Post</a>
+            <a href="{% url 'auth_app:login' %}">Login</a>
+            <a href="{% url 'auth_app:register' %}">Register</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <section class="welcome">
+            <h1>Welcome, {{ user.username }}!</h1>
+
+            <p>
+                Welcome to our website.
+                Manage your profile, change your password,
+                create posts and explore the latest posts.
+            </p>
+        </section>
+
+        <!-- Menu Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <h2>My Profile</h2>
+                <p>
+                    View and manage your account information.
+                </p>
+                <a href="{% url 'auth_app:profile' %}" class="btn">
+                    View Profile
+                </a>
+            </div>
+
+            <div class="card">
+                <h2>Change Password</h2>
+                <p>
+                    Update your password to keep your account secure.
+                </p>
+                <a href="{% url 'auth_app:password_change' %}" class="btn">
+                    Change Password
+                </a>
+            </div>
+
+            <div class="card">
+                <h2>Add New Post</h2>
+                <p>
+                    Create a new post and share it on the website.
+                </p>
+                <a href="{% url 'posts:post_create' %}" class="btn">
+                    Create Post
+                </a>
+            </div>
+
+            <div class="card">
+                <h2>Explore Posts</h2>
+                <p>
+                    Visit the home page to see published posts.
+                </p>
+                <a href="{% url 'posts:index' %}" class="btn">
+                    View Posts
+                </a>
+            </div>
+
+            <div class="card">
+                <h2>Logout</h2>
+                <p>
+                    Log out of your account securely.
+                </p>
+
+                <form action="{% url 'auth_app:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-red">
+                        Logout
+                    </button>
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2026 MyWebsite. All rights reserved.
+    </footer>
+
+</body>
+
+</html>
