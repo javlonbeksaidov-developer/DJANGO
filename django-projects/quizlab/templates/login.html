@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<script src="{% static 'script.js' %}"></script>
+<title>Log in – quizlab</title>
+</head>
+<body>
+  <main class="auth">
+    <form method="post" action="login">
+      <a class="logo" href="index.html">quiz<b>lab</b></a>
+      <h1>Welcome back</h1>
+      <p class="muted" style="margin-bottom:22px">Log in to continue your quizzes.</p>
+      <div class="field"><label for="user">Username or email</label><input id="user" name="username" autocomplete="username" required autofocus></div>
+      <div class="field"><label for="pw">Password</label><input id="pw" type="password" name="password" autocomplete="current-password" required></div>
+      <label class="check"><input type="checkbox" name="remember"> Keep me logged in</label>
+      <button class="btn block" type="submit">Log in</button>
+      <p class="alt muted">New here? <a href="register.html">Create an account</a></p>
+    </form>
+  </main>
+</body>
+</html>

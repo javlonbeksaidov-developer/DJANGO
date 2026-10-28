@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="qhead">
+  <div class="container bar">
+    <div>
+      <strong>HTML forms and validation</strong><br>
+      <span class="muted">Web development · 3 questions shown</span>
+    </div>
+    <span class="spacer"></span>
+    <span class="timer" data-minutes="12" aria-live="off">12:00</span>
+  </div>
+</div>
+
+<main class="qwrap">
+  <form method="post" action="quiz-submit">
+    <input type="hidden" name="quiz_id" value="2">
+    <fieldset class="question" style="border:1px solid var(--line)">
+      <legend class="tag">Question 1 of 3</legend>
+      <h2>Which attribute makes an input required before the form can be submitted?</h2>
+      <label class="option"><input type="radio" name="q1" value="a" required> mandatory</label>
+      <label class="option"><input type="radio" name="q1" value="b"> required</label>
+      <label class="option"><input type="radio" name="q1" value="c"> validate</label>
+      <label class="option"><input type="radio" name="q1" value="d"> must</label>
+    </fieldset>
+    <fieldset class="question" style="border:1px solid var(--line)">
+      <legend class="tag">Question 2 of 3</legend>
+      <h2>Which input type shows a browser date picker?</h2>
+      <label class="option"><input type="radio" name="q2" value="a" required> type="calendar"</label>
+      <label class="option"><input type="radio" name="q2" value="b"> type="datetime-text"</label>
+      <label class="option"><input type="radio" name="q2" value="c"> type="date"</label>
+      <label class="option"><input type="radio" name="q2" value="d"> type="day"</label>
+    </fieldset>
+    <fieldset class="question" style="border:1px solid var(--line)">
+      <legend class="tag">Question 3 of 3</legend>
+      <h2>What does method="get" do when a form is submitted?</h2>
+      <label class="option"><input type="radio" name="q3" value="a" required> Sends values in the URL query
+        string</label>
+      <label class="option"><input type="radio" name="q3" value="b"> Sends values in the request body</label>
+      <label class="option"><input type="radio" name="q3" value="c"> Stores values in a cookie</label>
+      <label class="option"><input type="radio" name="q3" value="d"> Blocks the request</label>
+    </fieldset>
+    <div class="submit-bar">
+      <a class="btn ghost" href="index.html">Leave quiz</a>
+      <button class="btn" type="submit">Finish quiz</button>
+    </div>
+  </form>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<script src="{% static 'script.js' %}"></script>
+<title>Sign up – quizlab</title>
+</head>
+<body>
+  <main class="auth">
+    <form method="post" action="register">
+      <a class="logo" href="index.html">quiz<b>lab</b></a>
+      <h1>Create your account</h1>
+      <p class="muted" style="margin-bottom:22px">It takes less than a minute.</p>
+      <div class="two">
+        <div class="field"><label for="first">First name</label><input id="first" name="first_name" autocomplete="given-name" required autofocus></div>
+        <div class="field"><label for="last">Last name</label><input id="last" name="last_name" autocomplete="family-name" required></div>
+      </div>
+      <div class="field"><label for="uname">Username</label><input id="uname" name="username" autocomplete="username" minlength="3" required></div>
+      <div class="field"><label for="mail">Email</label><input id="mail" type="email" name="email" autocomplete="email" required></div>
+      <div class="field"><label for="p1">Password</label><input id="p1" type="password" name="password1" minlength="8" autocomplete="new-password" required></div>
+      <div class="field"><label for="p2">Repeat password</label><input id="p2" type="password" name="password2" minlength="8" autocomplete="new-password" required></div>
+      <button class="btn block" type="submit">Create account</button>
+      <p class="alt muted">Already registered? <a href="login.html">Log in</a></p>
+    </form>
+  </main>
+</body>
+</html>

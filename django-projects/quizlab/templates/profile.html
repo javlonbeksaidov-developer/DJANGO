@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main class="container profile">
+  <aside>
+    <section class="panel who">
+      <span class="avatar lg">JK</span>
+      <h1 style="font-size:1.4rem">Jasur Karimov</h1>
+      <p class="muted">@jasur · joined Aug 2026</p>
+      <div class="stats">
+        <div><b>12</b><span>Solved</span></div>
+        <div><b>78%</b><span>Average</span></div>
+        <div><b>#4</b><span>Rank</span></div>
+      </div>
+    </section>
+  </aside>
+
+  <div>
+    <form class="panel" method="post" action="profile-update" enctype="multipart/form-data">
+      <h2>Personal details</h2>
+      <div class="two">
+        <div class="field"><label for="first">First name</label><input id="first" name="first_name" value="Jasur"
+            required></div>
+        <div class="field"><label for="last">Last name</label><input id="last" name="last_name" value="Karimov"
+            required></div>
+      </div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" name="email"
+          value="jasur@example.com" required></div>
+      <div class="field"><label for="bio">About you</label><textarea id="bio" name="bio"
+          rows="3">Learning backend development.</textarea></div>
+      <div class="field"><label for="photo">Profile photo</label><input id="photo" type="file" name="photo"
+          accept="image/*"></div>
+      <button class="btn" type="submit">Save changes</button>
+    </form>
+
+    <form class="panel" method="post" action="password-change">
+      <h2>Change password</h2>
+      <div class="field"><label for="old">Current password</label><input id="old" type="password" name="old_password"
+          autocomplete="current-password" required></div>
+      <div class="two">
+        <div class="field"><label for="new1">New password</label><input id="new1" type="password" name="new_password1"
+            minlength="8" autocomplete="new-password" required></div>
+        <div class="field"><label for="new2">Repeat new password</label><input id="new2" type="password"
+            name="new_password2" minlength="8" autocomplete="new-password" required></div>
+      </div>
+      <button class="btn ghost" type="submit">Update password</button>
+    </form>
+
+    <section class="panel">
+      <h2>Recent results</h2>
+      <div class="rows">
+        <a class="row" href="quiz.html?id=11"><span class="grow"><strong>Python lists and dictionaries</strong><span
+              class="muted">24 Oct</span></span><span class="score ok">9/10</span></a>
+        <a class="row" href="quiz.html?id=12"><span class="grow"><strong>CSS flexbox and grid</strong><span
+              class="muted">20 Oct</span></span><span class="score ok">8/10</span></a>
+        <a class="row" href="quiz.html?id=13"><span class="grow"><strong>Linear equations</strong><span class="muted">15
+              Oct</span></span><span class="score bad">4/12</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+{% endblock content %}

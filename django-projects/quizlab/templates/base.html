@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+    <title>HTML forms and validation – quizlab</title>
+</head>
+
+<body>
+    <header class="site">
+        <div class="container bar">
+            <a class="logo" href="index.html">quiz<b>lab</b></a>
+            <nav class="nav" id="nav" aria-label="Main">
+                <a href="index.html">Quizzes</a>
+                <a href="index.html#solved">My results</a>
+                <a href="index.html#top">Leaderboard</a>
+            </nav>
+            <span class="spacer"></span>
+            <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">◐</button>
+            <details class="menu">
+                <summary aria-label="Account menu"><span class="avatar">JK</span></summary>
+                <div class="dropdown">
+                    <a href="profile.html">Profile</a>
+                    <hr>
+                    <form method="post" action="logout"><button type="submit">Log out</button></form>
+                </div>
+            </details>
+            <button class="icon-btn burger" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+</body>
+
+</html>

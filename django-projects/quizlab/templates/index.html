@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main class="container">
+  <div class="top">
+    <h1>Pick a quiz, beat the clock.</h1>
+    <p class="muted">3 quizzes open this week. You have solved 12 so far.</p>
+  </div>
+
+  <form class="filter" method="get" action="index.html">
+    <input type="search" name="q" placeholder="Search by title" aria-label="Search quizzes">
+    <select name="field" aria-label="Field">
+      <option value="">All fields</option>
+      <option value="python">Python</option>
+      <option value="web">Web development</option>
+      <option value="english">English</option>
+      <option value="math">Math</option>
+    </select>
+    <button class="btn" type="submit">Filter</button>
+    <a class="btn ghost" href="index.html">Reset</a>
+  </form>
+
+  <div class="layout">
+    <div>
+      <section id="upcoming">
+        <h2>Upcoming quizzes</h2>
+        <div class="grid">
+          <article class="quiz">
+            <span class="tag">Python</span>
+            <h3>Python functions and scope</h3>
+            <div class="meta"><span>15 questions</span><span>20 min</span></div>
+            <p class="muted">Opens 30 Oct, 10:00</p>
+            <form method="post" action="quiz-reminder"><input type="hidden" name="quiz_id" value="1"><button
+                class="btn ghost block" type="submit">Remind me</button></form>
+          </article>
+          <article class="quiz">
+            <span class="tag">Web development</span>
+            <h3>HTML forms and validation</h3>
+            <div class="meta"><span>10 questions</span><span>12 min</span></div>
+            <p class="muted">Open now · closes 2 Nov</p>
+            <form method="get" action="quiz.html"><input type="hidden" name="id" value="2"><button class="btn block"
+                type="submit">Start quiz</button></form>
+          </article>
+          <article class="quiz">
+            <span class="tag">English</span>
+            <h3>IELTS reading: True / False / Not Given</h3>
+            <div class="meta"><span>13 questions</span><span>18 min</span></div>
+            <p class="muted">Open now · closes 4 Nov</p>
+            <form method="get" action="quiz.html"><input type="hidden" name="id" value="3"><button class="btn block"
+                type="submit">Start quiz</button></form>
+          </article>
+          <article class="quiz">
+            <span class="tag">Math</span>
+            <h3>Probability basics</h3>
+            <div class="meta"><span>12 questions</span><span>15 min</span></div>
+            <p class="muted">Opens 6 Nov, 09:00</p>
+            <form method="post" action="quiz-reminder"><input type="hidden" name="quiz_id" value="4"><button
+                class="btn ghost block" type="submit">Remind me</button></form>
+          </article>
+        </div>
+      </section>
+
+      <section id="solved">
+        <h2>Solved quizzes</h2>
+        <div class="rows">
+          <a class="row" href="quiz.html?id=11">
+            <span class="grow"><strong>Python lists and dictionaries</strong><span class="muted">Python · 24
+                Oct</span></span>
+            <span class="score ok">9/10</span>
+          </a>
+          <a class="row" href="quiz.html?id=12">
+            <span class="grow"><strong>CSS flexbox and grid</strong><span class="muted">Web development · 20
+                Oct</span></span>
+            <span class="score ok">8/10</span>
+          </a>
+          <a class="row" href="quiz.html?id=13">
+            <span class="grow"><strong>Linear equations</strong><span class="muted">Math · 15 Oct</span></span>
+            <span class="score bad">4/12</span>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <aside class="side" id="top">
+      <h2>Top solvers</h2>
+      <ol class="solvers">
+        <li><span class="rank">1</span><span class="avatar">AB</span><span>Aziza B.</span><span class="pts">1 840</span>
+        </li>
+        <li><span class="rank">2</span><span class="avatar">SR</span><span>Sardor R.</span><span class="pts">1
+            720</span></li>
+        <li><span class="rank">3</span><span class="avatar">DN</span><span>Dilnoza N.</span><span class="pts">1
+            655</span></li>
+        <li><span class="rank">4</span><span class="avatar">JK</span><span>You</span><span class="pts">1 410</span></li>
+        <li><span class="rank">5</span><span class="avatar">OT</span><span>Otabek T.</span><span class="pts">1
+            380</span></li>
+      </ol>
+      <form method="get" action="leaderboard" style="margin-top:14px">
+        <select name="period" aria-label="Period">
+          <option value="week">This week</option>
+          <option value="month">This month</option>
+          <option value="all">All time</option>
+        </select>
+        <button class="btn ghost block" type="submit" style="margin-top:8px">Show</button>
+      </form>
+    </aside>
+  </div>
+</main>
+
+{% endblock content %}
