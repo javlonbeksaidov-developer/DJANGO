@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yangi post</title>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f1f5f9; font-family: Arial, sans-serif;">
+
+    <!-- Asosiy email wrapper -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%"
+        style="table-layout: fixed; background-color: #f1f5f9; padding: 40px 0;">
+        <tr>
+            <td align="center">
+
+                <!-- Email konteyneri (Maksimal kengligi 600px) -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                    style="max-width: 600px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+
+                    <!-- Header (Logotip yoki sayt nomi) -->
+                    <tr>
+                        <td
+                            style="background: linear-gradient(135deg, #0f172a, #1e293b); padding: 25px 30px; text-align: center;">
+                            <span
+                                style="color: #ffffff; font-size: 22px; font-weight: bold; letter-spacing: -0.5px;">MyWebsite</span>
+                            <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Yangi post e'lon qilindi!
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Post Rasmi -->
+                    {% if image_url %}
+                    <tr>
+                        <td style="padding: 0;">
+                            <img src="{{ image_url }}" alt="{{ post.title }}" width="600"
+                                style="width: 100%; max-width: 600px; height: 300px; object-fit: cover; display: block;">
+                        </td>
+                    </tr>
+                    {% endif %}
+
+                    <!-- Post Matn qismi -->
+                    <tr>
+                        <td style="padding: 35px 30px 20px 30px;">
+
+                            <!-- Muallif va Sana -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 15px;">
+                                <tr>
+                                    <td style="color: #64748b; font-size: 13px;">
+                                        Muallif: <strong style="color: #1e293b;">{{ post.user.username }}</strong>
+                                    </td>
+                                    <td align="right" style="color: #94a3b8; font-size: 13px;">
+                                        {{ post.created_at|date:"d.m.Y H:i" }}
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Sarlavha (Title) -->
+                            <h1
+                                style="color: #0f172a; font-size: 24px; font-weight: 700; margin: 0 0 15px 0; line-height: 1.4;">
+                                {{ post.title }}
+                            </h1>
+
+                            <!-- Tavsif (Description) -->
+                            <p style="color: #475569; font-size: 15px; line-height: 1.7; margin: 0 0 30px 0;">
+                                {{ post.description }}
+                            </p>
+
+                            <!-- Tugma (Button) -->
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="center"
+                                        style="border-radius: 10px; background: linear-gradient(135deg, #2563eb, #6366f1);">
+                                        <a href="https://sizning-sayt.uz/posts/{{ post.id }}/" target="_blank"
+                                            style="font-size: 14px; font-weight: bold; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 10px; border: 1px solid #2563eb; display: inline-block;">
+                                            Postni o'qish &rarr;
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer (Pastki qism) -->
+                    <tr>
+                        <td
+                            style="background-color: #f8fafc; padding: 20px 30px; text-align: center; border-top: 1px solid #e2e8f0;">
+                            <p style="color: #94a3b8; font-size: 12px; margin: 0; line-height: 1.5;">
+                                Ushbu xat <strong style="color: #64748b;">MyWebsite</strong> saytida ro'yxatdan
+                                o'tganingiz uchun yuborildi.<br>
+                                &copy; 2026 MyWebsite. Barcha huquqlar himoyalangan.
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- End Email konteyneri -->
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

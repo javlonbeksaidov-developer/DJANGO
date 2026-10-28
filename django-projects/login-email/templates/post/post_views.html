@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    /* ==========================================================
+       POSTLAR RO'YXATI UCHUN ALOHIDA VA CHIROYLI DIZAYN
+       ========================================================== */
+
+    /* Asosiy konteyner - 3 ta ustunli grid tizimi */
+    .posts-container {
+        width: 100%;
+        margin: 40px auto;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px; /* Kartalar orasidagi oraliq */
+    }
+
+    /* Post kartasining o'zi */
+    .posts-container .post-card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        color: #1e293b;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Sichqoncha borganda karta yuqoriga ko'tariladi va yorqinlashadi */
+    .posts-container .post-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Rasm qismi */
+    .posts-container .post-image {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        background: #f1f5f9;
+        position: relative;
+    }
+
+    .posts-container .post-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Rasm proporsiyasini saqlab, chiroyli to'ldiradi */
+        transition: transform 0.4s ease;
+    }
+
+    /* Kartaga hover bo'lganda rasm biroz kattalashadi (zoom effekti) */
+    .posts-container .post-card:hover .post-image img {
+        transform: scale(1.06);
+    }
+
+    /* Matnlar qismi */
+    .posts-container .post-content {
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .posts-container .post-content h2 {
+        font-size: 19px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #172554;
+        line-height: 1.4;
+    }
+
+    .posts-container .post-content p {
+        color: #475569;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+        flex-grow: 1; /* Matn qisqa bo'lsa ham vaqtni pastga tekis surib turadi */
+    }
+
+    .posts-container .post-content small {
+        color: #94a3b8;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 12px;
+    }
+
+    /* Postlar topilmagandagi xabar (barcha ustunni egallaydi) */
+    .posts-container > p {
+        grid-column: 1 / -1;
+        text-align: center;
+        color: #ffffff;
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* ==========================================================
+       RESPONSIVE (Ekran o'lchamiga qarab moslashish)
+       ========================================================== */
+
+    /* Planshetlar uchun (2 tadan chiqadi) */
+    @media (max-width: 900px) {
+        .posts-container {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+    }
+
+    /* Telefonlar uchun (1 tadan ustma-ust chiqadi) */
+    @media (max-width: 550px) {
+        .posts-container {
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        .posts-container .post-image {
+            height: 200px;
+        }
+
+        .posts-container .post-content {
+            padding: 18px;
+        }
+    }
+</style>
+
+<div class="posts-container">
+    {% for post in posts %}
+    <div class="post-card">
+        <div class="post-image">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        </div>
+        <div class="post-content">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.description|truncatewords:20 }}</p>
+            <small>{{ post.created_at|date:"d.m.Y H:i" }}</small>
+        </div>
+    </div>
+    {% empty %}
+    <p>Hozircha postlar mavjud emas.</p>
+    {% endfor %}
+</div>
+
+{% endblock content %}
