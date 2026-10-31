@@ -55,23 +55,16 @@
       <section id="solved">
         <h2>Solved quizzes</h2>
         <div class="rows">
+          {% for answer in answers %}
           <a class="row" href="quiz.html?id=11">
-            <span class="grow"><strong>Python lists and dictionaries</strong><span class="muted">Python · 24
-                Oct</span></span>
-            <span class="score ok">9/10</span>
+            <span class="grow"><strong>{{ answer.quiz.title }}</strong><span class="muted">{{ answer.quiz.science }}</span></span>
+            <span class="score ok">{{ answer.correct_answers }}/{{ answer.quiz.questions.count }}</span>
           </a>
-          <a class="row" href="quiz.html?id=12">
-            <span class="grow"><strong>CSS flexbox and grid</strong><span class="muted">Web development · 20
-                Oct</span></span>
-            <span class="score ok">8/10</span>
-          </a>
-          <a class="row" href="quiz.html?id=13">
-            <span class="grow"><strong>Linear equations</strong><span class="muted">Math · 15 Oct</span></span>
-            <span class="score bad">4/12</span>
-          </a>
+          {% endfor %}
+
         </div>
       </section>
-      
+
     </div>
 
     <aside class="side" id="top">

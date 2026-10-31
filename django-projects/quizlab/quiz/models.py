@@ -71,7 +71,7 @@ class Answers(models.Model):
     correct_answers = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"{self.user} - {self.correct_answers} ball"
+        return f"{self.user.username} - {self.correct_answers} ball"
 
     class Meta:
         verbose_name = "Javob"
