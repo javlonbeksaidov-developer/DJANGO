@@ -1,22 +1,98 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<style>
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin: 45px 0 20px;
+    padding: 20px;
+  }
+
+  .page-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: #151b26;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .page-btn:hover {
+    background: #229ED9;
+    color: #fff;
+    border-color: #229ED9;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(34, 158, 217, 0.25);
+  }
+
+  .page-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 18px;
+    background: #151b26;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    font-size: 14px;
+  }
+
+  .current-page {
+    color: #229ED9;
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .page-separator {
+    color: #64748b;
+  }
+
+  .total-pages {
+    color: #94a3b8;
+    font-weight: 600;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .pagination {
+      gap: 8px;
+      padding: 15px 5px;
+    }
+
+    .page-btn {
+      padding: 10px 13px;
+      font-size: 12px;
+    }
+
+    .page-info {
+      padding: 10px 12px;
+    }
+  }
+</style>
+
 <main class="container">
   <div class="top">
     <h1>Pick a quiz, beat the clock.</h1>
-    <p class="muted">3 quizzes open this week. You have solved 12 so far.</p>
   </div>
 
-  <form class="filter" method="get" action="index.html">
-    <input type="search" name="q" placeholder="Search by title" aria-label="Search quizzes">
-    <select name="field" aria-label="Field">
+  <form class="filter" method="get">
+    <input type="search" name="title" placeholder="Search by title" aria-label="Search quizzes">
+    <select name="fan" aria-label="Field">
       <option value="">All fields</option>
       {% for science in sciences %}
       <option value="{{ science.name }}">{{ science.name }}</option>
       {% endfor %}
     </select>
     <button class="btn" type="submit">Filter</button>
-    <a class="btn ghost" href="index.html">Reset</a>
+    <a class="btn ghost" href="{% url 'quiz:main' %}">Reset</a>
   </form>
 
   <div class="layout">
@@ -24,6 +100,10 @@
       <section id="upcoming">
         <h2>Upcoming quizzes</h2>
         <div class="grid">
+
+          {% if quizs_list.count == 0 %}
+          <p>Quiz topilmadi</p>
+          {% endif %}
 
           {% for quiz in quizs_list %}
 
@@ -40,8 +120,8 @@
 
             {% else %}
 
-            <form method="get" action="{% url 'quiz:quiz' quiz.pk %}"><button class="btn block"
-                type="submit">Start quiz</button></form>
+            <form method="get" action="{% url 'quiz:quiz' quiz.pk %}"><button class="btn block" type="submit">Start
+                quiz</button></form>
 
             {% endif %}
 
@@ -50,14 +130,37 @@
           {% endfor %}
 
         </div>
+
+        <div class="pagination">
+          {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}" class="page-btn prev">
+            <i class="fas fa-arrow-left"></i>
+            Oldingi
+          </a>
+          {% endif %}
+
+          <span class="page-info">
+            <span class="current-page">{{ page_obj.number }}</span>
+            <span class="page-separator">/</span>
+            <span class="total-pages">{{ page_obj.paginator.num_pages }}</span>
+          </span>
+
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" class="page-btn next">
+            Keyingi
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          {% endif %}
+        </div>
+
       </section>
 
       <section id="solved">
         <h2>Solved quizzes</h2>
         <div class="rows">
           {% for answer in answers %}
-          <a class="row" href="quiz.html?id=11">
-            <span class="grow"><strong>{{ answer.quiz.title }}</strong><span class="muted">{{ answer.quiz.science }}</span></span>
+          <a class="row" href="{% url 'quiz:quiz' answer.quiz.pk %}">
+            <span class="grow"><strong>{{ answer.quiz.title }}</strong><span class="muted">{{answer.quiz.science}}</span></span>
             <span class="score ok">{{ answer.correct_answers }}/{{ answer.quiz.questions.count }}</span>
           </a>
           {% endfor %}
@@ -80,14 +183,6 @@
         <li><span class="rank">5</span><span class="avatar">OT</span><span>Otabek T.</span><span class="pts">1
             380</span></li>
       </ol>
-      <form method="get" action="leaderboard" style="margin-top:14px">
-        <select name="period" aria-label="Period">
-          <option value="week">This week</option>
-          <option value="month">This month</option>
-          <option value="all">All time</option>
-        </select>
-        <button class="btn ghost block" type="submit" style="margin-top:8px">Show</button>
-      </form>
     </aside>
   </div>
 </main>

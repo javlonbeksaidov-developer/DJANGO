@@ -87,6 +87,9 @@ DATABASES = {
 MEDIA_URL = '/media/'
 MEDIA_DIRS = BASE_DIR/'media'
 
+LOGIN_URL = '/admin/'
+LOGIN_REDIRECT_URL = "/"
+
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators

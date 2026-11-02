@@ -10,3 +10,6 @@ class Profile(models.Model):
     joined_date = models.DateField(auto_now_add=True)
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+
+    def __str__(self):
+        return self.user.username

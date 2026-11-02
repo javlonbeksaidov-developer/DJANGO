@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.views import View
 from django.views.generic import DetailView, ListView
@@ -10,6 +11,21 @@ from .models import Answers, QuestionVariants, Quizs, Science
 class MainPage(ListView):
     template_name = "index.html"
     model = Quizs
+    paginate_by = 2
+
+    def get_queryset(self):
+        data = super().get_queryset()
+
+        title = self.request.GET.get("title")
+        fan = self.request.GET.get("fan")
+
+        if title:
+            data = data.filter(title__icontains=title)
+
+        if fan:
+            data = data.filter(science__name=fan)
+
+        return data.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -18,7 +34,7 @@ class MainPage(ListView):
 
         return context
 
-class QuizPage(DetailView):
+class QuizPage(LoginRequiredMixin, DetailView):
     template_name = "quiz.html"
     model = Quizs
     context_object_name = "quiz"

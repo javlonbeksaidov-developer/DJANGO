@@ -4,7 +4,7 @@
 <div class="qhead">
   <div class="container bar">
     <div>
-      <strong>HTML forms and validation</strong><br>
+      <strong>{{ quiz.science }}</strong><br>
       <span class="muted">{{ quiz.title }} · {{ quiz.questions.count }} ta savol</span>
     </div>
     <span class="spacer"></span>
@@ -21,7 +21,7 @@
     {% for question in quiz.questions.all %}
 
     <fieldset class="question" style="border:1px solid var(--line)">
-      <legend class="tag">Question {{ question.id }} of {{ quiz.questions.count }}</legend>
+      <legend class="tag">Question {{ forloop.counter }} of {{ quiz.questions.count }}</legend>
       <h2>{{ question.question_text }}</h2>
 
       {% for variant in question.question_variants.all %}
