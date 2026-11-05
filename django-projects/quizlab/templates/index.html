@@ -158,11 +158,14 @@
       <section id="solved">
         <h2>Solved quizzes</h2>
         <div class="rows">
-          {% for answer in answers %}
+          {% for answer in user.answers.all %}
           <a class="row" href="{% url 'quiz:quiz' answer.quiz.pk %}">
-            <span class="grow"><strong>{{ answer.quiz.title }}</strong><span class="muted">{{answer.quiz.science}}</span></span>
+            <span class="grow"><strong>{{ answer.quiz.title }}</strong><span
+                class="muted">{{answer.quiz.science}}</span></span>
             <span class="score ok">{{ answer.correct_answers }}/{{ answer.quiz.questions.count }}</span>
           </a>
+          {% empty %}
+          <p>Quiz hali ishlanmagan.</p>
           {% endfor %}
 
         </div>

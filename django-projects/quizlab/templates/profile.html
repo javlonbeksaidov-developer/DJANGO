@@ -59,7 +59,8 @@
       <button class="btn" type="submit">Save changes</button>
     </form>
 
-    <form class="panel" method="post" action="password-change">
+    <form class="panel" method="post" action="{% url 'user:password_change' %}">
+      {% csrf_token %}
       <h2>Change password</h2>
       <div class="field"><label for="old">Current password</label><input id="old" type="password" name="old_password"
           autocomplete="current-password" required></div>

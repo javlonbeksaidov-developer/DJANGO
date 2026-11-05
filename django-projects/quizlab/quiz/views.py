@@ -30,7 +30,6 @@ class MainPage(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["sciences"] = Science.objects.all()
-        context["answers"] = Answers.objects.all()
 
         return context
 

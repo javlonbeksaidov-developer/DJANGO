@@ -103,3 +103,5 @@ def register_page(request):
     return render(request, "register.html")
 
 
+def password_change_page(request):
+    pass
