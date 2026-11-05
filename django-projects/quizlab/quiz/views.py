@@ -39,7 +39,7 @@ class QuizPage(LoginRequiredMixin, DetailView):
     model = Quizs
     context_object_name = "quiz"
 
-class AnswerPage(View):
+class AnswerPage(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):        
         score = 0
 

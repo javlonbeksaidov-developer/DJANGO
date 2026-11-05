@@ -16,18 +16,27 @@
 <body>
     <header class="site">
         <div class="container bar">
-            <a class="logo" href="index.html">quiz<b>lab</b></a>
+            <a class="logo" href="{% url 'quiz:main' %}">quiz<b>lab</b></a>
             <nav class="nav" id="nav" aria-label="Main">
                 <a href="{% url 'quiz:main' %}">Quizzes</a>
             </nav>
             <span class="spacer"></span>
             <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">◐</button>
             <details class="menu">
-                <summary aria-label="Account menu"><span class="avatar">JK</span></summary>
+                <summary aria-label="Account menu">
+                    {% if user.profile.profile_image %}
+                    <img class="avatar" src="{{ user.profile.profile_image.url }}" alt="profile img">
+                    {% else %}
+                    <img class="avatar" src="{% static 'image/avatar.jpg' %}" alt="default profile img">
+                    {% endif %}
+                </summary>
                 <div class="dropdown">
                     <a href="{% url 'user:profile' %}">Profile</a>
                     <hr>
-                    <form method="post" action="logout"><button type="submit">Log out</button></form>
+                    <form method="post" action="{% url 'user:logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Log out</button>
+                    </form>
                 </div>
             </details>
             <button class="icon-btn burger" type="button" aria-label="Open menu" aria-expanded="false">☰</button>

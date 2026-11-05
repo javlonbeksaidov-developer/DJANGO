@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 <main class="container profile">
   <aside>
     <section class="panel who">
-      <img class="avatar lg" src="{{profile.profile_image.url}}" alt="">
+
+      {% if profile.profile_image %}
+      <img class="avatar lg" src="{{ profile.profile_image.url }}" alt="profile img">
+      {% else %}
+      <img class="avatar lg" src="{% static 'image/avatar.jpg' %}" alt="default profile img">
+      {% endif %}
+
       <h1 style="font-size:1.4rem">{{user.first_name}} {{user.last_name}}</h1>
       <p class="muted">@{{user.username}} · joined {{ profile.joined_date|date:"F Y" }}</p>
       <div class="stats">
-        <div><b>12</b><span>Solved</span></div>
-        <div><b>78%</b><span>Average</span></div>
-        <div><b>#4</b><span>Rank</span></div>
+        <div><b>...</b><span>Solved</span></div>
+        <div><b>...%</b><span>Average</span></div>
+        <div><b>#...</b><span>Rank</span></div>
       </div>
     </section>
   </aside>

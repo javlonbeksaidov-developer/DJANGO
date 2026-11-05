@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
@@ -11,8 +12,9 @@
 </head>
 <body>
   <main class="auth">
-    <form method="post" action="register">
-      <a class="logo" href="index.html">quiz<b>lab</b></a>
+    <form method="post" action="{% url 'user:register' %}">
+      {% csrf_token %}
+      <a class="logo" href="{% url 'quiz:main' %}">quiz<b>lab</b></a>
       <h1>Create your account</h1>
       <p class="muted" style="margin-bottom:22px">It takes less than a minute.</p>
       <div class="two">
@@ -24,7 +26,7 @@
       <div class="field"><label for="p1">Password</label><input id="p1" type="password" name="password1" minlength="8" autocomplete="new-password" required></div>
       <div class="field"><label for="p2">Repeat password</label><input id="p2" type="password" name="password2" minlength="8" autocomplete="new-password" required></div>
       <button class="btn block" type="submit">Create account</button>
-      <p class="alt muted">Already registered? <a href="login.html">Log in</a></p>
+      <p class="alt muted">Already registered? <a href="{% url 'user:login' %}">Log in</a></p>
     </form>
   </main>
 </body>

@@ -12,15 +12,16 @@
 </head>
 <body>
   <main class="auth">
-    <form method="post" action="login">
+    <form method="post" action="{% url 'user:login' %}">
+      {% csrf_token %}
       <a class="logo" href="{% url 'quiz:main' %}">quiz<b>lab</b></a>
       <h1>Welcome back</h1>
       <p class="muted" style="margin-bottom:22px">Log in to continue your quizzes.</p>
-      <div class="field"><label for="user">Username or email</label><input id="user" name="username" autocomplete="username" required autofocus></div>
+      <div class="field"><label for="user">Username</label><input id="user" name="username" autocomplete="username" required autofocus></div>
       <div class="field"><label for="pw">Password</label><input id="pw" type="password" name="password" autocomplete="current-password" required></div>
       <label class="check"><input type="checkbox" name="remember"> Keep me logged in</label>
       <button class="btn block" type="submit">Log in</button>
-      <p class="alt muted">New here? <a href="register.html">Create an account</a></p>
+      <p class="alt muted">New here? <a href="{% url 'user:register' %}">Create an account</a></p>
     </form>
   </main>
 </body>
