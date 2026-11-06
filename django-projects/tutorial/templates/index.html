@@ -15,7 +15,23 @@
     <form method="POST">
         {% csrf_token %}
 
-        {{ book_create_form }}
+        <input type="hidden" name="form_type" value="book">
+
+        {{ book_create_form.as_p }}
+
+        <button type="submit">Save</button>
+    </form>
+
+    <br><br><br>
+
+    <h2>Quiz Create Form</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="hidden" name="form_type" value="quiz">
+
+        {{ quiz_create_form.as_p }}
 
         <button type="submit">Save</button>
     </form>
