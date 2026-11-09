@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<main class="px-10 py-10">
+    <div class="quizes w-1/2 flex flex-col gap-4 py-10">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Quiz management</h1>
+            <button type="button"
+                class="btn font-bold! text-white! bg-blue-600 px-4 py-2 rounded open-create-form-btn cursor-pointer">+
+                Add quiz</button>
+        </div>
+
+        {% for quiz in quizs %}
+
+        <!-- Quiz 1 -->
+        <div class="p-4 bg-gray-600 rounded flex justify-between items-center">
+            <div class="text">
+                <h4>{{quiz.title}}</h4>
+            </div>
+            <div class="actions flex gap-4">
+                <button type="button" class="open-delete-btn bg-red-600 px-3 py-1 rounded cursor-pointer"
+                    data-quiz-id="1">O'chirish</button>
+                <button type="button" class="btn text-white! font-bold! bg-yellow-600 px-3 py-1 rounded cursor-pointer"
+                    onclick="openEditModal('1')">Edit</button>
+            </div>
+        </div>
+
+        <!-- Update Form Modal -->
+        <div id="edit-modal-1" class="hidden fixed inset-0 z-50 bg-gray-900/50 flex items-center justify-center p-4">
+            <div class="bg-gray-800 text-white p-6 rounded-lg shadow-xl w-full max-w-md flex flex-col gap-4">
+                <div class="flex justify-between items-center">
+                    <h5 class="text-lg font-bold">Quizni tahrirlash: Matematika asoslari</h5>
+                    <button type="button" class="text-gray-400 hover:text-white font-bold px-2 cursor-pointer"
+                        onclick="closeEditModal('1')">X</button>
+                </div>
+
+                <form method="post" class="flex flex-col gap-4">
+                    <input type="hidden" name="form_type" value="quiz_edit">
+                    <input type="text" name="title" value="Matematika asoslari"
+                        class="p-2 rounded border border-gray-600 bg-transparent text-white">
+                    <input type="hidden" name="quiz_id" value="1">
+
+                    <div class="flex flex-col gap-1">
+                        <label class="text-sm">Fan nomi</label>
+                        <select name="science" class="p-2 rounded border border-gray-600 bg-gray-700 text-white">
+                            <option value="1" selected>Matematika</option>
+                            <option value="2">Fizika</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-sm">Boshlanish vaqti</label>
+                        <input type="datetime-local" name="start_time" value="2026-06-01T10:00"
+                            class="p-2 rounded border border-gray-600 bg-transparent text-white">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-sm">Tugash vaqti</label>
+                        <input type="datetime-local" name="end_time" value="2026-06-01T12:00"
+                            class="p-2 rounded border border-gray-600 bg-transparent text-white">
+                    </div>
+
+                    <button type="submit"
+                        class="bg-blue-600 text-white p-2 rounded font-bold cursor-pointer">Saqlash</button>
+                </form>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- Creation Form Modal -->
+    <div class="hidden add-form fixed inset-0 z-50 bg-gray-900/50 flex items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-6 rounded-lg shadow-xl w-full max-w-md flex flex-col gap-4">
+            <div class="flex justify-between items-center">
+                <h5 class="text-lg font-bold">Quiz Creation Form</h5>
+                <button type="button"
+                    class="close-creation-form text-gray-500 hover:text-gray-700 font-bold px-2 cursor-pointer">X</button>
+            </div>
+            <form method="post" class="flex flex-col gap-4">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="quiz_creation">
+
+                {{ quiz_create_form.as_p }}
+
+                <button type="submit"
+                    class="btn font-bold! text-white! bg-blue-600 hover:bg-blue-700 p-2 rounded cursor-pointer">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="hidden delete-form fixed inset-0 z-50 bg-gray-900/50 flex items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-6 rounded-lg shadow-xl w-full max-w-md flex flex-col gap-4">
+            <div class="flex justify-between items-center">
+                <h5 class="text-lg font-bold">Quizni o'chirish</h5>
+                <button type="button"
+                    class="close-delete-form text-gray-500 hover:text-gray-700 font-bold px-2 cursor-pointer">X</button>
+            </div>
+            <form method="post" class="flex flex-col gap-4">
+                <input type="hidden" name="form_type" value="quiz_deletion">
+                <input type="hidden" name="quiz_id" id="delete-quiz-id">
+
+                <p class="text-gray-300">Rostdan ham ushbu quizni o'chirib yubormoqchimisiz? Bu amalni ortga
+                    qaytarib bo'lmaydi.</p>
+
+                <div class="flex justify-end gap-2 mt-2">
+                    <button type="button"
+                        class="close-delete-form px-4 py-2 rounded bg-gray-600 hover:bg-gray-700 text-white cursor-pointer">Bekor
+                        qilish</button>
+                    <button type="submit"
+                        class="font-bold text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded cursor-pointer">O'chirish</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script src="{% static 'forms.js' %}"></script>
+
+{% endblock content %}
