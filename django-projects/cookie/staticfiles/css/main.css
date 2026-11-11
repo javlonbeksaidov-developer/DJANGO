@@ -1,0 +1,213 @@
+/* ==========================================
+   GLOBAL RESET & FONTS
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f4f7fe;
+    color: #2b3674;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Dark Mode Theme Classes */
+body.dark-theme {
+    background-color: #0b1437;
+    color: #ffffff;
+}
+
+body.dark-theme .card,
+body.dark-theme .navbar {
+    background-color: #111c44;
+    box-shadow: 0px 18px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme input, 
+body.dark-theme select {
+    background-color: #1b254b;
+    color: #fff;
+    border-color: #2b3674;
+}
+
+
+
+/* ==========================================
+   NAVBAR & HEADER
+   ========================================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4318ff;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #4318ff;
+}
+
+.lang-select {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #e0e5f2;
+    outline: none;
+    cursor: pointer;
+}
+
+/* ==========================================
+   CONTAINER & CARDS
+   ========================================== */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0px 18px 40px rgba(112, 144, 176, 0.12);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+/* ==========================================
+   FORMS & BUTTONS
+   ========================================== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #e0e5f2;
+    outline: none;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.btn-primary { background-color: #4318ff; color: #fff; }
+.btn-secondary { background-color: #e9edf7; color: #2b3674; }
+.btn-danger { background-color: #ee5d50; color: #fff; }
+
+/* ==========================================
+   INTERACTIVE DEMOS (HIDE/UNHIDE & BANNER)
+   ========================================== */
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background: rgba(67, 24, 255, 0.05);
+    border-radius: 12px;
+}
+
+.collapsible-content.show {
+    max-height: 200px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+/* Floating Cookie Consent Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: #111c44;
+    color: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: bottom 0.5s ease;
+    z-index: 999;
+}
+
+.cookie-banner.active {
+    bottom: 20px;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #ffffff;
+    margin-top: auto;
+    border-top: 1px solid #e0e5f2;
+}

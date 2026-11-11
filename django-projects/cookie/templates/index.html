@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body class="{{ request.COOKIES.theme }}">
+
+    <!-- NAVBAR (2 ta sahifa havolasi bilan) -->
+    <nav class="navbar">
+        <div class="logo">🍪 CookieLab</div>
+        <ul class="nav-links">
+            <li>
+                <!-- TILNI O'ZGARTIRISH -->
+                <select id="langSelect" class="lang-select" onchange="switchLanguage(this.value)">
+                    <option value="uz">UZ 🇺🇿</option>
+                    <option value="en">EN 🇬🇧</option>
+                </select>
+            </li>
+        </ul>
+        
+    </nav>
+
+    <div class="container">
+
+        <!-- 1-SAHIFA/SECTION: DEMO & SOZLAMALAR -->
+        <section id="demo">
+            <div class="card">
+                <h2 class="lang-uz">1. Foydalanuvchi Sozlamalari (Cookie Demo)</h2>
+                <h2 class="lang-en" style="display:none;">1. User Preferences (Cookie Demo)</h2>
+                
+                <p class="lang-uz">Ushbu forma ma'lumotlarni brauzer Cookie'siga yozadi.</p>
+                <p class="lang-en" style="display:none;">This form saves data into your browser Cookies.</p>
+                <br>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <input type="hidden" value="theme_selected" name="form_type">
+
+                    <div class="form-group">
+                        <label class="lang-uz">Ismingiz:</label>
+                        <label class="lang-en" style="display:none;">Your Name:</label>
+                        {{ themeForm.username }}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="lang-uz">Sayt Mavzusi:</label>
+                        <label class="lang-en" style="display:none;">Site Theme:</label>
+                        {{ themeForm.theme }}
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary lang-uz">Saqlash</button>
+                        <button type="submit" class="btn btn-primary lang-en" style="display:none;">Save</button>
+                    </div>
+                </form>
+
+                <br>
+                <form method="POST">
+
+                    <input type="hidden" value="clear_cookies" name="form_type">
+
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger lang-uz">Cookie'larni Tozalash</button>
+                    <button type="submit" class="btn btn-danger lang-en" style="display:none;">Clear Cookies</button>
+                </form>
+            </div>
+            <div class="card">
+                <h2 class="lang-uz">Sayt Rejimini O'zgartirish (Theme Toggle)</h2>
+                <h2 class="lang-en" style="display:none;">Toggle Site Theme</h2>
+
+
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label class="lang-uz">Hozirgi rejimni tanlang:</label>
+                        <label class="lang-en" style="display:none;">Select current theme:</label>
+                        
+                        <select name="theme" class="form-control" onchange="this.form.submit()">
+                            <option value="light" {% if theme == 'light' %}selected{% endif %}>☀️ Kunduzgi (Light Mode)</option>
+                            <option value="dark" {% if theme == 'dark' %}selected{% endif %}>🌙 Tungi (Dark Mode)</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- HIDE / UNHIDE DEMO (Smooth Collapse) -->
+        <div class="card">
+            <h2 class="lang-uz">2. Yashirin Ma'lumot (Hide/Unhide Demo)</h2>
+            <h2 class="lang-en" style="display:none;">2. Hidden Information (Hide/Unhide Demo)</h2>
+            
+            <button class="btn btn-secondary" onclick="toggleSecret()">
+                <span class="lang-uz">Ma'lumotni Ko'rsat / Yashir</span>
+                <span class="lang-en" style="display:none;">Show / Hide Details</span>
+            </button>
+
+            <div id="secretBox" class="collapsible-content">
+                <p class="lang-uz"><strong>Sirli xabar:</strong> Cookie ma'lumotlari brauzerda <code>request.COOKIES</code> orqali o'qiladi!</p>
+                <p class="lang-en" style="display:none;"><strong>Secret message:</strong> Cookie data is read via <code>request.COOKIES</code> in Django!</p>
+            </div>
+        </div>
+
+        <!-- 2-SAHIFA/SECTION: NAZARIYA VA KOD -->
+        <section id="theory">
+            <div class="card">
+                <h2 class="lang-uz">3. Django'da Cookie Metodlari</h2>
+                <h2 class="lang-en" style="display:none;">3. Cookie Methods in Django</h2>
+                
+                <ul style="margin-left: 20px;">
+                    <li><code>response.set_cookie(key, value, max_age)</code> - Cookie yozish</li>
+                    <li><code>request.COOKIES.get(key)</code> - Cookie o'qish</li>
+                    <li><code>response.delete_cookie(key)</code> - Cookie o'chirish</li>
+                </ul>
+            </div>
+        </section>
+        
+    </div>
+
+    <!-- FLOATING COOKIE BANNER (CONSENT DEMO) -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div>
+            <p class="lang-uz">Biz saytda shaxsiy sozlamalarni saqlash uchun Cookie'lardan foydalanamiz.</p>
+            <p class="lang-en" style="display:none;">We use cookies on this site to store personal settings.</p>
+        </div>
+        <button class="btn btn-primary" onclick="acceptCookies()">OK</button>
+    </div>
+
+    <footer>
+        <p>© Django Cookie Masterclass Project</p>
+    </footer>
+
+    <!-- INTERAKTIV JAVASCRIPT LOGIKASI -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
