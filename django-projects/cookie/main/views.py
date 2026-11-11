@@ -16,13 +16,12 @@ def home_page(request):
 
             if form.is_valid():
                 responce = redirect("/")
-                print(form.cleaned_data["theme"])
                 responce.set_cookie("theme", form.cleaned_data["theme"])
                 return responce
 
-            if form_type == "clear_cookies":
-                responce = redirect("/")
-                responce.delete_cookie("theme")
-                return responce
+        if form_type == "clear_cookies":
+            responce = redirect("/")
+            responce.delete_cookie("theme")
+            return responce
 
     return render(request, "index.html", context=data)

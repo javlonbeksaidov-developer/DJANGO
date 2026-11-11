@@ -61,10 +61,9 @@
 
                 <br>
                 <form method="POST">
+                    {% csrf_token %}
 
                     <input type="hidden" value="clear_cookies" name="form_type">
-
-                    {% csrf_token %}
                     <button type="submit" class="btn btn-danger lang-uz">Cookie'larni Tozalash</button>
                     <button type="submit" class="btn btn-danger lang-en" style="display:none;">Clear Cookies</button>
                 </form>
