@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        thead,
+        tr,
+        td,
+        tbody {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Admin Panel</h3>
+
+
+    <!-- Drug managment section -->
+    <section>
+        <h1>Drug Store </h1>
+        <span><a href="{% url 'staff:drug_add' %}">Add Drug +</a></span>
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nomi</td>
+                    <td>Narxi</td>
+                    <td>Qoldiq</td>
+                    <td>Muddati</td>
+                    <td>Umumiy narx</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for drug in object_list %}
+                <tr>
+                    <td>{{drug.id}}</td>
+                    <td>{{drug.name}}</td>
+                    <td>{{drug.price}}</td>
+                    <td>{{drug.amount}} ta</td>
+                    <td>{{drug.expiry_date}}</td>
+                    <td>45000 so'm</td>
+                    <td>
+                        <a href="{% url 'staff:drug_edit' drug.id %}">Edit</a>
+                        <a href="{% url 'staff:drug_delete' drug.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Category management  -->
+    <section>
+        <h1>Category Store </h1>
+        <span><a href="{% url 'staff:category_add' %}">Add Category +</a></span>
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nomi</td>
+                    <td>Dorilar soni </td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ctg in ctgs %}
+                <tr>
+                    <td>{{ctg.id}}</td>
+                    <td>{{ctg.name}}</td>
+                    <td>{{ctg.drugs.count}}</td>
+                    <td>
+                        <a href="{% url 'staff:category_edit' ctg.id %}">Edit</a>
+                        <a href="{% url 'staff:category_delete' ctg.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+</body>
+
+</html>
