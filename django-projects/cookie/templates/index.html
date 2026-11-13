@@ -72,8 +72,9 @@
                 <h2 class="lang-uz">Sayt Rejimini O'zgartirish (Theme Toggle)</h2>
                 <h2 class="lang-en" style="display:none;">Toggle Site Theme</h2>
 
-
-                <form action="" method="POST">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" value="theme" name="form_type">
                     <div class="form-group">
                         <label class="lang-uz">Hozirgi rejimni tanlang:</label>
                         <label class="lang-en" style="display:none;">Select current theme:</label>
@@ -84,6 +85,7 @@
                         </select>
                     </div>
                 </form>
+                
             </div>
         </section>
 
