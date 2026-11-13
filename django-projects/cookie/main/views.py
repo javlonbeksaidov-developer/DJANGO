@@ -2,26 +2,39 @@ from django.shortcuts import redirect, render
 
 from .forms import ThemeSelectionForm
 
-# Create your views here.
-
 
 def home_page(request):
-    data = {"themeForm": ThemeSelectionForm()}
 
     if request.method == "POST":
         form_type = request.POST.get("form_type")
 
+        # Cookie saqlash
         if form_type == "theme_selected":
             form = ThemeSelectionForm(request.POST)
 
             if form.is_valid():
-                responce = redirect("/")
-                responce.set_cookie("theme", form.cleaned_data["theme"])
-                return responce
+                response = redirect("/")
 
-        if form_type == "clear_cookies":
-            responce = redirect("/")
-            responce.delete_cookie("theme")
-            return responce
+                response.set_cookie(
+                    key="theme",
+                    value=form.cleaned_data["theme"],
+                    max_age=60 * 60 * 24 * 30,
+                )
+
+                return response
+
+        # Cookie o'chirish
+        elif form_type == "clear_cookies":
+            response = redirect("/")
+            response.delete_cookie("theme")
+
+            return response
+
+    form = ThemeSelectionForm()
+
+    data = {
+        "themeForm": form,
+        "theme": request.COOKIES.get("theme", "light-theme"),
+    }
 
     return render(request, "index.html", context=data)

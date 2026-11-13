@@ -4,7 +4,7 @@ from django import forms
 class ThemeSelectionForm(forms.Form):
     username = forms.CharField(
         required=True,
-        max_length=True,
+        max_length=100,
         widget=forms.TextInput(attrs={"class": "form-control"}),
     )
 
