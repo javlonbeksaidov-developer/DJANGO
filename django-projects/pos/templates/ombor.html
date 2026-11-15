@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+  <div class="head">
+    <h1>Ombor</h1><a class="btn go" href="mahsulot-form.html">Yangi mahsulot</a>
+  </div>
+  <form class="bar" method="get" action="#">
+    <input type="search" name="q" placeholder="Nomi bo'yicha qidirish" aria-label="Qidirish">
+    <select name="category" aria-label="Kategoriya">
+      <option value="">Barcha kategoriyalar</option>
+      <option value="1">Og'riq qoldiruvchi</option>
+      <option value="2">Antibiotik</option>
+      <option value="3">Vitaminlar</option>
+      <option value="4">Allergiya</option>
+      <option value="5">Oshqozon-ichak</option>
+    </select>
+    <select name="status" aria-label="Holat">
+      <option value="">Barcha holatlar</option>
+      <option>Kam qolgan</option>
+      <option>Qolmagan</option>
+      <option>Muddati yaqin</option>
+    </select>
+    <button class="btn go">Filtrlash</button>
+  </form>
+  <div class="panel wrap">
+    <table>
+      <tr>
+        <th>Mahsulot</th>
+        <th>Kategoriya</th>
+        <th>Narx</th>
+        <th>Qoldiq</th>
+        <th>Yaroqlilik</th>
+        <th>Turi</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td><b>Paratsetamol 500 mg</b><br><small>Tabletka, 20 dona</small></td>
+        <td>Og'riq qoldiruvchi</td>
+        <td>6 500 so'm</td>
+        <td><span class="badge">120</span></td>
+        <td>12.03.2028</td>
+        <td>Retseptsiz</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-1">O'chirish</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Ibuprofen 200 mg</b><br><small>Tabletka, 30 dona</small></td>
+        <td>Og'riq qoldiruvchi</td>
+        <td>12 800 so'm</td>
+        <td><span class="badge low">6</span></td>
+        <td>01.09.2027</td>
+        <td>Retseptsiz</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-2">O'chirish</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Amoksitsillin 500 mg</b><br><small>Kapsula, 16 dona</small></td>
+        <td>Antibiotik</td>
+        <td>28 000 so'm</td>
+        <td><span class="badge">40</span></td>
+        <td>20.05.2027</td>
+        <td>Retsept bilan</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-3">O'chirish</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Azitromitsin 250 mg</b><br><small>Tabletka, 6 dona</small></td>
+        <td>Antibiotik</td>
+        <td>46 500 so'm</td>
+        <td><span class="badge out">Qolmagan</span></td>
+        <td>15.12.2026</td>
+        <td>Retsept bilan</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-4">O'chirish</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Vitamin C 1000 mg</b><br><small>Shipuvchi, 10 dona</small></td>
+        <td>Vitaminlar</td>
+        <td>24 000 so'm</td>
+        <td><span class="badge">75</span></td>
+        <td>30.06.2027</td>
+        <td>Retseptsiz</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-5">O'chirish</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Vitamin D3 2000 IU</b><br><small>Kapsula, 60 dona</small></td>
+        <td>Vitaminlar</td>
+        <td>68 000 so'm</td>
+        <td><span class="badge">18</span></td>
+        <td>10.01.2028</td>
+        <td>Retseptsiz</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-6">O'chirish</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Loratadin 10 mg</b><br><small>Tabletka, 10 dona</small></td>
+        <td>Allergiya</td>
+        <td>9 800 so'm</td>
+        <td><span class="badge">55</span></td>
+        <td>08.08.2027</td>
+        <td>Retseptsiz</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-7">O'chirish</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Smekta</b><br><small>Sachet, 10 dona</small></td>
+        <td>Oshqozon-ichak</td>
+        <td>39 000 so'm</td>
+        <td><span class="badge">30</span></td>
+        <td>22.11.2026</td>
+        <td>Retseptsiz</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-8">O'chirish</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Omeprazol 20 mg</b><br><small>Kapsula, 14 dona</small></td>
+        <td>Oshqozon-ichak</td>
+        <td>15 500 so'm</td>
+        <td><span class="badge low">9</span></td>
+        <td>05.04.2028</td>
+        <td>Retseptsiz</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-9">O'chirish</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Aktivlangan ko'mir</b><br><small>Tabletka, 10 dona</small></td>
+        <td>Oshqozon-ichak</td>
+        <td>3 500 so'm</td>
+        <td><span class="badge">200</span></td>
+        <td>01.02.2029</td>
+        <td>Retseptsiz</td>
+        <td>
+          <div class="acts"><a class="btn sm" href="mahsulot-form.html">Tahrirlash</a><a class="btn sm del"
+              href="#del-10">O'chirish</a></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="modal" id="del-1">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Paratsetamol 500 mg</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-2">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Ibuprofen 200 mg</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-3">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Amoksitsillin 500 mg</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-4">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Azitromitsin 250 mg</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-5">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Vitamin C 1000 mg</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-6">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Vitamin D3 2000 IU</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-7">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Loratadin 10 mg</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-8">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Smekta</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-9">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Omeprazol 20 mg</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-10">
+    <form class="box" method="post" action="#">
+      <h2>Mahsulotni o'chirasizmi?</h2>
+      <p><b>Aktivlangan ko'mir</b> ombordan butunlay o'chiriladi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boshqaruv · Dorixona</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="app">
+        <aside class="side">
+            <div class="brand"><span class="cross"></span>Dorixona</div>
+            <nav>
+                <a href="{% url 'main:home' %}" class="{% if request.resolver_match.url_name == 'home' %}on{% endif %}">
+                    Boshqaruv
+                </a>
+
+                <a href="{% url 'main:sotuv' %}"
+                    class="{% if request.resolver_match.url_name == 'sotuv' %}on{% endif %}">
+                    Sotuv
+                </a>
+
+                <a href="{% url 'main:ombor' %}"
+                    class="{% if request.resolver_match.url_name == 'ombor' %}on{% endif %}">
+                    Ombor
+                </a>
+
+                <a href="{% url 'main:category' %}"
+                    class="{% if request.resolver_match.url_name == 'category' %}on{% endif %}">
+                    Kategoriyalar
+                </a>
+
+                <a href="{% url 'main:sotuv_tarix' %}"
+                    class="{% if request.resolver_match.url_name == 'sotuv_tarix' %}on{% endif %}">
+                    Sotuvlar tarixi
+                </a>
+            </nav>
+            <div class="who">Kassir: Javlonbek</div>
+        </aside>
+
+        {% block content %} {% endblock content %}
+
+    </div>
+</body>
+
+</html>

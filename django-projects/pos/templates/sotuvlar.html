@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+  <div class="head">
+    <h1>Sotuvlar tarixi</h1>
+  </div>
+  <form class="bar" method="get" action="#"><input type="date" name="from" aria-label="Boshlanish sanasi"><input
+      type="date" name="to" aria-label="Tugash sanasi"><select name="method" aria-label="To'lov usuli">
+      <option value="">Barcha usullar</option>
+      <option>Naqd</option>
+      <option>Karta</option>
+      <option>Click / Payme</option>
+    </select><button class="btn go">Filtrlash</button></form>
+  <details>
+    <summary><b>Chek № 1041</b><span>15.11.2026 14:32</span><span>Naqd</span><b>37 000 so'm</b></summary>
+    <div class="wrap">
+      <table>
+        <tr>
+          <th>Dori</th>
+          <th class="r">Miqdor</th>
+          <th class="r">Narx</th>
+          <th class="r">Summa</th>
+        </tr>
+        <tr>
+          <td>Paratsetamol 500 mg</td>
+          <td class="r">2</td>
+          <td class="r">6 500</td>
+          <td class="r">13 000</td>
+        </tr>
+        <tr>
+          <td>Vitamin C 1000 mg</td>
+          <td class="r">1</td>
+          <td class="r">24 000</td>
+          <td class="r">24 000</td>
+        </tr>
+      </table>
+    </div>
+  </details>
+  <details>
+    <summary><b>Chek № 1040</b><span>15.11.2026 14:05</span><span>Karta</span><b>81 200 so'm</b></summary>
+    <div class="wrap">
+      <table>
+        <tr>
+          <th>Dori</th>
+          <th class="r">Miqdor</th>
+          <th class="r">Narx</th>
+          <th class="r">Summa</th>
+        </tr>
+        <tr>
+          <td>Vitamin D3 2000 IU</td>
+          <td class="r">1</td>
+          <td class="r">68 000</td>
+          <td class="r">68 000</td>
+        </tr>
+        <tr>
+          <td>Loratadin 10 mg</td>
+          <td class="r">1</td>
+          <td class="r">9 800</td>
+          <td class="r">9 800</td>
+        </tr>
+        <tr>
+          <td>Omeprazol 20 mg</td>
+          <td class="r">1</td>
+          <td class="r">15 500</td>
+          <td class="r">15 500</td>
+        </tr>
+      </table>
+    </div>
+  </details>
+  <details>
+    <summary><b>Chek № 1039</b><span>15.11.2026 13:41</span><span>Click / Payme</span><b>56 000 so'm</b></summary>
+    <div class="wrap">
+      <table>
+        <tr>
+          <th>Dori</th>
+          <th class="r">Miqdor</th>
+          <th class="r">Narx</th>
+          <th class="r">Summa</th>
+        </tr>
+        <tr>
+          <td>Amoksitsillin 500 mg</td>
+          <td class="r">2</td>
+          <td class="r">28 000</td>
+          <td class="r">56 000</td>
+        </tr>
+      </table>
+    </div>
+  </details>
+  <details>
+    <summary><b>Chek № 1038</b><span>15.11.2026 12:58</span><span>Naqd</span><b>12 800 so'm</b></summary>
+    <div class="wrap">
+      <table>
+        <tr>
+          <th>Dori</th>
+          <th class="r">Miqdor</th>
+          <th class="r">Narx</th>
+          <th class="r">Summa</th>
+        </tr>
+        <tr>
+          <td>Ibuprofen 200 mg</td>
+          <td class="r">1</td>
+          <td class="r">12 800</td>
+          <td class="r">12 800</td>
+        </tr>
+      </table>
+    </div>
+  </details>
+</main>
+
+{% endblock content %}

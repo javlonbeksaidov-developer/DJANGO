@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+  <div class="head">
+    <h1>Sotuv</h1>
+  </div>
+  <div class="pos">
+    <section>
+      <form class="bar" method="get" action="#"><input type="search" name="q" placeholder="Dori nomi bo'yicha qidirish"
+          aria-label="Qidirish"><button class="btn go">Qidirish</button></form>
+      <div class="chips"><input class="vh" type="radio" name="f" id="f0" checked><label for="f0">Hammasi</label><input
+          class="vh" type="radio" name="f" id="f1"><label for="f1">Og'riq qoldiruvchi</label><input class="vh"
+          type="radio" name="f" id="f2"><label for="f2">Antibiotik</label><input class="vh" type="radio" name="f"
+          id="f3"><label for="f3">Vitaminlar</label><input class="vh" type="radio" name="f" id="f4"><label
+          for="f4">Allergiya</label><input class="vh" type="radio" name="f" id="f5"><label
+          for="f5">Oshqozon-ichak</label></div>
+      <form method="post" action="#"><!-- Django: {% csrf_token %} -->
+        <div class="items"><button class="item c1" name="add" value="1"><b>Paratsetamol 500 mg</b><small>Tabletka, 20
+              dona</small><span class="row"><b>6 500 so'm</b><span class="badge">120</span></span></button><button
+            class="item c1" name="add" value="2"><b>Ibuprofen 200 mg</b><small>Tabletka, 30 dona</small><span
+              class="row"><b>12 800 so'm</b><span class="badge low">6</span></span></button><button class="item c2"
+            name="add" value="3"><b>Amoksitsillin 500 mg</b><small>Kapsula, 16 dona</small><span class="row"><b>28 000
+                so'm</b><span class="badge">40</span></span></button><button class="item c2" name="add" value="4"
+            disabled><b>Azitromitsin 250 mg</b><small>Tabletka, 6 dona</small><span class="row"><b>46 500 so'm</b><span
+                class="badge out">Qolmagan</span></span></button><button class="item c3" name="add" value="5"><b>Vitamin
+              C 1000 mg</b><small>Shipuvchi, 10 dona</small><span class="row"><b>24 000 so'm</b><span
+                class="badge">75</span></span></button><button class="item c3" name="add" value="6"><b>Vitamin D3 2000
+              IU</b><small>Kapsula, 60 dona</small><span class="row"><b>68 000 so'm</b><span
+                class="badge">18</span></span></button><button class="item c4" name="add" value="7"><b>Loratadin 10
+              mg</b><small>Tabletka, 10 dona</small><span class="row"><b>9 800 so'm</b><span
+                class="badge">55</span></span></button><button class="item c5" name="add"
+            value="8"><b>Smekta</b><small>Sachet, 10 dona</small><span class="row"><b>39 000 so'm</b><span
+                class="badge">30</span></span></button><button class="item c5" name="add" value="9"><b>Omeprazol 20
+              mg</b><small>Kapsula, 14 dona</small><span class="row"><b>15 500 so'm</b><span
+                class="badge low">9</span></span></button><button class="item c5" name="add" value="10"><b>Aktivlangan
+              ko'mir</b><small>Tabletka, 10 dona</small><span class="row"><b>3 500 so'm</b><span
+                class="badge">200</span></span></button></div>
+      </form>
+    </section>
+    <form class="cart" method="post" action="#"><!-- Django: {% csrf_token %} -->
+      <div class="top"><b>Joriy chek</b><span>№ 1042</span></div>
+      <div>
+        <div class="line"><b>Paratsetamol 500 mg</b><b>13 000</b><span class="qty"><button name="dec"
+              value="1">−</button>2<button name="inc" value="1">+</button> × 6 500</span><button class="x" name="remove"
+            value="1">Olib tashlash</button></div>
+        <div class="line"><b>Vitamin C 1000 mg</b><b>24 000</b><span class="qty"><button name="dec"
+              value="5">−</button>1<button name="inc" value="5">+</button> × 24 000</span><button class="x"
+            name="remove" value="5">Olib tashlash</button></div>
+      </div>
+      <div class="sum">
+        <div><span>Oraliq summa</span><span>37 000 so'm</span></div>
+        <div><span>Chegirma</span><select name="discount">
+            <option value="0">Yo'q</option>
+            <option value="5">5%</option>
+            <option value="10">10%</option>
+            <option value="15">15%</option>
+          </select></div>
+        <div class="big"><span>Jami</span><span>37 000 so'm</span></div>
+      </div>
+      <div class="pay"><input class="vh" type="radio" name="method" id="m1" value="cash" checked><label
+          for="m1">Naqd</label><input class="vh" type="radio" name="method" id="m2" value="card"><label
+          for="m2">Karta</label><input class="vh" type="radio" name="method" id="m3" value="online"><label
+          for="m3">Click / Payme</label></div>
+      <div><button class="btn go" name="checkout">To'lovni yakunlash</button></div>
+    </form>
+  </div>
+</main>
+
+{% endblock content %}

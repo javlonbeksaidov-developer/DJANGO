@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+  <div class="head">
+    <h1>Kategoriyalar</h1>
+  </div>
+  <div class="cols">
+    <div class="panel wrap">
+      <table>
+        <tr>
+          <th>Nomi</th>
+          <th>Tavsif</th>
+          <th>Dorilar</th>
+          <th></th>
+        </tr>
+
+        <tr>
+          <td><b>Og'riq qoldiruvchi</b></td>
+          <td>Og'riq va isitmaga qarshi</td>
+          <td>2 ta</td>
+          <td>
+            <div class="acts"><a class="btn sm" href="#edit-1">Tahrirlash</a><a class="btn sm del"
+                href="#del-1">O'chirish</a></div>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+    <form class="panel form" method="post" action="#"><!-- Django: {% csrf_token %} -->
+      <h2>Yangi kategoriya</h2>
+      <label class="f">Nomi<input name="name" required></label>
+      <label class="f">Tavsif <small>ixtiyoriy</small><textarea name="description" rows="3"></textarea></label>
+      <div><button class="btn go">Qo'shish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="edit-1">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani tahrirlash</h2><label class="f">Nomi<input name="name" value="Og'riq qoldiruvchi"
+          required></label><label class="f">Tavsif<textarea name="description"
+          rows="2">Og'riq va isitmaga qarshi</textarea></label>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn go">Saqlash</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-1">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani o'chirasizmi?</h2>
+      <p><b>Og'riq qoldiruvchi</b> o'chiriladi. Undagi 2 ta dori ham o'chib ketadi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="edit-2">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani tahrirlash</h2><label class="f">Nomi<input name="name" value="Antibiotik" required></label><label
+        class="f">Tavsif<textarea name="description" rows="2">Bakteriyalarga qarshi, retsept bilan</textarea></label>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn go">Saqlash</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-2">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani o'chirasizmi?</h2>
+      <p><b>Antibiotik</b> o'chiriladi. Undagi 2 ta dori ham o'chib ketadi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="edit-3">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani tahrirlash</h2><label class="f">Nomi<input name="name" value="Vitaminlar" required></label><label
+        class="f">Tavsif<textarea name="description" rows="2">Vitamin va minerallar</textarea></label>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn go">Saqlash</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-3">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani o'chirasizmi?</h2>
+      <p><b>Vitaminlar</b> o'chiriladi. Undagi 2 ta dori ham o'chib ketadi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="edit-4">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani tahrirlash</h2><label class="f">Nomi<input name="name" value="Allergiya" required></label><label
+        class="f">Tavsif<textarea name="description" rows="2">Antigistamin vositalar</textarea></label>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn go">Saqlash</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-4">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani o'chirasizmi?</h2>
+      <p><b>Allergiya</b> o'chiriladi. Undagi 1 ta dori ham o'chib ketadi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+  <div class="modal" id="edit-5">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani tahrirlash</h2><label class="f">Nomi<input name="name" value="Oshqozon-ichak"
+          required></label><label class="f">Tavsif<textarea name="description"
+          rows="2">Hazm tizimi uchun</textarea></label>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn go">Saqlash</button></div>
+    </form>
+  </div>
+  <div class="modal" id="del-5">
+    <form class="box" method="post" action="#">
+      <h2>Kategoriyani o'chirasizmi?</h2>
+      <p><b>Oshqozon-ichak</b> o'chiriladi. Undagi 3 ta dori ham o'chib ketadi.</p>
+      <div class="acts"><a class="btn" href="#">Bekor qilish</a><button class="btn red">Ha, o'chirish</button></div>
+    </form>
+  </div>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+  <div class="head">
+    <h1>Boshqaruv paneli</h1><a class="btn go" href="sotuv.html">Yangi sotuv</a>
+  </div>
+  <div class="stats">
+    <div class="panel stat"><span>Bugungi savdo</span><b>1 284 500 so'm</b></div>
+    <div class="panel stat"><span>Cheklar soni</span><b>37</b></div>
+    <div class="panel stat"><span>Kam qolgan dorilar</span><b>3</b></div>
+    <div class="panel stat"><span>Muddati yaqin</span><b>2</b></div>
+  </div>
+  <div class="cols">
+    <section class="panel">
+      <h2>Kam qolgan dorilar</h2>
+      <div class="wrap">
+        <table>
+          <tr>
+            <th>Nomi</th>
+            <th>Kategoriya</th>
+            <th class="r">Qoldiq</th>
+          </tr>
+          <tr>
+            <td>Ibuprofen 200 mg</td>
+            <td>Og'riq qoldiruvchi</td>
+            <td class="r"><span class="badge low">6</span></td>
+          </tr>
+          <tr>
+            <td>Azitromitsin 250 mg</td>
+            <td>Antibiotik</td>
+            <td class="r"><span class="badge out">Qolmagan</span></td>
+          </tr>
+          <tr>
+            <td>Omeprazol 20 mg</td>
+            <td>Oshqozon-ichak</td>
+            <td class="r"><span class="badge low">9</span></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Muddati yaqin dorilar</h2>
+      <div class="wrap">
+        <table>
+          <tr>
+            <th>Nomi</th>
+            <th>Yaroqlilik</th>
+            <th class="r">Qoldiq</th>
+          </tr>
+          <tr>
+            <td>Azitromitsin 250 mg</td>
+            <td>15.12.2026</td>
+            <td class="r">0 ta</td>
+          </tr>
+          <tr>
+            <td>Smekta</td>
+            <td>22.11.2026</td>
+            <td class="r">30 ta</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+{% endblock content %}

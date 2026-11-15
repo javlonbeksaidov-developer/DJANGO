@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+  <div class="head">
+    <h1>Mahsulot ma'lumotlari</h1><a class="btn" href="ombor.html">Omborga qaytish</a>
+  </div>
+  <form class="panel form" method="post" action="#"><!-- Django: {% csrf_token %} -->
+    <label class="f">Nomi<input name="name" value="Paratsetamol 500 mg" required></label>
+    <div class="f2">
+      <label class="f">Kategoriya<select name="category">
+          <option value="1">Og'riq qoldiruvchi</option>
+          <option value="2">Antibiotik</option>
+          <option value="3">Vitaminlar</option>
+          <option value="4">Allergiya</option>
+          <option value="5">Oshqozon-ichak</option>
+        </select></label>
+      <label class="f">Shakli va qadoqlanishi<input name="form" value="Tabletka, 20 dona"></label>
+    </div>
+    <div class="f2">
+      <label class="f">Narxi, so'm<input type="number" name="price" min="0" step="100" value="6500" required></label>
+      <label class="f">Ombordagi miqdor<input type="number" name="amount" min="0" value="120" required></label>
+      <label class="f">Yaroqlilik muddati<input type="date" name="expiry_date" value="2028-03-12" required></label>
+    </div>
+    <label class="chk"><input type="checkbox" name="requires_prescription">Faqat retsept bilan beriladi</label>
+    <label class="f">Izoh <small>ixtiyoriy</small><textarea name="description" rows="3"></textarea></label>
+    <div><button class="btn go">Saqlash</button> <a class="btn" href="ombor.html">Bekor qilish</a></div>
+  </form>
+</main>
+
+{% endblock content %}
