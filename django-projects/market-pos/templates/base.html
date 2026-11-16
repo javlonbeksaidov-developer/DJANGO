@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" data-page="products" data-access="admin" data-role="cashier">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Products · MarketPOS</title>
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/forms.css">
-<link rel="stylesheet" href="css/modal.css">
-<link rel="stylesheet" href="css/theme-switch.css">
-<script src="js/session.js"></script>
-<script src="js/theme.js"></script>
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/layout.css' %}">
+<link rel="stylesheet" href="{% static 'css/components.css' %}">
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+<link rel="stylesheet" href="{% static 'css/theme-switch.css' %}">
+<script src="{% static 'js/session.js' %}"></script>
+<script src="{% static 'js/theme.js' %}"></script>
 </head>
 <body>
 <div class="app">
@@ -29,9 +30,9 @@
 
 {% block content %} {% endblock content %}
 
-<script src="js/modal.js"></script>
-<script src="js/password.js"></script>
-<script src="js/shortcuts.js"></script>
-<script src="js/clock.js"></script>
+<script src="{% static 'js/modal.js' %}"></script>
+<script src="{% static 'js/password.js' %}"></script>
+<script src="{% static 'js/shortcuts.js' %}"></script>
+<script src="{% static 'js/clock.js' %}"></script>
 </body>
 </html>

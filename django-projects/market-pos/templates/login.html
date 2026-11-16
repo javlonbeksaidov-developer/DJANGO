@@ -1,34 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" data-page="login" data-access="public" data-role="cashier">
+{% load static %}
+<html lang="en" data-page="products" data-access="admin" data-role="cashier">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sign in · MarketPOS</title>
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/forms.css">
-<link rel="stylesheet" href="css/modal.css">
-<link rel="stylesheet" href="css/theme-switch.css">
-<link rel="stylesheet" href="css/login.css">
-<script src="js/session.js"></script>
-<script src="js/theme.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Products · MarketPOS</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme-switch.css' %}">
+    <script src="{% static 'js/session.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
 </head>
+
 <body>
-<div class="login">
-<div class="lbrand"><div class="logo"><i>M</i>MarketPOS</div>
-<div><h2>Fast, simple checkout for your market.</h2><p>Sign in to open your register, process sales and returns, and manage your store.</p>
-<ul><li>✓ Barcode-ready sales screen</li><li>✓ Returns and refunds in seconds</li><li>✓ Per-cashier reporting</li></ul></div>
-<small style="opacity:.7">Chilonzor Market · Register 2</small></div>
-<div class="lform"><div class="theme" style="position:absolute;top:20px;right:24px"><span>Dark mode</span><button type="button" class="tsw" role="switch" aria-checked="false" aria-label="Dark mode"></button></div><form class="lf" id="login-form" action="/login" method="post">
-<h1>Welcome back</h1><p class="sub">Sign in to your account</p>
-<label>Username<input name="user" autocomplete="username" placeholder="e.g. aziza" required autofocus></label>
-<label>Password<input type="password" name="password" autocomplete="current-password" required></label>
-<button style="width:100%;padding:10px;font-size:14px;margin-top:6px">Sign in</button>
-<div class="hint"><b>Demo:</b> any password works. Use username <b>admin</b> for the Admin view, anything else signs in as a Cashier.</div>
-</form></div>
-</div>
-<script src="js/modal.js"></script>
-<script src="js/password.js"></script>
-<script src="js/login.js"></script>
+
+    <div class="login">
+        <div class="lbrand">
+            <div class="logo"><i>M</i>MarketPOS</div>
+            <div>
+                <h2>Fast, simple checkout for your market.</h2>
+                <p>Sign in to open your register, process sales and returns, and manage your store.</p>
+                <ul>
+                    <li>✓ Barcode-ready sales screen</li>
+                    <li>✓ Returns and refunds in seconds</li>
+                    <li>✓ Per-cashier reporting</li>
+                </ul>
+            </div>
+            <small style="opacity:.7">Chilonzor Market · Register 2</small>
+        </div>
+        <div class="lform">
+            <div class="theme" style="position:absolute;top:20px;right:24px"><span>Dark mode</span><button type="button"
+                    class="tsw" role="switch" aria-checked="false" aria-label="Dark mode"></button></div>
+            <form class="lf" id="login-form" action="/login" method="post">
+                <h1>Welcome back</h1>
+                <p class="sub">Sign in to your account</p>
+                <label>Username<input name="user" autocomplete="username" placeholder="e.g. aziza" required
+                        autofocus></label>
+                <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+                <button style="width:100%;padding:10px;font-size:14px;margin-top:6px">Sign in</button>
+                <div class="hint"><b>Demo:</b> any password works. Use username <b>admin</b> for the Admin view,
+                    anything else signs in as a Cashier.</div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/modal.js' %}"></script>
+    <script src="{% static 'js/password.js' %}"></script>
+    <script src="{% static 'js/shortcuts.js' %}"></script>
+    <script src="{% static 'js/clock.js' %}"></script>
 </body>
+
 </html>
