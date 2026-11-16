@@ -1,0 +1,21 @@
+/* sale.css: Sale page: product grid, receipt panel, payment method picker. */
+.cat{display:flex;gap:6px;margin-bottom:10px}
+.cat label{margin:0}.cat input{display:none}
+.cat span{display:block;padding:4px 12px;border:1px solid var(--bd);border-radius:99px;background:var(--sf);color:var(--tx);font-weight:500;cursor:pointer}
+.cat input:checked+span{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+.page--sale{display:grid;grid-template-columns:1fr 360px;grid-template-rows:minmax(0,1fr);gap:14px;padding:14px 18px;overflow:hidden}
+.pane{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.prods{overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;align-content:start;padding-right:4px}
+.prod{margin:0;display:flex;flex-direction:column;gap:2px;border:1px solid var(--bd);border-radius:var(--r);padding:10px;background:var(--sf)}
+.prod:hover{border-color:var(--ac)}
+.prod .e{font-size:26px}.prod small{color:var(--mu)}.prod s{color:var(--mu);font-weight:400}
+.prod .pr{font-weight:700;margin:3px 0 6px}
+.lines{flex:1;overflow:auto;margin:0;padding:0}
+.lines li{list-style:none;display:grid;grid-template-columns:1fr auto auto;gap:10px;padding:8px 14px;border-bottom:1px solid var(--bd);align-items:center}
+.lines small{display:block;color:var(--mu)}
+.qty{display:flex;align-items:center;gap:4px}.qty button{padding:0 7px}
+.tots{padding:10px 14px;border-top:1px solid var(--bd);background:var(--sf2)}
+.pay{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pay label{margin:0}.pay input{display:none}
+.pay span{display:block;text-align:center;padding:10px;border:1px solid var(--bd);border-radius:6px;color:var(--tx);cursor:pointer}
+.pay input:checked+span{border-color:var(--ac);background:var(--ac2);color:var(--ac)}

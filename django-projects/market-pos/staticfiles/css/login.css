@@ -1,0 +1,16 @@
+/* login.css: Login page. */
+.login{position:fixed;inset:0;z-index:50;display:grid;grid-template-columns:1fr 480px;background:var(--bg);min-width:1024px;overflow:auto}
+.lbrand{background:var(--ac);color:var(--acx);padding:56px;display:flex;flex-direction:column;justify-content:space-between}
+.lbrand .logo{padding:0;font-size:18px}.lbrand .logo i{background:var(--acx);color:var(--ac)}
+.lbrand h2{font-size:34px;line-height:1.15;margin:0 0 12px;max-width:420px}
+.lbrand p{opacity:.85;max-width:400px;margin:0 0 18px}
+.lbrand ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;opacity:.9}
+.lform{display:flex;align-items:center;justify-content:center;padding:40px;background:var(--sf);border-left:1px solid var(--bd)}
+.lform form.lf{width:100%;max-width:340px}
+.lform h1{font-size:22px;margin:0 0 4px}
+.lform .sub{color:var(--mu);margin:0 0 22px}
+.lform input:not([type=checkbox]){padding:9px 11px}
+.lrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:12px}
+.lrow label{margin:0;font-weight:500}.lrow a{color:var(--ac);text-decoration:none;font-weight:600}
+.hint{margin-top:18px;padding:10px 12px;background:var(--sf2);border:1px solid var(--bd);border-radius:6px;color:var(--mu);font-size:12px}
+.lform{position:relative}

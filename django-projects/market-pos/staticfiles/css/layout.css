@@ -1,0 +1,18 @@
+/* layout.css: Desktop app shell: sidebar, toolbar, page area, status bar. */
+.app{display:grid;grid-template-columns:210px 1fr;grid-template-rows:1fr 26px;height:100%;min-width:1024px}
+aside{background:var(--sf);border-right:1px solid var(--bd);padding:12px 8px;display:flex;flex-direction:column;overflow:auto}
+.logo{font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center;padding:2px 8px 14px}
+.logo i{background:var(--ac);color:var(--acx);width:24px;height:24px;border-radius:6px;display:grid;place-items:center;font-style:normal;font-size:13px}
+aside h6{margin:14px 8px 4px;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mu)}
+aside a{display:flex;justify-content:space-between;padding:7px 10px;border-radius:6px;color:var(--tx);text-decoration:none}
+aside a:hover{background:var(--bg)}
+aside a[aria-current]{background:var(--ac2);color:var(--ac);font-weight:600}
+aside kbd{color:var(--mu);font:11px inherit}
+.side-foot{margin-top:auto;padding:10px 8px 0;border-top:1px solid var(--bd);display:grid;gap:8px;font-size:12px;color:var(--mu)}
+html[data-role="cashier"] .admin{display:none!important}
+.main{display:flex;flex-direction:column;min-width:0;min-height:0}
+.tb{height:48px;flex:none;background:var(--sf);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;padding:0 18px}
+.tb h1{font-size:15px;margin:0;font-weight:700;margin-right:auto}
+footer{grid-column:1/3;background:var(--sf);border-top:1px solid var(--bd);display:flex;gap:18px;align-items:center;padding:0 14px;font-size:12px;color:var(--mu)}
+footer b{color:var(--tx);font-weight:600}.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);display:inline-block;margin-right:5px}
+.page{flex:1;min-height:0;overflow:auto;padding:16px 18px}

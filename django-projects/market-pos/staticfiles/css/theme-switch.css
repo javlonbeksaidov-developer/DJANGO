@@ -1,0 +1,7 @@
+/* theme-switch.css: Light/dark toggle switch. */
+.theme{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--mu);font-size:12px;font-weight:600}
+.tsw{position:relative;width:44px;height:24px;border-radius:99px;border:1px solid var(--bd);background:var(--bg);padding:0;cursor:pointer;flex:none;transition:background .2s,border-color .2s}
+.tsw::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--mu);transition:transform .2s,background .2s}
+.tsw[aria-checked="true"]{background:var(--ac);border-color:var(--ac)}
+.tsw[aria-checked="true"]::after{transform:translateX(20px);background:var(--acx)}
+.tsw:hover:not(:disabled){filter:none;border-color:var(--ac)}

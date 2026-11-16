@@ -1,0 +1,12 @@
+/* forms.css: Buttons, labels, inputs, toolbars and the password reveal button. */
+button,.btn{font:inherit;font-weight:600;border:1px solid var(--ac);border-radius:6px;padding:6px 14px;background:var(--ac);color:var(--acx);cursor:pointer}
+button.sec{background:var(--sf);color:var(--tx);border-color:var(--bd)}
+button.dg{background:var(--sf);color:var(--dg);border-color:var(--bd)}
+button.sm{padding:3px 10px;font-size:12px}
+button:hover:not(:disabled){filter:brightness(.95)}button:disabled{opacity:.45;cursor:not-allowed}
+label{display:block;font-size:12px;font-weight:600;color:var(--mu);margin-bottom:10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bar{display:flex;gap:8px;align-items:center}.bar input,.bar select{margin:0;width:auto}
+.pw{position:relative;display:block}.pw input{padding-right:58px}
+.pw .eye{position:absolute;right:3px;top:calc(50% + 1.5px);transform:translateY(-50%);background:none;border:0;color:var(--ac);padding:3px 9px;font-size:12px;font-weight:600;border-radius:5px}
+.pw .eye:hover:not(:disabled){background:var(--ac2);filter:none}

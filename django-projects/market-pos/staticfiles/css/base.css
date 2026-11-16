@@ -1,0 +1,11 @@
+/* base.css: Design tokens (light and dark), reset and base typography. */
+:root{--bg:#eef1f4;--sf:#fff;--sf2:#f7f9fa;--tx:#1b2631;--mu:#6b7785;--bd:#d9dfe5;--ac:#0b6e66;--acx:#fff;--ac2:#d9f3ef;--dg:#b42318;--wn:#b54708;--ok:#15803d;--r:7px;--sh:0 10px 40px rgba(0,0,0,.25)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1418;--sf:#182027;--sf2:#1d272f;--tx:#e6edf2;--mu:#8e9ba8;--bd:#2a3640;--ac:#2dd4bf;--acx:#06201d;--ac2:#12332f;--dg:#f87171;--wn:#fbbf24;--ok:#4ade80}}
+:root[data-theme="dark"]{--bg:#0f1418;--sf:#182027;--sf2:#1d272f;--tx:#e6edf2;--mu:#8e9ba8;--bd:#2a3640;--ac:#2dd4bf;--acx:#06201d;--ac2:#12332f;--dg:#f87171;--wn:#fbbf24;--ok:#4ade80}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font:13.5px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow:hidden;user-select:none}
+input,select,textarea{user-select:text}
+:focus-visible{outline:2px solid var(--ac);outline-offset:1px}
+input,select,textarea{display:block;width:100%;margin-top:3px;font:inherit;color:var(--tx);background:var(--sf);border:1px solid var(--bd);border-radius:6px;padding:6px 9px}
+input[type=checkbox],input[type=radio]{width:auto;display:inline;margin:0 6px 0 0}

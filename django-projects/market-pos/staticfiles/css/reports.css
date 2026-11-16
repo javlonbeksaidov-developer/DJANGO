@@ -1,0 +1,5 @@
+/* reports.css: Reports page: stat cards and revenue chart. */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:14px}
+.stat{padding:12px 14px}.stat span{color:var(--mu);font-size:12px}.stat b{display:block;font-size:22px}
+.chart{display:grid;gap:9px}.chart div{display:grid;grid-template-columns:110px 1fr 70px;gap:10px;align-items:center}
+.chart i{display:block;height:14px;background:var(--ac);border-radius:3px}

@@ -1,0 +1,17 @@
+/* components.css: Shared components: cards, grids, tags, tables, totals, avatar. */
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r)}
+.ch{padding:10px 14px;border-bottom:1px solid var(--bd);font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.cb{padding:14px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.g3{display:grid;grid-template-columns:2fr 1fr;gap:14px;align-items:start}
+.tag{display:inline-block;font-size:11px;padding:0 7px;border-radius:99px;background:var(--ac2);color:var(--ac);font-weight:600}
+.tag.r{background:rgba(180,35,24,.12);color:var(--dg)}.tag.y{background:rgba(181,71,8,.14);color:var(--wn)}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;color:var(--mu);font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:var(--sf2);position:sticky;top:0}
+th,td{padding:7px 12px;border-bottom:1px solid var(--bd);white-space:nowrap}
+tbody tr:hover{background:var(--sf2)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+td form{display:inline}
+.tot{display:flex;justify-content:space-between;color:var(--mu)}
+.tot.b{color:var(--tx);font-size:20px;font-weight:700;margin-top:4px}
+.av{width:56px;height:56px;border-radius:50%;background:var(--ac2);color:var(--ac);display:grid;place-items:center;font-weight:700;font-size:20px}
