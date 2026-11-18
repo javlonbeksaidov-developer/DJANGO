@@ -22,7 +22,7 @@ class CheckItem(models.Model):
     )
     amount = models.FloatField(default=0)
 
-    check = models.ForeignKey(
+    check_items = models.ForeignKey(
         Check, on_delete=models.CASCADE, related_name="check_items"
     )
 

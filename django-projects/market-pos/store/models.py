@@ -26,7 +26,7 @@ class Products(models.Model):
 
 
 class Discount(models.Model):
-    type_discount = models.CharField(max_length="50")
+    type_discount = models.CharField(max_length=50)
     value = models.FloatField(default=0)
     start_time = models.DateTimeField(blank=True, null=True)
     end_time = models.DateTimeField(blank=True, null=True)

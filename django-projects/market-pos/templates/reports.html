@@ -1,58 +1,125 @@
-<!DOCTYPE html>
-<html lang="en" data-page="reports" data-access="admin" data-role="cashier">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cashier reports · MarketPOS</title>
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/forms.css">
-<link rel="stylesheet" href="css/modal.css">
-<link rel="stylesheet" href="css/theme-switch.css">
-<link rel="stylesheet" href="css/reports.css">
-<script src="js/session.js"></script>
-<script src="js/theme.js"></script>
-</head>
-<body>
-<div class="app">
-<aside>
-<div class="logo"><i>M</i>MarketPOS</div>
-<h6>Register</h6>
-<a href="sale.html">Sale <kbd>F1</kbd></a><a href="return.html">Return <kbd>F3</kbd></a><a href="profile.html">Profile</a>
-<h6 class="admin">Administration</h6>
-<a class="admin" href="reports.html" aria-current="page">Cashier reports</a><a class="admin" href="products.html">Products</a><a class="admin" href="users.html">Users</a><a class="admin" href="store.html">Store</a>
-<div class="side-foot">
-<div><b id="uname" style="color:var(--tx)">Aziza Karimova</b><br><span id="urole">Cashier</span></div>
-<form class="logout" action="/logout" method="post"><button class="sec" style="width:100%">Log out</button></form>
-<div class="theme"><span>Dark mode</span><button type="button" class="tsw" role="switch" aria-checked="false" aria-label="Dark mode"></button></div>
-</div>
-</aside>
-<div class="main">
-<div class="tb"><h1>Cashier reports</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag" id="rolebadge">Cashier</span></span></div>
-<main class="page">
-<form class="bar" action="#reports" method="get" style="margin-bottom:14px"><select name="range"><option>Last 7 days</option><option>Last 30 days</option><option>This month</option></select><select name="cashier"><option>All cashiers</option><option>Aziza K.</option><option>Dilnoza R.</option><option>Madina Y.</option></select><button class="sec">Apply</button><button class="sec" name="export" value="csv" style="margin-left:auto">Export CSV</button></form>
-<div class="stats">
-<div class="card stat"><span>Revenue</span><b>$18,420</b></div><div class="card stat"><span>Transactions</span><b>1,284</b></div><div class="card stat"><span>Avg. basket</span><b>$14.34</b></div><div class="card stat"><span>Returns</span><b>23</b></div><div class="card stat"><span>Top cashier</span><b>Aziza K.</b></div></div>
-<div class="g3">
-<div class="card"><div class="ch">Performance by cashier</div><table><thead><tr><th>Cashier</th><th class="n">Sales</th><th class="n">Revenue</th><th class="n">Avg basket</th><th class="n">Returns</th><th class="n">Voids</th><th class="n">Discounts</th><th class="n">Avg time</th></tr></thead><tbody>
-<tr><td>Aziza Karimova</td><td class="n">512</td><td class="n">$7,420</td><td class="n">$14.49</td><td class="n">6</td><td class="n">2</td><td class="n">$142</td><td class="n">1m 42s</td></tr>
-<tr><td>Dilnoza Rahimova</td><td class="n">468</td><td class="n">$6,180</td><td class="n">$13.20</td><td class="n">11</td><td class="n">5</td><td class="n">$190</td><td class="n">1m 58s</td></tr>
-<tr><td>Madina Yusupova</td><td class="n">304</td><td class="n">$4,820</td><td class="n">$15.86</td><td class="n">6</td><td class="n">1</td><td class="n">$96</td><td class="n">1m 35s</td></tr></tbody></table></div>
-<div class="card"><div class="ch">Revenue share</div><div class="cb chart">
-<div><span>Aziza K.</span><i style="width:100%"></i><b>$7,420</b></div><div><span>Dilnoza R.</span><i style="width:83%"></i><b>$6,180</b></div><div><span>Madina Y.</span><i style="width:65%"></i><b>$4,820</b></div></div></div>
-</div>
-<div class="card" style="margin-top:14px"><div class="ch">Recent shifts</div><table><thead><tr><th>Date</th><th>Cashier</th><th>Shift</th><th class="n">Sales</th><th class="n">Revenue</th><th class="n">Cash variance</th></tr></thead><tbody>
-<tr><td>14 Nov</td><td>Aziza K.</td><td>08:00–16:00</td><td class="n">74</td><td class="n">$1,020</td><td class="n">$0.00</td></tr>
-<tr><td>14 Nov</td><td>Dilnoza R.</td><td>14:00–22:00</td><td class="n">68</td><td class="n">$912</td><td class="n" style="color:var(--dg)">−$2.50</td></tr>
-<tr><td>13 Nov</td><td>Madina Y.</td><td>08:00–16:00</td><td class="n">59</td><td class="n">$845</td><td class="n">$0.00</td></tr></tbody></table></div>
-</main>
-</div>
-<footer><span><span class="dot"></span><b>Online</b></span><span>Chilonzor Market</span><span>Register 2</span><span style="margin-left:auto" id="clock"></span></footer>
-</div>
+{% extends 'base.html' %}
+{% block content %}
 
-<script src="js/modal.js"></script>
-<script src="js/shortcuts.js"></script>
-<script src="js/clock.js"></script>
-</body>
-</html>
+<main class="page">
+    <form class="bar" action="#reports" method="get" style="margin-bottom:14px"><select name="range">
+            <option>Last 7 days</option>
+            <option>Last 30 days</option>
+            <option>This month</option>
+        </select><select name="cashier">
+            <option>All cashiers</option>
+            <option>Aziza K.</option>
+            <option>Dilnoza R.</option>
+            <option>Madina Y.</option>
+        </select><button class="sec">Apply</button><button class="sec" name="export" value="csv"
+            style="margin-left:auto">Export CSV</button></form>
+    <div class="stats">
+        <div class="card stat"><span>Revenue</span><b>$18,420</b></div>
+        <div class="card stat"><span>Transactions</span><b>1,284</b></div>
+        <div class="card stat"><span>Avg. basket</span><b>$14.34</b></div>
+        <div class="card stat"><span>Returns</span><b>23</b></div>
+        <div class="card stat"><span>Top cashier</span><b>Aziza K.</b></div>
+    </div>
+    <div class="g3">
+        <div class="card">
+            <div class="ch">Performance by cashier</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cashier</th>
+                        <th class="n">Sales</th>
+                        <th class="n">Revenue</th>
+                        <th class="n">Avg basket</th>
+                        <th class="n">Returns</th>
+                        <th class="n">Voids</th>
+                        <th class="n">Discounts</th>
+                        <th class="n">Avg time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aziza Karimova</td>
+                        <td class="n">512</td>
+                        <td class="n">$7,420</td>
+                        <td class="n">$14.49</td>
+                        <td class="n">6</td>
+                        <td class="n">2</td>
+                        <td class="n">$142</td>
+                        <td class="n">1m 42s</td>
+                    </tr>
+                    <tr>
+                        <td>Dilnoza Rahimova</td>
+                        <td class="n">468</td>
+                        <td class="n">$6,180</td>
+                        <td class="n">$13.20</td>
+                        <td class="n">11</td>
+                        <td class="n">5</td>
+                        <td class="n">$190</td>
+                        <td class="n">1m 58s</td>
+                    </tr>
+                    <tr>
+                        <td>Madina Yusupova</td>
+                        <td class="n">304</td>
+                        <td class="n">$4,820</td>
+                        <td class="n">$15.86</td>
+                        <td class="n">6</td>
+                        <td class="n">1</td>
+                        <td class="n">$96</td>
+                        <td class="n">1m 35s</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <div class="ch">Revenue share</div>
+            <div class="cb chart">
+                <div><span>Aziza K.</span><i style="width:100%"></i><b>$7,420</b></div>
+                <div><span>Dilnoza R.</span><i style="width:83%"></i><b>$6,180</b></div>
+                <div><span>Madina Y.</span><i style="width:65%"></i><b>$4,820</b></div>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="margin-top:14px">
+        <div class="ch">Recent shifts</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Cashier</th>
+                    <th>Shift</th>
+                    <th class="n">Sales</th>
+                    <th class="n">Revenue</th>
+                    <th class="n">Cash variance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>14 Nov</td>
+                    <td>Aziza K.</td>
+                    <td>08:00–16:00</td>
+                    <td class="n">74</td>
+                    <td class="n">$1,020</td>
+                    <td class="n">$0.00</td>
+                </tr>
+                <tr>
+                    <td>14 Nov</td>
+                    <td>Dilnoza R.</td>
+                    <td>14:00–22:00</td>
+                    <td class="n">68</td>
+                    <td class="n">$912</td>
+                    <td class="n" style="color:var(--dg)">−$2.50</td>
+                </tr>
+                <tr>
+                    <td>13 Nov</td>
+                    <td>Madina Y.</td>
+                    <td>08:00–16:00</td>
+                    <td class="n">59</td>
+                    <td class="n">$845</td>
+                    <td class="n">$0.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+{% endblock content %}
