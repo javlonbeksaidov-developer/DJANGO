@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{% static 'css/forms.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
     <link rel="stylesheet" href="{% static 'css/theme-switch.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sale.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reports.css' %}">
     <!-- <script src="{% static 'js/session.js' %}"></script> -->
     <script src="{% static 'js/theme.js' %}"></script>
 </head>
@@ -21,18 +23,23 @@
         <aside>
             <div class="logo"><i>M</i>MarketPOS</div>
             <h6>Register</h6>
-            <a href="{% url 'sale:sale' %}">Sale <kbd>F1</kbd></a><a href="{% url 'sale:return' %}">Return <kbd>F3</kbd></a><a
-                href="{% url 'accounts:profile' %}">Profile</a>
-            <h6 class="admin">Administration</h6>
-            <a class="admin" href="{% url 'reports:reports' %}">Cashier reports</a><a class="admin" href="{% url 'store:products' %}"
-                aria-current="page">Products</a><a class="admin" href="{% url 'accounts:users' %}">Users</a><a class="admin"
-                href="{% url 'store:store' %}">Store</a>
+            <a href="{% url 'main:home' %}">Sale <kbd>F1</kbd></a>
+            <a href="{% url 'sale:return' %}">Return <kbd>F3</kbd></a>
+            <a href="{% url 'accounts:profile' %}">Profile</a>
+            <h6 class="">Administration</h6>
+            <a class="" href="{% url 'reports:reports' %}">Cashier reports</a>
+            <a class="" href="{% url 'store:products' %}" aria-current="page">Products</a>
+            <a class="" href="{% url 'accounts:users' %}">Users</a>
+            <a class="" href="{% url 'store:store' %}">Store</a>
             <div class="side-foot">
                 <div><b id="uname" style="color:var(--tx)">Aziza Karimova</b><br><span id="urole">Cashier</span></div>
                 <form class="logout" action="/logout" method="post"><button class="sec" style="width:100%">Log
                         out</button></form>
-                <div class="theme"><span>Dark mode</span><button type="button" class="tsw" role="switch"
-                        aria-checked="false" aria-label="Dark mode"></button></div>
+                <div class="theme"><span>Dark mode</span>
+                    <button 
+                        type="button" class="tsw" role="switch" aria-checked="false" aria-label="Dark mode">
+                    </button>
+                </div>
             </div>
         </aside>
 
@@ -45,8 +52,10 @@
             {% block content %} {% endblock content %}
 
         </div>
-        <footer><span><span class="dot"></span><b>Online</b></span><span>Chilonzor Market</span><span>Register
-                2</span><span style="margin-left:auto" id="clock"></span></footer>
+        <footer>
+            <span><span class="dot"></span><b>Online</b></span><span>Chilonzor Market</span><span>Register
+                2</span><span style="margin-left:auto" id="clock"></span>
+        </footer>
     </div>
 
     <script src="{% static 'js/modal.js' %}"></script>
