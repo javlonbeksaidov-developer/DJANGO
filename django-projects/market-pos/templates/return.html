@@ -1,163 +1,118 @@
-<!DOCTYPE html>
-<html lang="en" data-page="return" data-access="any" data-role="cashier">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Return / refund · MarketPOS</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="css/theme-switch.css">
-    <script src="js/session.js"></script>
-    <script src="js/theme.js"></script>
-</head>
-
-<body>
-    <div class="app">
-        <aside>
-            <div class="logo"><i>M</i>MarketPOS</div>
-            <h6>Register</h6>
-            <a href="sale.html">Sale <kbd>F1</kbd></a><a href="return.html" aria-current="page">Return
-                <kbd>F3</kbd></a><a href="profile.html">Profile</a>
-            <h6 class="admin">Administration</h6>
-            <a class="admin" href="reports.html">Cashier reports</a><a class="admin" href="products.html">Products</a><a
-                class="admin" href="users.html">Users</a><a class="admin" href="store.html">Store</a>
-            <div class="side-foot">
-                <div><b id="uname" style="color:var(--tx)">Aziza Karimova</b><br><span id="urole">Cashier</span></div>
-                <form class="logout" action="/logout" method="post"><button class="sec" style="width:100%">Log
-                        out</button></form>
-                <div class="theme"><span>Dark mode</span><button type="button" class="tsw" role="switch"
-                        aria-checked="false" aria-label="Dark mode"></button></div>
-            </div>
-        </aside>
-        <div class="main">
-            <div class="tb">
-                <h1>Return / refund</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span
-                        class="tag" id="rolebadge">Cashier</span></span>
-            </div>
-            <main class="page">
-                <div class="g3">
-                    <div class="card">
-                        <div class="ch">Find receipt</div>
-                        <div class="cb">
-                            <form class="bar" action="#return" method="get" style="margin-bottom:12px"><input
-                                    name="receipt" value="10431" style="flex:1" aria-label="Receipt number"><button>Look
-                                    up</button></form>
-                            <div class="tot" style="margin-bottom:8px"><span>Receipt #10431 · 14 Nov, 16:42 · Cashier
-                                    Dilnoza R.</span><span class="tag">Paid by card</span></div>
-                            <form action="#return" method="post">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Item</th>
-                                            <th class="n">Sold</th>
-                                            <th class="n">Return qty</th>
-                                            <th class="n">Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input type="checkbox" name="ret" value="1002" checked></td>
-                                            <td>Milk 1L</td>
-                                            <td class="n">2</td>
-                                            <td class="n"><input type="number" name="q1002" min="0" max="2" value="1"
-                                                    style="width:64px;margin:0;display:inline-block"></td>
-                                            <td class="n">$1.20</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="checkbox" name="ret" value="1001"></td>
-                                            <td>White bread</td>
-                                            <td class="n">1</td>
-                                            <td class="n"><input type="number" name="q1001" min="0" max="1" value="0"
-                                                    style="width:64px;margin:0;display:inline-block"></td>
-                                            <td class="n">$0.90</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="checkbox" name="ret" value="1004"></td>
-                                            <td>Eggs ×10</td>
-                                            <td class="n">1</td>
-                                            <td class="n"><input type="number" name="q1004" min="0" max="1" value="0"
-                                                    style="width:64px;margin:0;display:inline-block"></td>
-                                            <td class="n">$2.10</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="row" style="margin-top:14px"><label>Reason<select name="reason">
-                                            <option>Damaged</option>
-                                            <option>Expired</option>
-                                            <option>Wrong item</option>
-                                            <option>Customer changed mind</option>
-                                        </select></label><label>Refund to<select name="method">
-                                            <option>Original payment</option>
-                                            <option>Cash</option>
-                                            <option>Store credit</option>
-                                        </select></label></div>
-                                <button type="button" data-open="m-refund">Review refund…</button>
-                                <dialog id="m-refund">
-                                    <div class="mh">Confirm refund <button type="button" class="x" data-close>✕</button>
-                                    </div>
-                                    <div class="mb">
-                                        <div class="tot"><span>Milk 1L × 1</span><span>$1.20</span></div>
-                                        <div class="tot b"><span>Refund total</span><span>$1.20</span></div>
-                                        <p style="color:var(--mu);margin-bottom:0">Returned to the original card. Items
-                                            marked “restock” go back to inventory.</p><label
-                                            style="margin:12px 0 0"><input type="checkbox" name="restock" checked>Return
-                                            items to stock</label>
-                                    </div>
-                                    <div class="mf"><button type="button" class="sec"
-                                            data-close>Cancel</button><button>Refund $1.20</button></div>
-                                </dialog>
-                            </form>
+<main class="page">
+    <div class="g3">
+        <div class="card">
+            <div class="ch">Find receipt</div>
+            <div class="cb">
+                <form class="bar" action="#return" method="get" style="margin-bottom:12px"><input name="receipt"
+                        value="10431" style="flex:1" aria-label="Receipt number"><button>Look
+                        up</button></form>
+                <div class="tot" style="margin-bottom:8px"><span>Receipt #10431 · 14 Nov, 16:42 · Cashier
+                        Dilnoza R.</span><span class="tag">Paid by card</span></div>
+                <form action="#return" method="post">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Item</th>
+                                <th class="n">Sold</th>
+                                <th class="n">Return qty</th>
+                                <th class="n">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="ret" value="1002" checked></td>
+                                <td>Milk 1L</td>
+                                <td class="n">2</td>
+                                <td class="n"><input type="number" name="q1002" min="0" max="2" value="1"
+                                        style="width:64px;margin:0;display:inline-block"></td>
+                                <td class="n">$1.20</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="ret" value="1001"></td>
+                                <td>White bread</td>
+                                <td class="n">1</td>
+                                <td class="n"><input type="number" name="q1001" min="0" max="1" value="0"
+                                        style="width:64px;margin:0;display:inline-block"></td>
+                                <td class="n">$0.90</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="ret" value="1004"></td>
+                                <td>Eggs ×10</td>
+                                <td class="n">1</td>
+                                <td class="n"><input type="number" name="q1004" min="0" max="1" value="0"
+                                        style="width:64px;margin:0;display:inline-block"></td>
+                                <td class="n">$2.10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row" style="margin-top:14px"><label>Reason<select name="reason">
+                                <option>Damaged</option>
+                                <option>Expired</option>
+                                <option>Wrong item</option>
+                                <option>Customer changed mind</option>
+                            </select></label><label>Refund to<select name="method">
+                                <option>Original payment</option>
+                                <option>Cash</option>
+                                <option>Store credit</option>
+                            </select></label></div>
+                    <button type="button" data-open="m-refund">Review refund…</button>
+                    <dialog id="m-refund">
+                        <div class="mh">Confirm refund <button type="button" class="x" data-close>✕</button>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="ch">Recent returns</div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Receipt</th>
-                                    <th>Item</th>
-                                    <th class="n">Refund</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#10431</td>
-                                    <td>Milk 1L</td>
-                                    <td class="n">$1.20</td>
-                                </tr>
-                                <tr>
-                                    <td>#10388</td>
-                                    <td>Eggs ×10</td>
-                                    <td class="n">$2.10</td>
-                                </tr>
-                                <tr>
-                                    <td>#10352</td>
-                                    <td>Dish soap</td>
-                                    <td class="n">$2.90</td>
-                                </tr>
-                                <tr>
-                                    <td>#10297</td>
-                                    <td>Rice 1kg</td>
-                                    <td class="n">$1.80</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </main>
+                        <div class="mb">
+                            <div class="tot"><span>Milk 1L × 1</span><span>$1.20</span></div>
+                            <div class="tot b"><span>Refund total</span><span>$1.20</span></div>
+                            <p style="color:var(--mu);margin-bottom:0">Returned to the original card. Items
+                                marked “restock” go back to inventory.</p><label style="margin:12px 0 0"><input
+                                    type="checkbox" name="restock" checked>Return
+                                items to stock</label>
+                        </div>
+                        <div class="mf"><button type="button" class="sec" data-close>Cancel</button><button>Refund
+                                $1.20</button></div>
+                    </dialog>
+                </form>
+            </div>
         </div>
-        <footer><span><span class="dot"></span><b>Online</b></span><span>Chilonzor Market</span><span>Register
-                2</span><span style="margin-left:auto" id="clock"></span></footer>
+        <div class="card">
+            <div class="ch">Recent returns</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Receipt</th>
+                        <th>Item</th>
+                        <th class="n">Refund</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#10431</td>
+                        <td>Milk 1L</td>
+                        <td class="n">$1.20</td>
+                    </tr>
+                    <tr>
+                        <td>#10388</td>
+                        <td>Eggs ×10</td>
+                        <td class="n">$2.10</td>
+                    </tr>
+                    <tr>
+                        <td>#10352</td>
+                        <td>Dish soap</td>
+                        <td class="n">$2.90</td>
+                    </tr>
+                    <tr>
+                        <td>#10297</td>
+                        <td>Rice 1kg</td>
+                        <td class="n">$1.80</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+</main>
 
-    <script src="js/modal.js"></script>
-    <script src="js/shortcuts.js"></script>
-    <script src="js/clock.js"></script>
-</body>
-
-</html>
+{% endblock content %}

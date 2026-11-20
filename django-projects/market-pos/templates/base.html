@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-page="sale" data-access="any" data-role="cashier">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New sale · MarketPOS</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme-switch.css' %}">
+    {% comment %}
+    <script src="{% static 'js/session.js' %}"></script>
+    {% endcomment %}
+    <script src="{% static 'js/theme.js' %}"></script>
+</head>
+
+<body>
+    <div class="app">
+        <aside>
+            <div class="logo"><i>M</i>MarketPOS</div>
+            <h6>Register</h6>
+            <a href="{% url 'sale:sale' %}" aria-current="page">Sale <kbd>F1</kbd></a>
+            <a href="{% url 'sale:return' %}">Return<kbd>F3</kbd></a>
+            <a href="{% url 'accounts:profile' %}">Profile</a>
+
+            {% if request.user.is_superuser %}
+            <h6 class="">Administration</h6>
+            <a class="" href="{% url 'reports:reports' %}">Cashier reports</a>
+            <a class="" href="{% url 'store:store' %}">Products</a>
+            <a class="" href="{% url 'accounts:users' %}">Users</a>
+            {% endif %}
+
+            <div class="side-foot">
+                <div><b id="uname" style="color:var(--tx)">Aziza Karimova</b><br><span id="urole">Cashier</span></div>
+                <form class="logout" action="{% url 'accounts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type='submit' style="width:100%">Logout</button>
+                </form>
+                <div class="theme"><span>Dark mode</span><button type="button" class="tsw" role="switch"
+                        aria-checked="false" aria-label="Dark mode"></button></div>
+            </div>
+        </aside>
+        <div class="main">
+            <div class="tb">
+                <h1>New sale</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag"
+                        id="rolebadge">Cashier</span></span>
+            </div>
+
+            {% block content %} {% endblock content %}
+
+        </div>
+        <footer><span><span class="dot"></span><b>Online</b></span><span>Chilonzor Market</span><span>Register
+                2</span><span style="margin-left:auto" id="clock"></span></footer>
+    </div>
+    <dialog id="m-pay">
+        <form action="#sale" method="post">
+            <div class="mh">Payment <button type="button" class="x" data-close>✕</button></div>
+            <div class="mb">
+                <div class="tot b" style="margin:0 0 12px"><span>Amount due</span><span>$10.75</span></div>
+                <div class="pay"><label><input type="radio" name="pay" value="cash" checked><span>💵
+                            Cash</span></label><label><input type="radio" name="pay" value="card"><span>💳
+                            Card</span></label><label><input type="radio" name="pay" value="qr"><span>📱
+                            QR</span></label></div>
+                <label>Cash received<input type="number" step="0.01" name="received" value="20.00"></label>
+                <div class="tot"><span>Change due</span><b style="color:var(--tx)">$9.25</b></div>
+            </div>
+            <div class="mf"><button type="button" class="sec" data-close>Cancel</button><button name="action"
+                    value="pay">Complete sale</button></div>
+        </form>
+    </dialog>
+    <script src="{% static 'js/modal.js' %}"></script>
+    <script src="{% static 'js/shortcuts.js' %}"></script>
+    <script src="{% static 'js/clock.js' %}"></script>
+</body>
+
+</html>

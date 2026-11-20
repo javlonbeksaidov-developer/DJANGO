@@ -1,133 +1,84 @@
-<!DOCTYPE html>
-<html lang="en" data-page="users" data-access="admin" data-role="cashier">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Users · MarketPOS</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="css/theme-switch.css">
-    <script src="js/session.js"></script>
-    <script src="js/theme.js"></script>
-</head>
-
-<body>
-    <div class="app">
-        <aside>
-            <div class="logo"><i>M</i>MarketPOS</div>
-            <h6>Register</h6>
-            <a href="sale.html">Sale <kbd>F1</kbd></a><a href="return.html">Return <kbd>F3</kbd></a><a
-                href="profile.html">Profile</a>
-            <h6 class="admin">Administration</h6>
-            <a class="admin" href="reports.html">Cashier reports</a><a class="admin" href="products.html">Products</a><a
-                class="admin" href="users.html" aria-current="page">Users</a><a class="admin"
-                href="store.html">Store</a>
-            <div class="side-foot">
-                <div><b id="uname" style="color:var(--tx)">Aziza Karimova</b><br><span id="urole">Cashier</span></div>
-                <form class="logout" action="/logout" method="post"><button class="sec" style="width:100%">Log
-                        out</button></form>
-                <div class="theme"><span>Dark mode</span><button type="button" class="tsw" role="switch"
-                        aria-checked="false" aria-label="Dark mode"></button></div>
-            </div>
-        </aside>
-        <div class="main">
-            <div class="tb">
-                <h1>Users</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag"
-                        id="rolebadge">Cashier</span></span>
-            </div>
-            <main class="page">
-                <div class="bar" style="margin-bottom:12px"><button data-open="m-user" style="margin-left:auto">+ Add
-                        user</button></div>
-                <div class="card">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                                <th>Last login</th>
-                                <th class="n">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Jasur Tursunov</td>
-                                <td>jasur@marketpos.example</td>
-                                <td>Admin</td>
-                                <td><span class="tag">Active</span></td>
-                                <td>Today, 07:52</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Aziza Karimova</td>
-                                <td>aziza@marketpos.example</td>
-                                <td>Cashier</td>
-                                <td><span class="tag">Active</span></td>
-                                <td>Today, 08:00</td>
-                                <td class="n">
-                                    <form action="#users" method="post"><button class="sec sm" name="reset"
-                                            value="2">Reset password</button> <button class="dg sm" name="disable"
-                                            value="2">Disable</button></form>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Dilnoza Rahimova</td>
-                                <td>dilnoza@marketpos.example</td>
-                                <td>Cashier</td>
-                                <td><span class="tag">Active</span></td>
-                                <td>Yesterday</td>
-                                <td class="n">
-                                    <form action="#users" method="post"><button class="sec sm" name="reset"
-                                            value="3">Reset password</button> <button class="dg sm" name="disable"
-                                            value="3">Disable</button></form>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Madina Yusupova</td>
-                                <td>madina@marketpos.example</td>
-                                <td>Cashier</td>
-                                <td><span class="tag r">Disabled</span></td>
-                                <td>3 Nov</td>
-                                <td class="n">
-                                    <form action="#users" method="post"><button class="sec sm" name="enable"
-                                            value="4">Enable</button></form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <dialog id="m-user">
-                    <form action="#users" method="post">
-                        <div class="mh">Add user <button type="button" class="x" data-close>✕</button></div>
-                        <div class="mb">
-                            <div class="row"><label>First name<input name="first" required></label><label>Last
-                                    name<input name="last" required></label></div>
-                            <label>Email<input type="email" name="email" required></label>
-                            <div class="row"><label>Role<select name="role">
-                                        <option>Cashier</option>
-                                        <option>Admin</option>
-                                    </select></label><label>Temporary password<input type="password" name="pw"
-                                        required></label></div>
-                        </div>
-                        <div class="mf"><button type="button" class="sec" data-close>Cancel</button><button>Create
-                                user</button></div>
-                    </form>
-                </dialog>
-            </main>
-        </div>
-        <footer><span><span class="dot"></span><b>Online</b></span><span>Chilonzor Market</span><span>Register
-                2</span><span style="margin-left:auto" id="clock"></span></footer>
+<main class="page">
+    <div class="bar" style="margin-bottom:12px"><button data-open="m-user" style="margin-left:auto">+ Add
+            user</button></div>
+    <div class="card">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Last login</th>
+                    <th class="n">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jasur Tursunov</td>
+                    <td>jasur@marketpos.example</td>
+                    <td>Admin</td>
+                    <td><span class="tag">Active</span></td>
+                    <td>Today, 07:52</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Aziza Karimova</td>
+                    <td>aziza@marketpos.example</td>
+                    <td>Cashier</td>
+                    <td><span class="tag">Active</span></td>
+                    <td>Today, 08:00</td>
+                    <td class="n">
+                        <form action="#users" method="post"><button class="sec sm" name="reset" value="2">Reset
+                                password</button> <button class="dg sm" name="disable" value="2">Disable</button></form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dilnoza Rahimova</td>
+                    <td>dilnoza@marketpos.example</td>
+                    <td>Cashier</td>
+                    <td><span class="tag">Active</span></td>
+                    <td>Yesterday</td>
+                    <td class="n">
+                        <form action="#users" method="post"><button class="sec sm" name="reset" value="3">Reset
+                                password</button> <button class="dg sm" name="disable" value="3">Disable</button></form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Madina Yusupova</td>
+                    <td>madina@marketpos.example</td>
+                    <td>Cashier</td>
+                    <td><span class="tag r">Disabled</span></td>
+                    <td>3 Nov</td>
+                    <td class="n">
+                        <form action="#users" method="post"><button class="sec sm" name="enable"
+                                value="4">Enable</button></form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <dialog id="m-user">
+        <form action="#users" method="post">
+            <div class="mh">Add user <button type="button" class="x" data-close>✕</button></div>
+            <div class="mb">
+                <div class="row"><label>First name<input name="first" required></label><label>Last
+                        name<input name="last" required></label></div>
+                <label>Email<input type="email" name="email" required></label>
+                <div class="row"><label>Role<select name="role">
+                            <option>Cashier</option>
+                            <option>Admin</option>
+                        </select></label><label>Temporary password<input type="password" name="pw" required></label>
+                </div>
+            </div>
+            <div class="mf"><button type="button" class="sec" data-close>Cancel</button><button>Create
+                    user</button></div>
+        </form>
+    </dialog>
+</main>
 
-    <script src="js/modal.js"></script>
-    <script src="js/password.js"></script>
-    <script src="js/shortcuts.js"></script>
-    <script src="js/clock.js"></script>
-</body>
-
-</html>
+{% endblock content %}

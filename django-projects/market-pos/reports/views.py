@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 
 
-class ReportsPage(LoginRequiredMixin, UserPassesTestMixin,TemplateView):
+class ReportsPage(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     template_name = "reports.html"
     
     def test_func(self):

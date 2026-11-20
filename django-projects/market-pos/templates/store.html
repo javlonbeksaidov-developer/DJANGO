@@ -1,84 +1,35 @@
-<!DOCTYPE html>
-<html lang="en" data-page="store" data-access="admin" data-role="cashier">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Store · MarketPOS</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="css/theme-switch.css">
-    <script src="js/session.js"></script>
-    <script src="js/theme.js"></script>
-</head>
-
-<body>
-    <div class="app">
-        <aside>
-            <div class="logo"><i>M</i>MarketPOS</div>
-            <h6>Register</h6>
-            <a href="sale.html">Sale <kbd>F1</kbd></a><a href="return.html">Return <kbd>F3</kbd></a><a
-                href="profile.html">Profile</a>
-            <h6 class="admin">Administration</h6>
-            <a class="admin" href="reports.html">Cashier reports</a><a class="admin" href="products.html">Products</a><a
-                class="admin" href="users.html">Users</a><a class="admin" href="store.html"
-                aria-current="page">Store</a>
-            <div class="side-foot">
-                <div><b id="uname" style="color:var(--tx)">Aziza Karimova</b><br><span id="urole">Cashier</span></div>
-                <form class="logout" action="/logout" method="post"><button class="sec" style="width:100%">Log
-                        out</button></form>
-                <div class="theme"><span>Dark mode</span><button type="button" class="tsw" role="switch"
-                        aria-checked="false" aria-label="Dark mode"></button></div>
+<main class="page">
+    <div class="g2">
+        <form class="card" action="#store" method="post">
+            <div class="ch">Store details</div>
+            <div class="cb">
+                <label>Store name<input name="name" value="Chilonzor Market"></label>
+                <div class="row"><label>Phone<input type="tel" name="phone" value="+998 71 200 00 00"></label><label>Tax
+                        ID<input name="tax" value="302 114 998"></label></div>
+                <label>Address<input name="address" value="Bunyodkor Ave 12, Tashkent"></label>
+                <div class="row"><label>Opens<input type="time" name="open" value="08:00"></label><label>Closes<input
+                            type="time" name="close" value="22:00"></label></div>
+                <button>Save store</button>
             </div>
-        </aside>
-        <div class="main">
-            <div class="tb">
-                <h1>Store</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag"
-                        id="rolebadge">Cashier</span></span>
+        </form>
+        <form class="card" action="#store" method="post">
+            <div class="ch">Register &amp; receipts</div>
+            <div class="cb">
+                <div class="row"><label>Tax rate (%)<input type="number" name="taxrate"
+                            value="12"></label><label>Currency<select name="cur">
+                            <option>USD ($)</option>
+                            <option>UZS (so‘m)</option>
+                        </select></label></div>
+                <label>Receipt footer<textarea name="footer" rows="3">Thank you for shopping with us!</textarea></label>
+                <label><input type="checkbox" name="print" checked>Print receipt automatically</label>
+                <button>Save settings</button>
             </div>
-            <main class="page">
-                <div class="g2">
-                    <form class="card" action="#store" method="post">
-                        <div class="ch">Store details</div>
-                        <div class="cb">
-                            <label>Store name<input name="name" value="Chilonzor Market"></label>
-                            <div class="row"><label>Phone<input type="tel" name="phone"
-                                        value="+998 71 200 00 00"></label><label>Tax ID<input name="tax"
-                                        value="302 114 998"></label></div>
-                            <label>Address<input name="address" value="Bunyodkor Ave 12, Tashkent"></label>
-                            <div class="row"><label>Opens<input type="time" name="open"
-                                        value="08:00"></label><label>Closes<input type="time" name="close"
-                                        value="22:00"></label></div>
-                            <button>Save store</button>
-                        </div>
-                    </form>
-                    <form class="card" action="#store" method="post">
-                        <div class="ch">Register &amp; receipts</div>
-                        <div class="cb">
-                            <div class="row"><label>Tax rate (%)<input type="number" name="taxrate"
-                                        value="12"></label><label>Currency<select name="cur">
-                                        <option>USD ($)</option>
-                                        <option>UZS (so‘m)</option>
-                                    </select></label></div>
-                            <label>Receipt footer<textarea name="footer"
-                                    rows="3">Thank you for shopping with us!</textarea></label>
-                            <label><input type="checkbox" name="print" checked>Print receipt automatically</label>
-                            <button>Save settings</button>
-                        </div>
-                    </form>
-                </div>
-            </main>
-        </div>
-        <footer><span><span class="dot"></span><b>Online</b></span><span>Chilonzor Market</span><span>Register
-                2</span><span style="margin-left:auto" id="clock"></span></footer>
+        </form>
     </div>
+</main>
 
-    <script src="js/modal.js"></script>
-    <script src="js/shortcuts.js"></script>
-    <script src="js/clock.js"></script>
-</body>
-
-</html>
+{% endblock content %}

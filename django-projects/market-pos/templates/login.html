@@ -37,6 +37,7 @@
                 {% csrf_token %}
                 <h1>Welcome back</h1>
                 <p class="sub">Sign in to your account</p>
+
                 {% if messages %}
                     {% for msg in messages %}
                         <p class="sub" style="color:red;">{{ msg }}</p>
@@ -44,11 +45,11 @@
                 {% endif %}
 
                 {% if form.non_field_errors %}
-                    <div class="alert alert-danger">
-                        {% for error in form.non_field_errors %}
-                            <p style="color:red;" >{{ error }}</p>
-                        {% endfor %}
-                    </div>
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                        <p style="color:red;">{{ error }}</p>
+                    {% endfor %}
+                </div>
                 {% endif %}
 
                 <label>Username
