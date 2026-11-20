@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en" data-page="products" data-access="admin" data-role="cashier">
+<html lang="en" data-page="login" data-access="public" data-role="cashier">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Products · MarketPOS</title>
+    <title>Sign in · MarketPOS</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components.css' %}">
     <link rel="stylesheet" href="{% static 'css/forms.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
     <link rel="stylesheet" href="{% static 'css/theme-switch.css' %}">
-    <script src="{% static 'js/session.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <script src="{% static 'js/theme.js' %}"></script>
 </head>
 
 <body>
-
     <div class="login">
         <div class="lbrand">
             <div class="logo"><i>M</i>MarketPOS</div>
@@ -35,23 +33,37 @@
         <div class="lform">
             <div class="theme" style="position:absolute;top:20px;right:24px"><span>Dark mode</span><button type="button"
                     class="tsw" role="switch" aria-checked="false" aria-label="Dark mode"></button></div>
-            <form class="lf" id="login-form" action="/login" method="post">
+            <form class="lf" method="post">
+                {% csrf_token %}
                 <h1>Welcome back</h1>
                 <p class="sub">Sign in to your account</p>
-                <label>Username<input name="user" autocomplete="username" placeholder="e.g. aziza" required
-                        autofocus></label>
-                <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
-                <button style="width:100%;padding:10px;font-size:14px;margin-top:6px">Sign in</button>
-                <div class="hint"><b>Demo:</b> any password works. Use username <b>admin</b> for the Admin view,
-                    anything else signs in as a Cashier.</div>
+                {% if messages %}
+                    {% for msg in messages %}
+                        <p class="sub" style="color:red;">{{ msg }}</p>
+                    {% endfor %}
+                {% endif %}
+
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.non_field_errors %}
+                            <p style="color:red;" >{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <label>Username
+                    {{ form.username }}
+                </label>
+                <label>Password
+                    {{ form.password }}
+                </label>
+                <button type="submit" style="width:100%;padding:10px;font-size:14px;margin-top:6px">Sign in</button>
             </form>
         </div>
     </div>
-
     <script src="{% static 'js/modal.js' %}"></script>
     <script src="{% static 'js/password.js' %}"></script>
-    <script src="{% static 'js/shortcuts.js' %}"></script>
-    <script src="{% static 'js/clock.js' %}"></script>
+    <script src="{% static 'js/login.js' %}"></script>
 </body>
 
 </html>

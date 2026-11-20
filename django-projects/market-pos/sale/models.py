@@ -1,5 +1,5 @@
-from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
 
 from store.models import Products
 
@@ -11,20 +11,17 @@ class Check(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="checks")
 
-    def total(self):
-        sum_ = sum([i.total() for i in self.check_items.all()])
-        return sum_
 
+    # def total(self):
+    #     sum_ = sum([i.total() for i in self.check_items.all()])
+    #     return sum_
+    
 
 class CheckItem(models.Model):
-    product = models.ForeignKey(
-        Products, on_delete=models.CASCADE, related_name="items"
-    )
+    product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name="items")
     amount = models.FloatField(default=0)
 
-    check_items = models.ForeignKey(
-        Check, on_delete=models.CASCADE, related_name="check_items"
-    )
-
-    def total(self):
-        return 56
+    checks = models.ForeignKey(Check, on_delete=models.CASCADE, related_name="check_items")
+    
+    # def total(self):
+    #     return 56

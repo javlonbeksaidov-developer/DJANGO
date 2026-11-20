@@ -1,11 +1,13 @@
 from django.urls import path
-
-from .views import LoginPage, ProfilePage, UsersPage
+from django.contrib.auth.views import LoginView, LogoutView
 
 app_name = "accounts"
 
 urlpatterns = [
-    path("login/", LoginPage.as_view(), name="login"),
-    path("users/", UsersPage.as_view(), name="users"),
-    path("profile/", ProfilePage.as_view(), name="profile"),
+    path('login/', 
+         LoginView.as_view(
+            template_name="login.html"), 
+            name='login_page'),
+    
+    path("logout/", LogoutView.as_view(), name="logout")
 ]

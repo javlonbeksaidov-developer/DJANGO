@@ -1,9 +1,8 @@
 from django.urls import path
-
-from .views import ReportsPage
+from . import views
 
 app_name = "reports"
 
 urlpatterns = [
-    path("/", ReportsPage.as_view(), name="reports")
+    path('reports/', views.ReportsPage.as_view(), name='reports_page')
 ]

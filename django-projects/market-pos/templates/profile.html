@@ -1,43 +1,90 @@
-{% extends 'base.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en" data-page="profile" data-access="any" data-role="cashier">
 
-<main class="page">
-    <div class="g2">
-        <form class="card" action="#profile" method="post">
-            <div class="ch">Personal details</div>
-            <div class="cb">
-                <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
-                    <div class="av">AK</div>
-                    <div><b>Aziza Karimova</b><br><span class="tag">Cashier</span></div>
-                </div>
-                <div class="row"><label>First name<input name="first" value="Aziza"></label><label>Last name<input
-                            name="last" value="Karimova"></label></div>
-                <div class="row"><label>Email<input type="email" name="email"
-                            value="aziza@marketpos.example"></label><label>Phone<input type="tel" name="phone"
-                            value="+998 90 123 45 67"></label></div>
-                <button>Save changes</button>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My profile · MarketPOS</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/theme-switch.css">
+    <script src="js/session.js"></script>
+    <script src="js/theme.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <aside>
+            <div class="logo"><i>M</i>MarketPOS</div>
+            <h6>Register</h6>
+            <a href="sale.html">Sale <kbd>F1</kbd></a><a href="return.html">Return <kbd>F3</kbd></a><a
+                href="profile.html" aria-current="page">Profile</a>
+            <h6 class="admin">Administration</h6>
+            <a class="admin" href="reports.html">Cashier reports</a><a class="admin" href="products.html">Products</a><a
+                class="admin" href="users.html">Users</a><a class="admin" href="store.html">Store</a>
+            <div class="side-foot">
+                <div><b id="uname" style="color:var(--tx)">Aziza Karimova</b><br><span id="urole">Cashier</span></div>
+                <form class="logout" action="/logout" method="post"><button class="sec" style="width:100%">Log
+                        out</button></form>
+                <div class="theme"><span>Dark mode</span><button type="button" class="tsw" role="switch"
+                        aria-checked="false" aria-label="Dark mode"></button></div>
             </div>
-        </form>
-        <div style="display:grid;gap:14px">
-            <form class="card" action="#profile" method="post">
-                <div class="ch">Change password</div>
-                <div class="cb"><label>Current password<input type="password" name="old"></label>
-                    <div class="row"><label>New password<input type="password" name="new"></label><label>Confirm<input
-                                type="password" name="new2"></label></div>
-                    <button>Update password</button>
-                </div>
-            </form>
-            <div class="card">
-                <div class="ch">Today’s shift</div>
-                <div class="cb">
-                    <div class="tot"><span>Started</span><span>08:00</span></div>
-                    <div class="tot"><span>Sales</span><span>41</span></div>
-                    <div class="tot"><span>Revenue</span><span>$612.40</span></div>
-                    <div class="tot"><span>Returns</span><span>2</span></div>
-                </div>
+        </aside>
+        <div class="main">
+            <div class="tb">
+                <h1>My profile</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag"
+                        id="rolebadge">Cashier</span></span>
             </div>
+            <main class="page">
+                <div class="g2">
+                    <form class="card" action="#profile" method="post">
+                        <div class="ch">Personal details</div>
+                        <div class="cb">
+                            <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
+                                <div class="av">AK</div>
+                                <div><b>Aziza Karimova</b><br><span class="tag">Cashier</span></div>
+                            </div>
+                            <div class="row"><label>First name<input name="first" value="Aziza"></label><label>Last
+                                    name<input name="last" value="Karimova"></label></div>
+                            <div class="row"><label>Email<input type="email" name="email"
+                                        value="aziza@marketpos.example"></label><label>Phone<input type="tel"
+                                        name="phone" value="+998 90 123 45 67"></label></div>
+                            <button>Save changes</button>
+                        </div>
+                    </form>
+                    <div style="display:grid;gap:14px">
+                        <form class="card" action="#profile" method="post">
+                            <div class="ch">Change password</div>
+                            <div class="cb"><label>Current password<input type="password" name="old"></label>
+                                <div class="row"><label>New password<input type="password"
+                                            name="new"></label><label>Confirm<input type="password" name="new2"></label>
+                                </div><button>Update password</button>
+                            </div>
+                        </form>
+                        <div class="card">
+                            <div class="ch">Today’s shift</div>
+                            <div class="cb">
+                                <div class="tot"><span>Started</span><span>08:00</span></div>
+                                <div class="tot"><span>Sales</span><span>41</span></div>
+                                <div class="tot"><span>Revenue</span><span>$612.40</span></div>
+                                <div class="tot"><span>Returns</span><span>2</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
+        <footer><span><span class="dot"></span><b>Online</b></span><span>Chilonzor Market</span><span>Register
+                2</span><span style="margin-left:auto" id="clock"></span></footer>
     </div>
-</main>
 
-{% endblock content %}
+    <script src="js/modal.js"></script>
+    <script src="js/password.js"></script>
+    <script src="js/shortcuts.js"></script>
+    <script src="js/clock.js"></script>
+</body>
+
+</html>
