@@ -2,43 +2,51 @@
 {% load static %}
 {% block content %}
 
-<main class="page">
-    <div class="g2">
-        <form class="card" action="#profile" method="post">
-            <div class="ch">Personal details</div>
-            <div class="cb">
-                <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
-                    <div class="av">AK</div>
-                    <div><b>Aziza Karimova</b><br><span class="tag">Cashier</span></div>
-                </div>
-                <div class="row"><label>First name<input name="first" value="Aziza"></label><label>Last
-                        name<input name="last" value="Karimova"></label></div>
-                <div class="row"><label>Email<input type="email" name="email"
-                            value="aziza@marketpos.example"></label><label>Phone<input type="tel" name="phone"
-                            value="+998 90 123 45 67"></label></div>
-                <button>Save changes</button>
-            </div>
-        </form>
-        <div style="display:grid;gap:14px">
+<div class="main">
+    <div class="tb">
+        <h1>Profile</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag"
+                id="rolebadge">Cashier</span></span>
+    </div>
+
+    <main class="page">
+        <div class="g2">
             <form class="card" action="#profile" method="post">
-                <div class="ch">Change password</div>
-                <div class="cb"><label>Current password<input type="password" name="old"></label>
-                    <div class="row"><label>New password<input type="password" name="new"></label><label>Confirm<input
-                                type="password" name="new2"></label>
-                    </div><button>Update password</button>
+                <div class="ch">Personal details</div>
+                <div class="cb">
+                    <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
+                        <div class="av">AK</div>
+                        <div><b>Aziza Karimova</b><br><span class="tag">Cashier</span></div>
+                    </div>
+                    <div class="row"><label>First name<input name="first" value="Aziza"></label><label>Last
+                            name<input name="last" value="Karimova"></label></div>
+                    <div class="row"><label>Email<input type="email" name="email"
+                                value="aziza@marketpos.example"></label><label>Phone<input type="tel" name="phone"
+                                value="+998 90 123 45 67"></label></div>
+                    <button>Save changes</button>
                 </div>
             </form>
-            <div class="card">
-                <div class="ch">Today’s shift</div>
-                <div class="cb">
-                    <div class="tot"><span>Started</span><span>08:00</span></div>
-                    <div class="tot"><span>Sales</span><span>41</span></div>
-                    <div class="tot"><span>Revenue</span><span>$612.40</span></div>
-                    <div class="tot"><span>Returns</span><span>2</span></div>
+            <div style="display:grid;gap:14px">
+                <form class="card" action="#profile" method="post">
+                    <div class="ch">Change password</div>
+                    <div class="cb"><label>Current password<input type="password" name="old"></label>
+                        <div class="row"><label>New password<input type="password"
+                                    name="new"></label><label>Confirm<input type="password" name="new2"></label>
+                        </div><button>Update password</button>
+                    </div>
+                </form>
+                <div class="card">
+                    <div class="ch">Today’s shift</div>
+                    <div class="cb">
+                        <div class="tot"><span>Started</span><span>08:00</span></div>
+                        <div class="tot"><span>Sales</span><span>41</span></div>
+                        <div class="tot"><span>Revenue</span><span>$612.40</span></div>
+                        <div class="tot"><span>Returns</span><span>2</span></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
+
+</div>
 
 {% endblock content %}

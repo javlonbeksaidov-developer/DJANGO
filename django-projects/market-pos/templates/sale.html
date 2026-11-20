@@ -2,89 +2,96 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'css/sale.css' %}">
-
-<main class="page page--sale">
-    <div class="pane">
-        <form class="bar" action="#sale" method="get" style="margin-bottom:10px"><input type="search" id="q" name="q"
-                placeholder="Search or scan barcode (F2)" style="flex:1"><button class="sec">Search</button></form>
-        <form class="cat" action="#sale" method="get"><label><input type="radio" name="cat"
-                    checked><span>All</span></label><label><input type="radio"
-                    name="cat"><span>Bakery</span></label><label><input type="radio"
-                    name="cat"><span>Dairy</span></label><label><input type="radio"
-                    name="cat"><span>Produce</span></label><label><input type="radio"
-                    name="cat"><span>Grocery</span></label><label><input type="radio"
-                    name="cat"><span>Household</span></label></form>
-        <div class="prods">
-            <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1001"><span
-                    class="e">🍞</span><b>White bread</b><small>1001 · 48 in
-                    stock</small><span class="pr">$0.90</span><button>Add</button></form>
-            <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1002"><span
-                    class="e">🥛</span><b>Milk 1L</b><small>1002 · 32 in
-                    stock</small><span class="pr">$1.20 <s>$1.50</s> <span
-                        class="tag">−20%</span></span><button>Add</button></form>
-            <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1003"><span
-                    class="e">🍎</span><b>Red apples (kg)</b><small>1003 · 18
-                    kg</small><span class="pr">$2.40</span><button>Add</button></form>
-            <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1004"><span
-                    class="e">🥚</span><b>Eggs ×10</b><small>1004 · <span class="tag y">9
-                        left</span></small><span class="pr">$2.10</span><button>Add</button></form>
-            <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1005"><span
-                    class="e">🍚</span><b>Rice 1kg</b><small>1005 · 60 in
-                    stock</small><span class="pr">$1.80 <s>$2.00</s> <span
-                        class="tag">−10%</span></span><button>Add</button></form>
-            <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1006"><span
-                    class="e">🧴</span><b>Dish soap</b><small>1006 · 24 in
-                    stock</small><span class="pr">$2.90</span><button>Add</button></form>
-            <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1007"><span
-                    class="e">☕</span><b>Instant coffee</b><small>1007 · 15 in
-                    stock</small><span class="pr">$4.50</span><button>Add</button></form>
-            <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1008"><span
-                    class="e">🍫</span><b>Chocolate bar</b><small>1008 · <span class="tag r">Out of
-                        stock</span></small><span class="pr">$1.10</span><button disabled>Add</button></form>
-        </div>
+<div class="main">
+    <div class="tb">
+        <h1>New sale</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag"
+                id="rolebadge">Cashier</span></span>
     </div>
 
-    <div class="card pane">
-        <div class="ch">Receipt #10482 <form action="#sale" method="post"><button class="dg sm" name="action"
-                    value="clear">Clear</button></form>
+    <main class="page page--sale">
+        <div class="pane">
+            <form class="bar" action="#sale" method="get" style="margin-bottom:10px"><input type="search" id="q"
+                    name="q" placeholder="Search or scan barcode (F2)" style="flex:1"><button
+                    class="sec">Search</button></form>
+            <form class="cat" action="#sale" method="get"><label><input type="radio" name="cat"
+                        checked><span>All</span></label><label><input type="radio"
+                        name="cat"><span>Bakery</span></label><label><input type="radio"
+                        name="cat"><span>Dairy</span></label><label><input type="radio"
+                        name="cat"><span>Produce</span></label><label><input type="radio"
+                        name="cat"><span>Grocery</span></label><label><input type="radio"
+                        name="cat"><span>Household</span></label></form>
+            <div class="prods">
+                <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1001"><span
+                        class="e">🍞</span><b>White bread</b><small>1001 · 48 in
+                        stock</small><span class="pr">$0.90</span><button>Add</button></form>
+                <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1002"><span
+                        class="e">🥛</span><b>Milk 1L</b><small>1002 · 32 in
+                        stock</small><span class="pr">$1.20 <s>$1.50</s> <span
+                            class="tag">−20%</span></span><button>Add</button></form>
+                <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1003"><span
+                        class="e">🍎</span><b>Red apples (kg)</b><small>1003 · 18
+                        kg</small><span class="pr">$2.40</span><button>Add</button></form>
+                <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1004"><span
+                        class="e">🥚</span><b>Eggs ×10</b><small>1004 · <span class="tag y">9
+                            left</span></small><span class="pr">$2.10</span><button>Add</button></form>
+                <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1005"><span
+                        class="e">🍚</span><b>Rice 1kg</b><small>1005 · 60 in
+                        stock</small><span class="pr">$1.80 <s>$2.00</s> <span
+                            class="tag">−10%</span></span><button>Add</button></form>
+                <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1006"><span
+                        class="e">🧴</span><b>Dish soap</b><small>1006 · 24 in
+                        stock</small><span class="pr">$2.90</span><button>Add</button></form>
+                <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1007"><span
+                        class="e">☕</span><b>Instant coffee</b><small>1007 · 15 in
+                        stock</small><span class="pr">$4.50</span><button>Add</button></form>
+                <form class="prod" action="#sale" method="post"><input type="hidden" name="sku" value="1008"><span
+                        class="e">🍫</span><b>Chocolate bar</b><small>1008 · <span class="tag r">Out of
+                            stock</span></small><span class="pr">$1.10</span><button disabled>Add</button></form>
+            </div>
         </div>
-        <ul class="lines">
-            <li>
-                <div>Milk 1L<small>$1.20 · −20%</small></div>
-                <form class="qty" action="#sale" method="post"><button class="sec sm" name="dec"
-                        value="1002">−</button>2<button class="sec sm" name="inc" value="1002">+</button>
-                </form><b>$2.40</b>
-            </li>
-            <li>
-                <div>White bread<small>$0.90</small></div>
-                <form class="qty" action="#sale" method="post"><button class="sec sm" name="dec"
-                        value="1001">−</button>3<button class="sec sm" name="inc" value="1001">+</button>
-                </form><b>$2.70</b>
-            </li>
-            <li>
-                <div>Rice 1kg<small>$1.80 · −10%</small></div>
-                <form class="qty" action="#sale" method="post"><button class="sec sm" name="dec"
-                        value="1005">−</button>1<button class="sec sm" name="inc" value="1005">+</button>
-                </form><b>$1.80</b>
-            </li>
-            <li>
-                <div>Red apples (kg)<small>$2.40 / kg</small></div>
-                <form class="qty" action="#sale" method="post"><button class="sec sm" name="dec"
-                        value="1003">−</button>1.5<button class="sec sm" name="inc" value="1003">+</button>
-                </form><b>$3.60</b>
-            </li>
-        </ul>
-        <div class="tots">
-            <div class="tot"><span>Subtotal</span><span>$10.50</span></div>
-            <div class="tot"><span>Discounts</span><span>−$0.90</span></div>
-            <div class="tot"><span>Tax 12%</span><span>$1.15</span></div>
-            <div class="tot b"><span>Total</span><span>$10.75</span></div>
-            <button class="sale-charge" data-open="m-pay"
-                style="width:100%;padding:11px;margin-top:10px;font-size:15px">Charge $10.75
-                <small>(F9)</small></button>
+
+        <div class="card pane">
+            <div class="ch">Receipt #10482 <form action="#sale" method="post"><button class="dg sm" name="action"
+                        value="clear">Clear</button></form>
+            </div>
+            <ul class="lines">
+                <li>
+                    <div>Milk 1L<small>$1.20 · −20%</small></div>
+                    <form class="qty" action="#sale" method="post"><button class="sec sm" name="dec"
+                            value="1002">−</button>2<button class="sec sm" name="inc" value="1002">+</button>
+                    </form><b>$2.40</b>
+                </li>
+                <li>
+                    <div>White bread<small>$0.90</small></div>
+                    <form class="qty" action="#sale" method="post"><button class="sec sm" name="dec"
+                            value="1001">−</button>3<button class="sec sm" name="inc" value="1001">+</button>
+                    </form><b>$2.70</b>
+                </li>
+                <li>
+                    <div>Rice 1kg<small>$1.80 · −10%</small></div>
+                    <form class="qty" action="#sale" method="post"><button class="sec sm" name="dec"
+                            value="1005">−</button>1<button class="sec sm" name="inc" value="1005">+</button>
+                    </form><b>$1.80</b>
+                </li>
+                <li>
+                    <div>Red apples (kg)<small>$2.40 / kg</small></div>
+                    <form class="qty" action="#sale" method="post"><button class="sec sm" name="dec"
+                            value="1003">−</button>1.5<button class="sec sm" name="inc" value="1003">+</button>
+                    </form><b>$3.60</b>
+                </li>
+            </ul>
+            <div class="tots">
+                <div class="tot"><span>Subtotal</span><span>$10.50</span></div>
+                <div class="tot"><span>Discounts</span><span>−$0.90</span></div>
+                <div class="tot"><span>Tax 12%</span><span>$1.15</span></div>
+                <div class="tot b"><span>Total</span><span>$10.75</span></div>
+                <button class="sale-charge" data-open="m-pay"
+                    style="width:100%;padding:11px;margin-top:10px;font-size:15px">Charge $10.75
+                    <small>(F9)</small></button>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
+
+</div>
 
 {% endblock %}

@@ -2,34 +2,45 @@
 {% load static %}
 {% block content %}
 
-<main class="page">
-    <div class="g2">
-        <form class="card" action="#store" method="post">
-            <div class="ch">Store details</div>
-            <div class="cb">
-                <label>Store name<input name="name" value="Chilonzor Market"></label>
-                <div class="row"><label>Phone<input type="tel" name="phone" value="+998 71 200 00 00"></label><label>Tax
-                        ID<input name="tax" value="302 114 998"></label></div>
-                <label>Address<input name="address" value="Bunyodkor Ave 12, Tashkent"></label>
-                <div class="row"><label>Opens<input type="time" name="open" value="08:00"></label><label>Closes<input
-                            type="time" name="close" value="22:00"></label></div>
-                <button>Save store</button>
-            </div>
-        </form>
-        <form class="card" action="#store" method="post">
-            <div class="ch">Register &amp; receipts</div>
-            <div class="cb">
-                <div class="row"><label>Tax rate (%)<input type="number" name="taxrate"
-                            value="12"></label><label>Currency<select name="cur">
-                            <option>USD ($)</option>
-                            <option>UZS (so‘m)</option>
-                        </select></label></div>
-                <label>Receipt footer<textarea name="footer" rows="3">Thank you for shopping with us!</textarea></label>
-                <label><input type="checkbox" name="print" checked>Print receipt automatically</label>
-                <button>Save settings</button>
-            </div>
-        </form>
+<div class="main">
+    <div class="tb">
+        <h1>Store</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag"
+                id="rolebadge">Cashier</span></span>
     </div>
-</main>
+
+    <main class="page">
+        <div class="g2">
+            <form class="card" action="#store" method="post">
+                <div class="ch">Store details</div>
+                <div class="cb">
+                    <label>Store name<input name="name" value="Chilonzor Market"></label>
+                    <div class="row"><label>Phone<input type="tel" name="phone"
+                                value="+998 71 200 00 00"></label><label>Tax
+                            ID<input name="tax" value="302 114 998"></label></div>
+                    <label>Address<input name="address" value="Bunyodkor Ave 12, Tashkent"></label>
+                    <div class="row"><label>Opens<input type="time" name="open"
+                                value="08:00"></label><label>Closes<input type="time" name="close"
+                                value="22:00"></label></div>
+                    <button>Save store</button>
+                </div>
+            </form>
+            <form class="card" action="#store" method="post">
+                <div class="ch">Register &amp; receipts</div>
+                <div class="cb">
+                    <div class="row"><label>Tax rate (%)<input type="number" name="taxrate"
+                                value="12"></label><label>Currency<select name="cur">
+                                <option>USD ($)</option>
+                                <option>UZS (so‘m)</option>
+                            </select></label></div>
+                    <label>Receipt footer<textarea name="footer"
+                            rows="3">Thank you for shopping with us!</textarea></label>
+                    <label><input type="checkbox" name="print" checked>Print receipt automatically</label>
+                    <button>Save settings</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</div>
 
 {% endblock content %}

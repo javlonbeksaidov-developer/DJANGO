@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{% static 'css/forms.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
     <link rel="stylesheet" href="{% static 'css/theme-switch.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reports.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sale.css' %}">
     {% comment %}
     <script src="{% static 'js/session.js' %}"></script>
     {% endcomment %}
@@ -30,7 +32,7 @@
             {% if request.user.is_superuser %}
             <h6 class="">Administration</h6>
             <a class="" href="{% url 'reports:reports' %}">Cashier reports</a>
-            <a class="" href="{% url 'store:store' %}">Products</a>
+            <a class="" href="{% url 'store:products' %}">Products</a>
             <a class="" href="{% url 'accounts:users' %}">Users</a>
             {% endif %}
 
@@ -44,15 +46,9 @@
                         aria-checked="false" aria-label="Dark mode"></button></div>
             </div>
         </aside>
-        <div class="main">
-            <div class="tb">
-                <h1>New sale</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag"
-                        id="rolebadge">Cashier</span></span>
-            </div>
 
-            {% block content %} {% endblock content %}
+        {% block content %} {% endblock content %}
 
-        </div>
         <footer><span><span class="dot"></span><b>Online</b></span><span>Chilonzor Market</span><span>Register
                 2</span><span style="margin-left:auto" id="clock"></span></footer>
     </div>

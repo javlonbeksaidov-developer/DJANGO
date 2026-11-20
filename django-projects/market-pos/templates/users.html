@@ -2,83 +2,93 @@
 {% load static %}
 {% block content %}
 
-<main class="page">
-    <div class="bar" style="margin-bottom:12px"><button data-open="m-user" style="margin-left:auto">+ Add
-            user</button></div>
-    <div class="card">
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                    <th>Last login</th>
-                    <th class="n">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Jasur Tursunov</td>
-                    <td>jasur@marketpos.example</td>
-                    <td>Admin</td>
-                    <td><span class="tag">Active</span></td>
-                    <td>Today, 07:52</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Aziza Karimova</td>
-                    <td>aziza@marketpos.example</td>
-                    <td>Cashier</td>
-                    <td><span class="tag">Active</span></td>
-                    <td>Today, 08:00</td>
-                    <td class="n">
-                        <form action="#users" method="post"><button class="sec sm" name="reset" value="2">Reset
-                                password</button> <button class="dg sm" name="disable" value="2">Disable</button></form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Dilnoza Rahimova</td>
-                    <td>dilnoza@marketpos.example</td>
-                    <td>Cashier</td>
-                    <td><span class="tag">Active</span></td>
-                    <td>Yesterday</td>
-                    <td class="n">
-                        <form action="#users" method="post"><button class="sec sm" name="reset" value="3">Reset
-                                password</button> <button class="dg sm" name="disable" value="3">Disable</button></form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Madina Yusupova</td>
-                    <td>madina@marketpos.example</td>
-                    <td>Cashier</td>
-                    <td><span class="tag r">Disabled</span></td>
-                    <td>3 Nov</td>
-                    <td class="n">
-                        <form action="#users" method="post"><button class="sec sm" name="enable"
-                                value="4">Enable</button></form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="main">
+    <div class="tb">
+        <h1>User</h1><span style="color:var(--mu)"><span id="tbname">Aziza K.</span> · <span class="tag"
+                id="rolebadge">Cashier</span></span>
     </div>
-    <dialog id="m-user">
-        <form action="#users" method="post">
-            <div class="mh">Add user <button type="button" class="x" data-close>✕</button></div>
-            <div class="mb">
-                <div class="row"><label>First name<input name="first" required></label><label>Last
-                        name<input name="last" required></label></div>
-                <label>Email<input type="email" name="email" required></label>
-                <div class="row"><label>Role<select name="role">
-                            <option>Cashier</option>
-                            <option>Admin</option>
-                        </select></label><label>Temporary password<input type="password" name="pw" required></label>
+
+    <main class="page">
+        <div class="bar" style="margin-bottom:12px"><button data-open="m-user" style="margin-left:auto">+ Add
+                user</button></div>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Last login</th>
+                        <th class="n">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jasur Tursunov</td>
+                        <td>jasur@marketpos.example</td>
+                        <td>Admin</td>
+                        <td><span class="tag">Active</span></td>
+                        <td>Today, 07:52</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Aziza Karimova</td>
+                        <td>aziza@marketpos.example</td>
+                        <td>Cashier</td>
+                        <td><span class="tag">Active</span></td>
+                        <td>Today, 08:00</td>
+                        <td class="n">
+                            <form action="#users" method="post"><button class="sec sm" name="reset" value="2">Reset
+                                    password</button> <button class="dg sm" name="disable" value="2">Disable</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dilnoza Rahimova</td>
+                        <td>dilnoza@marketpos.example</td>
+                        <td>Cashier</td>
+                        <td><span class="tag">Active</span></td>
+                        <td>Yesterday</td>
+                        <td class="n">
+                            <form action="#users" method="post"><button class="sec sm" name="reset" value="3">Reset
+                                    password</button> <button class="dg sm" name="disable" value="3">Disable</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Madina Yusupova</td>
+                        <td>madina@marketpos.example</td>
+                        <td>Cashier</td>
+                        <td><span class="tag r">Disabled</span></td>
+                        <td>3 Nov</td>
+                        <td class="n">
+                            <form action="#users" method="post"><button class="sec sm" name="enable"
+                                    value="4">Enable</button></form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <dialog id="m-user">
+            <form action="#users" method="post">
+                <div class="mh">Add user <button type="button" class="x" data-close>✕</button></div>
+                <div class="mb">
+                    <div class="row"><label>First name<input name="first" required></label><label>Last
+                            name<input name="last" required></label></div>
+                    <label>Email<input type="email" name="email" required></label>
+                    <div class="row"><label>Role<select name="role">
+                                <option>Cashier</option>
+                                <option>Admin</option>
+                            </select></label><label>Temporary password<input type="password" name="pw" required></label>
+                    </div>
                 </div>
-            </div>
-            <div class="mf"><button type="button" class="sec" data-close>Cancel</button><button>Create
-                    user</button></div>
-        </form>
-    </dialog>
-</main>
+                <div class="mf"><button type="button" class="sec" data-close>Cancel</button><button>Create
+                        user</button></div>
+            </form>
+        </dialog>
+    </main>
+
+</div>
 
 {% endblock content %}
